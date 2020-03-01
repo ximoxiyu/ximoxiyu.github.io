@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-03-01T13:44:07.459Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>ximoxiyu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>first</title>
+    <link href="http://yoursite.com/2020/03/01/first/"/>
+    <id>http://yoursite.com/2020/03/01/first/</id>
+    <published>2020-03-01T11:41:29.000Z</published>
+    <updated>2020-03-01T13:44:07.459Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前端学习–vue创建项目"><a href="#前端学习–vue创建项目" class="headerlink" title="前端学习–vue创建项目"></a>前端学习–vue创建项目</h2><h3 id="在桌面上创建一个项目"><a href="#在桌面上创建一个项目" class="headerlink" title="在桌面上创建一个项目"></a>在桌面上创建一个项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//在命令行窗口打开</span><br><span class="line"><span class="built_in">cd</span> desktop</span><br><span class="line"><span class="built_in">cd</span> sun //创建sun文件夹</span><br><span class="line">vue create 项目名</span><br><span class="line"><span class="built_in">cd</span> 项目名</span><br></pre></td></tr></table></figure><h3 id="先切换再执行"><a href="#先切换再执行" class="headerlink" title="先切换再执行"></a>先切换再执行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run build </span><br><span class="line">//在根目录下新建vue.config.js并在内添加代码</span><br><span class="line">module.exports=&#123;</span><br><span class="line">    publicPath:<span class="string">'./'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="在App-vue中修改内容"><a href="#在App-vue中修改内容" class="headerlink" title="在App.vue中修改内容"></a>在App.vue中修改内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run serve</span><br><span class="line">//打开<span class="built_in">local</span>中的地址，用ctrl+C来执行退出</span><br></pre></td></tr></table></figure><h3 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package.json----项目入口Main.js---根项目组件App.vue---项目子组件helloworld.vue</span><br></pre></td></tr></table></figure><h4 id="纪念第一篇博客"><a href="#纪念第一篇博客" class="headerlink" title="纪念第一篇博客"></a>纪念第一篇博客</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">写博客：</span><br><span class="line">$ hexo n <span class="string">"文章名"</span> //新建文章</span><br><span class="line">$ hexo d -g   //推送到服务器</span><br><span class="line">我的安装版本号</span><br><span class="line">$ hexo -v</span><br><span class="line">hexo: 4.2.0</span><br><span class="line">hexo-cli: 3.1.0</span><br><span class="line">os: Windows_NT 10.0.17763 win32 x64</span><br><span class="line">node: 12.16.0</span><br><span class="line">v8: 7.8.279.23-node.31</span><br><span class="line">uv: 1.34.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.7</span><br><span class="line">ares: 1.15.0</span><br><span class="line">modules: 72</span><br><span class="line">nghttp2: 1.40.0</span><br><span class="line">napi: 5</span><br><span class="line">llhttp: 2.0.4</span><br><span class="line">http_parser: 2.9.3</span><br><span class="line">openssl: 1.1.1d</span><br><span class="line">cldr: 35.1</span><br><span class="line">icu: 64.2</span><br><span class="line">tz: 2019c</span><br><span class="line">unicode: 12.1</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前端学习–vue创建项目&quot;&gt;&lt;a href=&quot;#前端学习–vue创建项目&quot; class=&quot;headerlink&quot; title=&quot;前端学习–vue创建项目&quot;&gt;&lt;/a&gt;前端学习–vue创建项目&lt;/h2&gt;&lt;h3 id=&quot;在桌面上创建一个项目&quot;&gt;&lt;a href=&quot;#在桌面
+      
+    
+    </summary>
+    
+    
+    
+      <category term="-前端学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/03/01/hello-world/"/>
+    <id>http://yoursite.com/2020/03/01/hello-world/</id>
+    <published>2020-03-01T09:30:24.181Z</published>
+    <updated>2020-03-01T09:30:24.183Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>

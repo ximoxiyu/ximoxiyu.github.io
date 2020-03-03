@@ -6,24 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>first | Blog</title>
+  <title>我的Vue学习04 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端学习–vue创建项目在桌面上创建一个项目12345&#x2F;&#x2F;在命令行窗口打开cd desktopcd sun &#x2F;&#x2F;创建sun文件夹vue create 项目名cd 项目名  先切换再执行12345npm run build &#x2F;&#x2F;在根目录下新建vue.config.js并在内添加代码module.exports&#x3D;&amp;#123;    publicPath:&#39;.&#x2F;&#39;&amp;#125; 在App.vue中修改内容">
+  <meta name="description" content="前端学习–vue创建项目在桌面上创建一个项目12345&#x2F;&#x2F;在命令行窗口打开cd desktopcd sun &#x2F;&#x2F;创建sun文件夹vue create 项目名cd 项目名  先切换再执行12345npm run build &#x2F;&#x2F;在根目录下新建vue.config.js并在内添加代码module.exports&#x3D;&amp;#123;    publicPath:&#39;.&#x2F;&#39;&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first">
+<meta property="og:title" content="我的Vue学习04">
 <meta property="og:url" content="http://yoursite.com/2020/03/01/first/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="前端学习–vue创建项目在桌面上创建一个项目12345&#x2F;&#x2F;在命令行窗口打开cd desktopcd sun &#x2F;&#x2F;创建sun文件夹vue create 项目名cd 项目名  先切换再执行12345npm run build &#x2F;&#x2F;在根目录下新建vue.config.js并在内添加代码module.exports&#x3D;&amp;#123;    publicPath:&#39;.&#x2F;&#39;&amp;#125; 在App.vue中修改内容">
+<meta property="og:description" content="前端学习–vue创建项目在桌面上创建一个项目12345&#x2F;&#x2F;在命令行窗口打开cd desktopcd sun &#x2F;&#x2F;创建sun文件夹vue create 项目名cd 项目名  先切换再执行12345npm run build &#x2F;&#x2F;在根目录下新建vue.config.js并在内添加代码module.exports&#x3D;&amp;#123;    publicPath:&#39;.&#x2F;&#39;&amp;#125;">
 <meta property="article:published_time" content="2020-03-01T11:41:29.000Z">
-<meta property="article:modified_time" content="2020-03-01T13:44:07.459Z">
+<meta property="article:modified_time" content="2020-03-03T10:39:29.153Z">
 <meta property="article:author" content="ximoxiyu">
-<meta property="article:tag" content="-前端学习">
+<meta property="article:tag" content="Vue学习">
+<meta property="article:tag" content="前端学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -36,6 +37,16 @@
 
   
 
+  
+	<script type="text/javascript">
+	 你的百度统计代码
+	</script>
+	
+	
+	
+	
+	
+	
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
@@ -47,12 +58,13 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="themes\yilia\source\img\avatar.jpg" class="js-avatar">
+			<img src="/assets/img/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">ximoxiyu</a></h1>
 		</hgroup>
 		
+
 
 		<nav class="header-menu">
 			<ul>
@@ -63,7 +75,10 @@
 	        
 			</ul>
 		</nav>
-		<nav class="header-smart-menu">
+		<nav class="header-smart-menu" style="margin: 0;">
+			<span id="busuanzi_container_site_pv"
+			style="color:#b0a0aa;font-size:14px;">总访问量
+			<span id="busuanzi_value_site_pv"></span>次</span>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -83,10 +98,6 @@
 				
 					<a class="github" target="_blank" href="https://github.com/ximoxiyu" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
@@ -105,7 +116,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="themes\yilia\source\img\avatar.jpg" class="js-avatar">
+				<img src="/assets/img/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">ximoxiyu</h1>
@@ -123,10 +134,6 @@
 				<div class="social">
 					
 						<a class="github" target="_blank" href="https://github.com/ximoxiyu" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
@@ -161,7 +168,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      first
+      我的Vue学习04
     </h1>
   
 
@@ -177,6 +184,7 @@
         <h2 id="前端学习–vue创建项目"><a href="#前端学习–vue创建项目" class="headerlink" title="前端学习–vue创建项目"></a>前端学习–vue创建项目</h2><h3 id="在桌面上创建一个项目"><a href="#在桌面上创建一个项目" class="headerlink" title="在桌面上创建一个项目"></a>在桌面上创建一个项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//在命令行窗口打开</span><br><span class="line"><span class="built_in">cd</span> desktop</span><br><span class="line"><span class="built_in">cd</span> sun //创建sun文件夹</span><br><span class="line">vue create 项目名</span><br><span class="line"><span class="built_in">cd</span> 项目名</span><br></pre></td></tr></table></figure>
 
 <h3 id="先切换再执行"><a href="#先切换再执行" class="headerlink" title="先切换再执行"></a>先切换再执行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm run build </span><br><span class="line">//在根目录下新建vue.config.js并在内添加代码</span><br><span class="line">module.exports=&#123;</span><br><span class="line">    publicPath:<span class="string">'./'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="在App-vue中修改内容"><a href="#在App-vue中修改内容" class="headerlink" title="在App.vue中修改内容"></a>在App.vue中修改内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run serve</span><br><span class="line">//打开<span class="built_in">local</span>中的地址，用ctrl+C来执行退出</span><br></pre></td></tr></table></figure>
 
 <h3 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package.json----项目入口Main.js---根项目组件App.vue---项目子组件helloworld.vue</span><br></pre></td></tr></table></figure>
@@ -198,6 +206,11 @@
                   <div class="reward-box">
                     
                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
                   </div>
                 </span>
               </span>
@@ -215,7 +228,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-前端学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
         		</li>
       		
 		</ul>
@@ -289,7 +306,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Vue第三期学习I
+          我的Vue学习01
         
       </div>
     </a>
@@ -316,6 +333,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端学习–vue创建项目"><span class="toc-number">1.</span> <span class="toc-text">前端学习–vue创建项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在桌面上创建一个项目"><span class="toc-number">1.1.</span> <span class="toc-text">在桌面上创建一个项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#先切换再执行"><span class="toc-number">1.2.</span> <span class="toc-text">先切换再执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在App-vue中修改内容"><span class="toc-number">1.3.</span> <span class="toc-text">在App.vue中修改内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充内容"><span class="toc-number">1.4.</span> <span class="toc-text">补充内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#纪念第一篇博客"><span class="toc-number">1.4.1.</span> <span class="toc-text">纪念第一篇博客</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -330,7 +360,6 @@
   
 
   
-
 
           </div>
         </div>
@@ -391,6 +420,7 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -443,23 +473,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-前端学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown Blog</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Vue 总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -514,26 +540,6 @@ MathJax.Hub.Queue(function() {
               <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -542,7 +548,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">进一寸有一寸的欢喜</div>
   	  	
     	</section>
     

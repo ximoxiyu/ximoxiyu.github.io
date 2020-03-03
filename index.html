@@ -151,6 +151,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue学习小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">Vue学习小结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-03-03T08:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。<br>2.通过总结整理Vue笔记，理清播放器的架构，基本学习流程：<br> 1)更改歌曲与作者的名字-插值，认识Vue<br> 2)控制播放、暂停–audio标签及属性src,controls和方法play(),pause(),同时认识了三条指令：v-bind绑定属性，v-if控制元素渲染，v-on事件监听(此时监听的是click事件)<br> 3)CD旋转–每隔一段时间进行旋转角度的增加<br> CSS中transform:rotate(30deg)属性，及JS中的定时器selnterval(函数,时间间隔),v-bind的深度使用，绑定class和style属性<br> 4)进度条–(当前时间/总时间)*100的百分比</p>
+<ul>
+<li><p>audio的两个属性duration(总时间),currentTime(当前播放位置，即播放了的时间，其返回值一直随播放改变);</p>
+</li>
+<li><p>两个事件canplay:浏览器播放音频时(音乐播放开始时触发);timeupdata:当前播放位置发生更改时(在音乐播放过程中一直触发)</p>
+</li>
+<li><p>格式转换-因duration和currentTime返回的时间格式带小数点，不是常规格式，需转换为00:00</p>
+</li>
+<li><p>小圆点–播放进度百分比，计算属性computed</p>
+</li>
+</ul>
+<p>5)评论列表的展示(仅展示已有，不添加)–v-for列表渲染,对比原生JS的for循环+DOM操作(增加子节点，子节点添加内容)，Vue的v-for更简单方便,数据多以数组形式存放data中<br>6）发表评论(写评论并添加到5)的已有列表中)–v-bind双向绑定,实时更改评论内容,同时利用Data()对象来获取当前日期:var createAt = new Date().toLocaleDateString()<br>3.还有三节视频将制作好的音乐播放器项目进行项目迁移及组件的通信与抽离，最后根据几天的学习内容，优化播放器<br>4.大作业要求</p>
+<ul>
+<li><p>将网站上的现有播放器代码迁移到本地</p>
+</li>
+<li><p>抽离进度条为组件（思考这个组件该接受什么参数）</p>
+</li>
+<li><p>抽离评论列表为组件&amp;评论列表样式优化</p>
+</li>
+<li><p>完成上一曲，下一曲切换功能（需要考虑边界情况）</p>
+</li>
+</ul>
+<p>5.总结一下在写大作业中遇到的问题：<br>1).组件中传递的数据只能在原组件中进行更改，传过去的是拷贝份，不可更改！（只读不改）<br>2).抽成组件的意思是：把一部分内容进行封装，以标签形式在父组件中进行使用其显示效果同没抽掉之前相同<br>3). :audioInfo子组件的props中的属性=”audioInfo”父组件的属性值<br>4).关于上下切换，每一首歌的自身内容建议封装成一个对象，几首歌，几个对象<br>5)导入文件的方法，放入assets中，其中song为第一首歌的地址链接<br>import song from ‘./assets/music/1.mp3’<br>在data中<br>    song: [song, song1,],<br>6.刚学会写博客，一枚努力学前端的小白,摸索前进，要求自己坚持写博客，坚持反思，进一步有一步的欢喜<br>7.【收获】练习用VScode写.md文件,基本语法掌握的不太熟练，所以排版会有些丑，多见谅;梳理了近期学习的Vue知识,从整体到局部再到整体，对学过的知识和笔记二次加工，对知识的理解更透彻;锻炼自己的总结能力和表达能力<br>8.最后感谢小黑和Alex在学习前端路上的帮助，给他们的公共号做个推广<br><a href="https://mp.weixin.qq.com/s/W_KNZyAqktN371gqM-IpQg" target="_blank" rel="noopener">小黑的前端课程</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Vue 总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的Vue学习III" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -291,7 +387,7 @@
 <h3 id="实现播放器的进度条"><a href="#实现播放器的进度条" class="headerlink" title="实现播放器的进度条"></a>实现播放器的进度条</h3><p>1.为将音频的duration和currentTime信息记录到实例Vue的data属性中，存为一个对象audioInfo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data:&#123;  </span><br><span class="line">                //播放器相关信息</span><br><span class="line">                audioInfo:&#123;</span><br><span class="line">                    duration:0,</span><br><span class="line">                   currentTime:0</span><br><span class="line">                &#125;,</span><br><span class="line">           &#125;,</span><br></pre></td></tr></table></figure>
 
-<p>2.事件监听 v-on:事件=”函数”<br> v-on:canplay=”handleCanPlay”<br> v-on:timeupdate=”handleTimeUpdate”</p>
+<p>2.事件监听 v-on:事件=”函数”<br> v-on:canplay=”handleCanPlay”<br> v-on:timeupdate=”handleTimeUpdate”<br>【补充】<br>浏览器的编程模型–事件驱动，通过监听用户触发的各种“事件”（点击，输入等），利用JS来监听各种事件信息，做出相应处理！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 监听音频可以播放时的事件</span><br><span class="line">  handleCanPlay(event) &#123;</span><br><span class="line">    this.audioInfo.duration = event.target.duration;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 监听音频播放位置发送改变的事件</span><br><span class="line">  handleTimeUpdate(event) &#123;</span><br><span class="line">    this.audioInfo.currentTime = event.target.currentTime;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
 <p>3.因原始的时间数据带小数点  0.4333(单位s)—转换格式00:00</p>
@@ -823,6 +919,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Vue 总结</a>
               </li>
             
             <div class="clearfix"></div>

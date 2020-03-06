@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-03T10:39:22.314Z</updated>
+  <updated>2020-03-06T01:57:13.437Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>项目1-音乐播放器</title>
+    <link href="http://yoursite.com/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    <id>http://yoursite.com/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</id>
+    <published>2020-03-05T04:02:24.000Z</published>
+    <updated>2020-03-06T01:57:13.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>目标：利用Vue的学习内容，完成大作业，制作一个音乐播放器(网易云)</p><h2 id="目标拆分"><a href="#目标拆分" class="headerlink" title="目标拆分"></a>目标拆分</h2><p>1.拆分组件(评论与进度条)<br>关键：理清哪一部分是进度条，哪一部分是评论，父子组件中如何实现的通信。<br>2.实现上下曲播放功能的切换<br>关键：所有歌存为一个数组songList【】,将每一首歌存为一个对象{}，含自身的name(歌曲名)，author,bgImg(封面),audio(播放地址),comments(评论),使用时songList[currentIndex].audio<br>注意在currentIndex在data中进行初始化！<br>3.一些细节<br>关于歌曲链接的存储，界面的优化等，本地存储如何写相对地址及怎么上传到云空间获取URL等，对目前已有框架的改进与优化等等。</p><ul><li><p><a href="https://www.cnblogs.com/pink-chen/p/11132940.html" target="_blank" rel="noopener">iconfont的使用</a></p></li><li><p>本地加载文件，如音乐链接,图片存放在src/assets下，新建文件夹img和music<br>使用时：import song1 from ‘./assets/music/1.mp3’ ,此时song1这个变量代表这个音乐的地址链</p><p>注：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  起初： </span><br><span class="line">&lt;div class=<span class="string">"bg"</span> style=<span class="string">"background-image: url(https://s2.ax1x.com/2020/01/27/1uPIAS.jpg)"</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 背景图片 错误写法：--&gt;</span><br><span class="line">  &lt;div class=<span class="string">"bg"</span> style=<span class="string">"background-image: url(songList[currentIndex].bgImg)"</span>&gt;&lt;/div&gt;</span><br><span class="line">  </span><br><span class="line">  正确写法：</span><br><span class="line">   &lt;div class=<span class="string">"bg"</span> :style=<span class="string">"&#123;backgroundImage:'url(' + songList[currentIndex].bgImg + ')'&#125;"</span>&gt;&lt;/div&gt;</span><br><span class="line">分析：</span><br><span class="line">最开始只有一首歌，无需样式绑定，直接style=<span class="string">"backgroundImage:url(地址)"</span></span><br><span class="line">多首歌：v-bind的绑定格式</span><br></pre></td></tr></table></figure></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;目标：利用Vue的学习内容，完成大作业，制作一个音乐播放器(网易云)&lt;/p&gt;
+&lt;h2 id=&quot;目标拆分&quot;&gt;&lt;a href=&quot;#目标拆分&quot; class=&quot;headerlink&quot; title=&quot;目标拆分&quot;&gt;&lt;/a&gt;目标拆分&lt;/h2&gt;&lt;p&gt;1.拆分组件(评论与进度条)&lt;br&gt;关键
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Vue学习 Vue作业 项目" scheme="http://yoursite.com/tags/Vue%E5%AD%A6%E4%B9%A0-Vue%E4%BD%9C%E4%B8%9A-%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue学习小结</title>

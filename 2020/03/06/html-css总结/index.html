@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue学习小结 | Blog</title>
+  <title>html+css总结 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
+  <meta name="description" content="html与css的学习梳理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习小结">
-<meta property="og:url" content="http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html">
+<meta property="og:title" content="html+css总结">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/html-css%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
-<meta property="article:published_time" content="2020-03-03T08:09:12.000Z">
-<meta property="article:modified_time" content="2020-03-03T10:39:22.314Z">
+<meta property="og:description" content="html与css的学习梳理">
+<meta property="article:published_time" content="2020-03-06T02:01:22.000Z">
+<meta property="article:modified_time" content="2020-03-06T05:26:04.849Z">
 <meta property="article:author" content="ximoxiyu">
-<meta property="article:tag" content="Vue学习">
-<meta property="article:tag" content="总结">
+<meta property="article:tag" content="前端学习">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -161,14 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Vue学习小结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-html-css总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Vue学习小结
+      html+css总结
     </h1>
   
 
@@ -180,31 +181,55 @@
 	</span>
 
 
-<a href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-03-03T08:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+<a href="/2020/03/06/html-css%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-03-06T02:01:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。</p>
-<a id="more"></a>
-<p>2.通过总结整理Vue笔记，理清播放器的架构，基本学习流程：<br> 1)更改歌曲与作者的名字-插值，认识Vue<br> 2)控制播放、暂停–audio标签及属性src,controls和方法play(),pause(),同时认识了三条指令：v-bind绑定属性，v-if控制元素渲染，v-on事件监听(此时监听的是click事件)<br> 3)CD旋转–每隔一段时间进行旋转角度的增加<br> CSS中transform:rotate(30deg)属性，及JS中的定时器selnterval(函数,时间间隔),v-bind的深度使用，绑定class和style属性<br> 4)进度条–(当前时间/总时间)*100的百分比</p>
+        <h2 id="产品研发流程"><a href="#产品研发流程" class="headerlink" title="产品研发流程"></a>产品研发流程</h2><p>研发一个产品：收集用户意见-产出视觉稿-研发(前端研发，后端研发，算法研发)–测试无bug<br>【详细】1.了解用户需求<br>       2. 提出软件更新方向<br>       3. 向设计与研发提需求<br>       4. 视觉出产品视觉稿<br>       5. 开发由视觉稿和需求进行开发<br>       6. 开发完后进行测试<br>       7. 上线<br>   <a id="more"></a><br>   【产品研发岗位】产品经理，视觉，研发，测试<br>   【前端任务】从后端接收数据，将数据绘制在页面上，制作与用户相关的反馈与动效(对着设计图画网页)–页面<br>   【后端任务】–给前端提供数据(增删改查)–数据<br>   从数据库查询数据，提供给前端，从算法获取数据，一共给前端，维护数据库数据<br>   【算法】从数据库分析用户数据-得到一个模型提供给后端使用–由数据分析喜好</p>
+<hr>
+<h2 id="html学习"><a href="#html学习" class="headerlink" title="html学习"></a>html学习</h2><p>1.html不是编程语言，而是一种标记语言，使用标记标签来描述网页。html是页面骨架<br>2.网页由一系列标签构成，其标签由html定义<br>3.最常用的标签-块标签div,通用标签！！！–ppt中矩形<br>4.标签属性 属性=”属性值”，属性可以使标签有更多功能<br>5.VScode内写代码，在浏览器中运行–运行工具<br>6.img标签的属性src–图片地址,alt–可替换文本(解释图片)</p>
+<h3 id="重点：拆解页面"><a href="#重点：拆解页面" class="headerlink" title="重点：拆解页面"></a>重点：拆解页面</h3><p>1.页面分块,对每一小块再进行细分(百度首页分三块)<br>2.布局:网页固定结构<br>3.设置盒模型属性与颜色(细节)</p>
+<hr>
+<h2 id="CSS学习"><a href="#CSS学习" class="headerlink" title="CSS学习"></a>CSS学习</h2><p>1.CSS–层叠样式表</p>
+<h3 id="行内元素-块元素-行内块元素"><a href="#行内元素-块元素-行内块元素" class="headerlink" title="行内元素,块元素,行内块元素"></a>行内元素,块元素,行内块元素</h3><p>行内元素：仅一行，不换行；不可设置宽高(可设置字号)，默认宽度为文字宽度，强调文本的span,strong标签<br>块元素：大部分 每个元素独占一行，接受宽高，默认父级宽高<br>行内块：具备宽高，不换行属性<br>行内元素特征：(1)设置宽高无效(2)对margin仅设置左右方向有效，上下无效；padding设置上下左右都有效，即会撑大空间(3)不会自动进行换行</p>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>1.描述块的大小<br>内容-内边框padding-外边框margin-边框border<br>内容到边框的距离为宽度<br>页面大体布局：写好每个块的盒模型！！<br>盒模型属性：padding,margin,width,height等<br>2.html+css三种使用方式：<br>1)内联(标签的style属性)直接写在html内，不易维护;只作用于当前标签，不可样式复用<br>2)嵌入(style标签) 选择器与规则(1)中代码)<br>3)链接(link标签，css地址存放在href属性中)html与css分离</p>
+<h3 id="css布局：操纵块"><a href="#css布局：操纵块" class="headerlink" title="css布局：操纵块"></a>css布局：操纵块</h3><p>1.position属性</p>
 <ul>
-<li>audio的两个属性duration(总时间),currentTime(当前播放位置，即播放了的时间，其返回值一直随播放改变);</li>
-<li>两个事件canplay:浏览器播放音频时(音乐播放开始时触发);timeupdata:当前播放位置发生更改时(在音乐播放过程中一直触发)</li>
-<li>格式转换-因duration和currentTime返回的时间格式带小数点，不是常规格式，需转换为00:00</li>
-<li>小圆点–播放进度百分比，计算属性computed<br>5)评论列表的展示(仅展示已有，不添加)–v-for列表渲染,对比原生JS的for循环+DOM操作(增加子节点，子节点添加内容)，Vue的v-for更简单方便,数据多以数组形式存放data中<br>6）发表评论(写评论并添加到5)的已有列表中)–v-bind双向绑定,实时更改评论内容,同时利用Data()对象来获取当前日期:var createAt = new Date().toLocaleDateString()</li>
+<li><p>属性值：static,absolute(绝对，脱离原图层),relative(相对–移动元素后，元素本位置保留，相对原位置定位),fixed(固定–相对浏览器窗口定位)</p>
+</li>
+<li><p>设置postion不为static后，会激活top，left，right，bottom属性</p>
+</li>
+<li><p>设置position属性后会激活4个css属性：top,left,bottom,right,此块离上下左右的距离(absolute属性值相对于它的第一个position不为static的父元素，如果没有，就相对于body，即距离body-即页面的左上角)（relative属性值是相对于自身原位置）</p>
+</li>
+<li><p>使用：外相对，内绝对</p>
+</li>
 </ul>
-<p>3.还有三节视频将制作好的音乐播放器项目进行项目迁移及组件的通信与抽离，最后根据几天的学习内容，优化播放器<br>4.大作业要求</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"box1"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=<span class="string">"box2"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=<span class="string">"box3"</span>&gt;&lt;/div&gt;</span><br><span class="line">* &#123;</span><br><span class="line">  background: white;</span><br><span class="line">  margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#box1 &#123;</span></span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#box2 &#123;</span></span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background: yellow;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 100px;</span><br><span class="line">  left:100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#box3 &#123;</span></span><br><span class="line">  width: 100px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  background: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.float属性(用的已不太多)<br> 属性值：none,left和right 元素浮到页面的左右侧 float:right;</p>
+<h3 id="flex布局–弹性盒模型布局"><a href="#flex布局–弹性盒模型布局" class="headerlink" title="flex布局–弹性盒模型布局"></a>flex布局–弹性盒模型布局</h3><p>将【块】元素变得有弹性<br>1)display:flex;—–激活flex布局—一个大色块，可设置自身的宽高！子块相对于此父块<br>三个色块打包成一个块，设置1）则三块并列为一行;lex布局的元素会把自己的一级子元素排成一行，并将他们变成可以伸缩，易排列的盒子;<br>父元素默认充满宽度的<br>2)父元素使用最多的属性:justify-content和align-items<br>3)flex控制横向延展还是纵向延展的属性是flex-direction</p>
 <ul>
-<li>将网站上的现有播放器代码迁移到本地 </li>
-<li>抽离进度条为组件（思考这个组件该接受什么参数） </li>
-<li>抽离评论列表为组件&amp;评论列表样式优化 </li>
-<li>完成上一曲，下一曲切换功能（需要考虑边界情况）</li>
+<li>justify-content(横向):5个属性值</li>
 </ul>
-<p>5.总结一下在写大作业中遇到的问题：<br>1).组件中传递的数据只能在原组件中进行更改，传过去的是拷贝份，不可更改！（只读不改）<br>2).抽成组件的意思是：把一部分内容进行封装，以标签形式在父组件中进行使用其显示效果同没抽掉之前相同<br>3). :audioInfo子组件的props中的属性=”audioInfo”父组件的属性值<br>4).关于上下切换，每一首歌的自身内容建议封装成一个对象，几首歌，几个对象<br>5)导入文件的方法，放入assets中，其中song为第一首歌的地址链接<br>import song from ‘./assets/music/1.mp3’<br>在data中<br>    song: [song, song1,],<br>6.刚学会写博客，一枚努力学前端的小白,摸索前进，要求自己坚持写博客，坚持反思，进一步有一步的欢喜<br>7.【收获】练习用VScode写.md文件,基本语法掌握的不太熟练，所以排版会有些丑，多见谅;梳理了近期学习的Vue知识,从整体到局部再到整体，对学过的知识和笔记二次加工，对知识的理解更透彻;锻炼自己的总结能力和表达能力<br>8.最后感谢小黑和Alex在学习前端路上的帮助，给他们的公共号做个推广<br><a href="https://mp.weixin.qq.com/s/W_KNZyAqktN371gqM-IpQg" target="_blank" rel="noopener">小黑的前端课程</a></p>
+<p>1.flex-start：左对齐(默认)<br>2.flex-end：右对齐<br>3.center：居中<br>4.space-between：两端对齐，元素之间的间隔都相等<br>5.space-around：每个项目两侧的间隔相等<br>元素之间的间隔比元素与边框的间隔大一倍？？？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">display: flex;</span><br><span class="line">justify-content：flex-start;</span><br><span class="line">//justify-content: flex-end;</span><br><span class="line">//justify-content: center;</span><br><span class="line">//justify-content: space-between;</span><br><span class="line">//justify-content: space-around;</span><br><span class="line">//后面也可加</span><br><span class="line">background: green;</span><br><span class="line">height: 100px;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>align-items(纵向):三个属性值</li>
+</ul>
+<p>1.flex-start：上对齐<br>2.flex-end：下对齐<br>3.center：居中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.box-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: space-around;</span><br><span class="line">  align-items: flex-start;</span><br><span class="line">  // align-items: flex-end;</span><br><span class="line">  // align-items: center;</span><br><span class="line">  background: green;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>【作业】两色块并排：三种方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"box-container"</span>&gt;</span><br><span class="line">  &lt;div id=<span class="string">"box1"</span>&gt;&lt;/div&gt;</span><br><span class="line">  &lt;div id=<span class="string">"box2"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">1).box-container&#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">2) position: relative;</span><br><span class="line">  left: 100px;</span><br><span class="line">  top: -100px;</span><br><span class="line">3) position: absolute;</span><br><span class="line">  left: 100px;</span><br><span class="line">  top: 0;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">推荐-flex布局</a></p>
 
       
 
@@ -244,11 +269,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
@@ -304,7 +333,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/06/html-css%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +347,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/06/js%E5%AD%A6%E4%B9%A001/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          项目1-音乐播放器
+          js学习01
         
       </div>
     </a>
   
   
-    <a href="/2020/03/03/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0III/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的Vue学习03</div>
+    <a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目1-音乐播放器</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -356,7 +385,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#产品研发流程"><span class="toc-number">1.</span> <span class="toc-text">产品研发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html学习"><span class="toc-number">2.</span> <span class="toc-text">html学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重点：拆解页面"><span class="toc-number">2.1.</span> <span class="toc-text">重点：拆解页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS学习"><span class="toc-number">3.</span> <span class="toc-text">CSS学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#行内元素-块元素-行内块元素"><span class="toc-number">3.1.</span> <span class="toc-text">行内元素,块元素,行内块元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#盒模型"><span class="toc-number">3.2.</span> <span class="toc-text">盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css布局：操纵块"><span class="toc-number">3.3.</span> <span class="toc-text">css布局：操纵块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex布局–弹性盒模型布局"><span class="toc-number">3.4.</span> <span class="toc-text">flex布局–弹性盒模型布局</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue学习小结 | Blog</title>
+  <title>我的Vue学习01 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
+  <meta name="description" content="课程安排(9+1)1）播放器的页面信息展示–模板语法vue:渐进式框架，省写dom操作Vue框架的核心思想是数据驱动 模板语法12345678插值：&amp;#123;&amp;#123;&amp;#125;&amp;#125;,内可为变量、单个表达式注：正确写法&amp;#123;&amp;#123; 1&gt;2 ? message : message + &#39;1&#39; &amp;#125;&amp;#125;错误写法！！！1）不能为语句~~&amp;#123;&amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习小结">
-<meta property="og:url" content="http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html">
+<meta property="og:title" content="我的Vue学习01">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0I/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
-<meta property="article:published_time" content="2020-03-03T08:09:12.000Z">
-<meta property="article:modified_time" content="2020-03-03T10:39:22.314Z">
+<meta property="og:description" content="课程安排(9+1)1）播放器的页面信息展示–模板语法vue:渐进式框架，省写dom操作Vue框架的核心思想是数据驱动 模板语法12345678插值：&amp;#123;&amp;#123;&amp;#125;&amp;#125;,内可为变量、单个表达式注：正确写法&amp;#123;&amp;#123; 1&gt;2 ? message : message + &#39;1&#39; &amp;#125;&amp;#125;错误写法！！！1）不能为语句~~&amp;#123;&amp;#12">
+<meta property="article:published_time" content="2020-03-02T07:40:01.000Z">
+<meta property="article:modified_time" content="2020-03-03T10:39:23.827Z">
 <meta property="article:author" content="ximoxiyu">
 <meta property="article:tag" content="Vue学习">
-<meta property="article:tag" content="总结">
+<meta property="article:tag" content="前端学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -161,14 +161,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Vue学习小结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-我的Vue学习I" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Vue学习小结
+      我的Vue学习01
     </h1>
   
 
@@ -180,32 +180,45 @@
 	</span>
 
 
-<a href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-03-03T08:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+<a href="/2020/03/02/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0I/" class="archive-article-date">
+  	<time datetime="2020-03-02T07:40:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。</p>
+        <h2 id="课程安排-9-1"><a href="#课程安排-9-1" class="headerlink" title="课程安排(9+1)"></a>课程安排(9+1)</h2><h2 id="1）播放器的页面信息展示–模板语法"><a href="#1）播放器的页面信息展示–模板语法" class="headerlink" title="1）播放器的页面信息展示–模板语法"></a>1）播放器的页面信息展示–模板语法</h2><p>vue:渐进式框架，省写dom操作<br>Vue框架的核心思想是数据驱动</p>
+<h3 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">插值：&#123;&#123;&#125;&#125;,内可为变量、单个表达式</span><br><span class="line">注：正确写法</span><br><span class="line">&#123;&#123; 1&gt;2 ? message : message + <span class="string">'1'</span> &#125;&#125;</span><br><span class="line">错误写法！！！</span><br><span class="line">1）不能为语句</span><br><span class="line">~~&#123;&#123;var a=1&#125;&#125;  ~~</span><br><span class="line">2）不能为多个表达式，以下为三元</span><br><span class="line">~~&#123;&#123;<span class="keyword">if</span> (ok)&#123;<span class="built_in">return</span> message&#125;&#125;&#125;  ~~</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>2.通过总结整理Vue笔记，理清播放器的架构，基本学习流程：<br> 1)更改歌曲与作者的名字-插值，认识Vue<br> 2)控制播放、暂停–audio标签及属性src,controls和方法play(),pause(),同时认识了三条指令：v-bind绑定属性，v-if控制元素渲染，v-on事件监听(此时监听的是click事件)<br> 3)CD旋转–每隔一段时间进行旋转角度的增加<br> CSS中transform:rotate(30deg)属性，及JS中的定时器selnterval(函数,时间间隔),v-bind的深度使用，绑定class和style属性<br> 4)进度条–(当前时间/总时间)*100的百分比</p>
-<ul>
-<li>audio的两个属性duration(总时间),currentTime(当前播放位置，即播放了的时间，其返回值一直随播放改变);</li>
-<li>两个事件canplay:浏览器播放音频时(音乐播放开始时触发);timeupdata:当前播放位置发生更改时(在音乐播放过程中一直触发)</li>
-<li>格式转换-因duration和currentTime返回的时间格式带小数点，不是常规格式，需转换为00:00</li>
-<li>小圆点–播放进度百分比，计算属性computed<br>5)评论列表的展示(仅展示已有，不添加)–v-for列表渲染,对比原生JS的for循环+DOM操作(增加子节点，子节点添加内容)，Vue的v-for更简单方便,数据多以数组形式存放data中<br>6）发表评论(写评论并添加到5)的已有列表中)–v-bind双向绑定,实时更改评论内容,同时利用Data()对象来获取当前日期:var createAt = new Date().toLocaleDateString()</li>
-</ul>
-<p>3.还有三节视频将制作好的音乐播放器项目进行项目迁移及组件的通信与抽离，最后根据几天的学习内容，优化播放器<br>4.大作业要求</p>
-<ul>
-<li>将网站上的现有播放器代码迁移到本地 </li>
-<li>抽离进度条为组件（思考这个组件该接受什么参数） </li>
-<li>抽离评论列表为组件&amp;评论列表样式优化 </li>
-<li>完成上一曲，下一曲切换功能（需要考虑边界情况）</li>
-</ul>
-<p>5.总结一下在写大作业中遇到的问题：<br>1).组件中传递的数据只能在原组件中进行更改，传过去的是拷贝份，不可更改！（只读不改）<br>2).抽成组件的意思是：把一部分内容进行封装，以标签形式在父组件中进行使用其显示效果同没抽掉之前相同<br>3). :audioInfo子组件的props中的属性=”audioInfo”父组件的属性值<br>4).关于上下切换，每一首歌的自身内容建议封装成一个对象，几首歌，几个对象<br>5)导入文件的方法，放入assets中，其中song为第一首歌的地址链接<br>import song from ‘./assets/music/1.mp3’<br>在data中<br>    song: [song, song1,],<br>6.刚学会写博客，一枚努力学前端的小白,摸索前进，要求自己坚持写博客，坚持反思，进一步有一步的欢喜<br>7.【收获】练习用VScode写.md文件,基本语法掌握的不太熟练，所以排版会有些丑，多见谅;梳理了近期学习的Vue知识,从整体到局部再到整体，对学过的知识和笔记二次加工，对知识的理解更透彻;锻炼自己的总结能力和表达能力<br>8.最后感谢小黑和Alex在学习前端路上的帮助，给他们的公共号做个推广<br><a href="https://mp.weixin.qq.com/s/W_KNZyAqktN371gqM-IpQg" target="_blank" rel="noopener">小黑的前端课程</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//在html中</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt; &#123;&#123;message&#125;&#125;&lt;/div&gt;</span><br><span class="line">//在js中</span><br><span class="line">const app = new Vue(&#123;</span><br><span class="line">    el：<span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        message:<span class="string">'你好'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">过程分析：1）html引入Vue库，在js中新建Vue实例，由el:<span class="string">'#app'</span>将页面上id=<span class="string">'app'</span>的节点绑定（即div标签）</span><br><span class="line">2）Vue实例监听data中message的改动---反应在&#123;&#123;message&#125;&#125;上</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">   &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">   &lt;h2&gt;&#123;&#123;message&#125;&#125;,啧啧啧&lt;/h2&gt;</span><br><span class="line">   &lt;!-- Mustache的语法不仅可以直接写变量，还可以写简单表达式 --&gt;</span><br><span class="line">   &lt;h2&gt;&#123;&#123;firstName + lastName&#125;&#125;&lt;/h2&gt;</span><br><span class="line">   &lt;h2&gt;&#123;&#123;firstName + <span class="string">" "</span> + lastName&#125;&#125;&lt;/h2&gt;</span><br><span class="line">   &lt;h2&gt;&#123;&#123;firstName&#125;&#125;&#123;&#123;lastName&#125;&#125;&lt;/h2&gt;</span><br><span class="line">   &lt;h2&gt;&#123;&#123;count * 2&#125;&#125;&lt;/h2&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">关于计算(数值与字符串)</span><br><span class="line">其中 message:17</span><br><span class="line">1)&#123;&#123;message + <span class="string">'12'</span>&#125;&#125;-----1712</span><br><span class="line">2)&#123;&#123;message + 12&#125;&#125;----29</span><br><span class="line">若：message:<span class="string">'17'</span></span><br><span class="line">&#123;&#123;message + 12&#125;&#125;----1712</span><br></pre></td></tr></table></figure>
+
+<h3 id="原生js-VS-vue"><a href="#原生js-VS-vue" class="headerlink" title="原生js VS vue"></a>原生js VS vue</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">【目标】改变页面hello world</span><br><span class="line">先找此节点，再改节点内容</span><br><span class="line">**只改变message，页面自动变（仅关注数据）**</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-实现点击播放音乐–指令-amp-事件监听"><a href="#2-实现点击播放音乐–指令-amp-事件监听" class="headerlink" title="2)实现点击播放音乐–指令&amp;事件监听"></a>2)实现点击播放音乐–指令&amp;事件监听</h2><h3 id="audio标签的学习"><a href="#audio标签的学习" class="headerlink" title="audio标签的学习"></a>audio标签的学习</h3><p>1.audio的属性使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src=<span class="string">"http://q4v2i1axn.bkt.clouddn.com/music1.mp3"</span> controls&gt;&lt;/audio&gt;</span><br><span class="line">属性：1）src---资源位置</span><br><span class="line">2）controls--是否展示进度条</span><br><span class="line">进度条作用：控制音频的播放与暂停及当前的播放进度</span><br><span class="line">3）注：音乐播放器中的进度条与控制播放暂停自己定义，故删去controls属性</span><br></pre></td></tr></table></figure>
+
+<p>2.audio标签的方法<br>play:播放音频<br>pause:暂停音频</p>
+<h4 id="原生js写音乐播放器"><a href="#原生js写音乐播放器" class="headerlink" title="原生js写音乐播放器"></a>原生js写音乐播放器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">【html】</span><br><span class="line">&lt;audio id=<span class="string">"player"</span> src=<span class="string">"http://q4v2i1axn.bkt.clouddn.com/music1.mp3"</span>&gt;&lt;/audio&gt;</span><br><span class="line">&lt;button onclick=<span class="string">"playMusic()"</span>&gt;播放&lt;/button&gt;</span><br><span class="line">&lt;button onclick=<span class="string">"pauseMusic()"</span>&gt;暂停&lt;/button&gt;</span><br><span class="line">【js】</span><br><span class="line">//获取DOM节点</span><br><span class="line">var player = document.querySelector(<span class="string">'#player'</span>);</span><br><span class="line">// 播放音乐</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">playMusic</span></span>() &#123;</span><br><span class="line">  player.play();  // 调用play方法</span><br><span class="line">&#125;</span><br><span class="line">// 暂停播放</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">pauseMusic</span></span>() &#123;</span><br><span class="line">  player.pause();  // 调用pause方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue中的指令及事件监听"><a href="#Vue中的指令及事件监听" class="headerlink" title="Vue中的指令及事件监听"></a>Vue中的指令及事件监听</h3><p>指令：带v-前缀的特殊属性，常用v-bind,v-on,v-if<br>1)利用v-bind绑定属性，将audio标签中的src的属性值写入Vue实例的data中 v-bind:src(原标签属性)=’audio’(Vue实例data中定义的属性)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1.v-bind用于绑定一个或多个属性值，开发中，常需要动态绑定src/href/类class/样式style</span><br><span class="line">2.语法糖:</span><br><span class="line">3.绑定class属性</span><br><span class="line">1)直接赋值class属性  &lt;h2 class=<span class="string">"active"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">2）绑定一个，相比（1）没优点 &lt;h2 :class=<span class="string">"active"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">3)v-bind动态绑定class属性（对象语法）&#123;&#125;</span><br><span class="line">&lt;h2 class=<span class="string">"title"</span> :class=<span class="string">"&#123;'active': isActive, 'line': isLine&#125;"</span>&gt;Hello World&lt;/h2&gt;</span><br><span class="line">4)v-bind动态绑定class(数组用法)--少[]</span><br><span class="line">&lt;h2 class=<span class="string">"title"</span> :class=<span class="string">"['active', 'line']"</span>&gt;Hello World&lt;/h2&gt; --[]加<span class="string">''</span>字符串，不加是变量</span><br><span class="line">5)v-bind动态绑定style(对象语法)</span><br><span class="line"> &lt;!-- &lt;h2 :style=<span class="string">"&#123;key(属性名):value(属性值)&#125;"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt; --&gt;</span><br><span class="line">    &lt;!--方法一 加单引号，当成字符串解析 --&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">"&#123;fontSize:'50px'&#125;"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!--方法二 不加单引号，变量解析 --&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">"&#123;fontSize:fontSize&#125;"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;!--方法三 函数--&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">"getStyle()"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">6)v-bind动态绑定style(数组语法)</span><br><span class="line"> &lt;!--两种方法--&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">"[baseStyle]"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :style=<span class="string">"getStyle()"</span>&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2)v-if:控制元素是否渲染(用的不多)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 v-if=<span class="string">"isFlag"</span>&gt;isFlag为<span class="literal">true</span>显示这个&lt;/h2&gt;</span><br><span class="line">v-if指令就是根据=号后边的变量的取值，来判断是否渲染这个元素【结合标签使用，决定html是否渲染此标签】</span><br><span class="line">1.&lt;!--​	v-if用于条件判断，判断Dom元素是否显示。或者销毁元素或组件,单独使用v-if，变量为布尔值，为<span class="literal">true</span>才渲染Dom</span><br><span class="line">2. v-show的变量也是布尔值，为<span class="literal">true</span>才显示内容，类似css的display</span><br><span class="line">3. v-if、v-else、v-else-if联合使用相当于<span class="keyword">if</span>、elseif、<span class="keyword">else</span>，但是在条件比较多的时候建议使用计算属性--&gt;</span><br><span class="line">4. &lt;!-- 添加key主要是为了让vue不复用dom，如果不添加vue底层会复用dom --&gt;</span><br><span class="line"> &lt;!--v-if看似和v-show实现一样的效果，但是内部v-show只是用css将操作的元素隐藏显示，</span><br><span class="line">    而v-if是新增和删除元素。v-show只是操作元素的style属性display，都没会被创建--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3)v-on:事件监听<br>v-on:事件名=”函数名”（定义在methods中，不加())</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.参数传参</span><br><span class="line"> &lt;!-- 事件没传参，两种方式均可 --&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"btnClick"</span>&gt;按钮1&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"btnClick()"</span>&gt;按钮2&lt;/button&gt;</span><br><span class="line">    &lt;!-- 事件调用方法传参，写函数时候省略小括号，但是函数本身需要传递一个参数 --&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"btnClick2(123)"</span>&gt;按钮3&lt;/button&gt;</span><br><span class="line">    &lt;!--报错、默认将原生事件event传递,同按钮6前半部分--&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"btnClick2()"</span>&gt;按钮4&lt;/button&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"btnClick2"</span>&gt;按钮5&lt;/button&gt;</span><br><span class="line">    &lt;!-- 事件调用时候需要传入event还需要传入其他参数 ，如何手动的获取到浏览器参数的event对象: <span class="variable">$event</span>--&gt;</span><br><span class="line">    &lt;button @click=<span class="string">"btnClick3(<span class="variable">$event</span>,123)"</span>&gt;按钮6&lt;/button&gt;</span><br><span class="line">2.v-on的修饰符的使用</span><br><span class="line">&lt;!--1. 点击--.stop的使用，btn的click事件不会传播，不会冒泡到上层，调用event.stopPropagation() --&gt;</span><br><span class="line">    &lt;div @click=<span class="string">"divClick"</span>&gt;</span><br><span class="line">        &lt;button @click.stop=<span class="string">"btnClick"</span>&gt;按钮1&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- 2. 提交--.prevent 调用event.preventDefault阻止默认行为  --&gt;</span><br><span class="line">    &lt;form action=<span class="string">"www.baidu.com"</span>&gt;</span><br><span class="line">      &lt;button <span class="built_in">type</span>=<span class="string">"submit"</span> @click.prevent=<span class="string">"submitClick"</span>&gt;提交&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;!--3. 文本框---监听键盘的事件 --&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> @click.enter=<span class="string">"key-up"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="补充拓展–监听元素的点击事件"><a href="#补充拓展–监听元素的点击事件" class="headerlink" title="补充拓展–监听元素的点击事件"></a>补充拓展–监听元素的点击事件</h3> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[原生js]</span><br><span class="line">1.直接写在html上---onclick</span><br><span class="line">&lt;button onclick=<span class="string">"click()"</span>&gt;click-me&lt;/button&gt;</span><br><span class="line">2.指定onclick属性</span><br><span class="line">&lt;button id=<span class="string">"btn"</span>&gt;click-me&lt;/button&gt;</span><br><span class="line">var btn=document.getElementById(<span class="string">'btn'</span>);</span><br><span class="line">btn.onclick=<span class="function"><span class="title">function</span></span>()&#123;&#125;</span><br><span class="line">3.调用addEventListener方法</span><br><span class="line">&lt;button id=<span class="string">"btn"</span>&gt;click-me&lt;/button&gt;</span><br><span class="line">var btn=document.getElementById(<span class="string">'btn'</span>);</span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;&#125;)</span><br><span class="line">注：2.3方法的区别，更习惯于用2，3可以加多个函数！但兼容性问题</span><br><span class="line">4.Vue框架--v-on事件绑定</span><br><span class="line">&lt;button v-on:click=<span class="string">"click"</span>&gt;click-me&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3）实现封面的自动旋转–class与style绑定"><a href="#3）实现封面的自动旋转–class与style绑定" class="headerlink" title="3）实现封面的自动旋转–class与style绑定"></a>3）实现封面的自动旋转–class与style绑定</h2><h2 id="4）实现进度条—计算属性"><a href="#4）实现进度条—计算属性" class="headerlink" title="4）实现进度条—计算属性"></a>4）实现进度条—计算属性</h2><h2 id="5）实现评论列表–列表渲染"><a href="#5）实现评论列表–列表渲染" class="headerlink" title="5）实现评论列表–列表渲染"></a>5）实现评论列表–列表渲染</h2><h2 id="6）实现发表评论–表单输入绑定"><a href="#6）实现发表评论–表单输入绑定" class="headerlink" title="6）实现发表评论–表单输入绑定"></a>6）实现发表评论–表单输入绑定</h2><h2 id="7）-视频-本地搭建vue-Hello-World"><a href="#7）-视频-本地搭建vue-Hello-World" class="headerlink" title="7）[视频]本地搭建vue Hello World"></a>7）[视频]本地搭建vue Hello World</h2><h2 id="8）-视频-迁移项目到本地"><a href="#8）-视频-迁移项目到本地" class="headerlink" title="8）[视频]迁移项目到本地"></a>8）[视频]迁移项目到本地</h2><h2 id="9）-视频-抽离子组件（父子组件的通信）"><a href="#9）-视频-抽离子组件（父子组件的通信）" class="headerlink" title="9）[视频]抽离子组件（父子组件的通信）"></a>9）[视频]抽离子组件（父子组件的通信）</h2><h2 id="10）大作业"><a href="#10）大作业" class="headerlink" title="10）大作业"></a>10）大作业</h2>
       
 
       
@@ -248,7 +261,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
         		</li>
       		
 		</ul>
@@ -304,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/02/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0I/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +331,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/02/%E9%9A%8F%E7%AC%94/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          项目1-音乐播放器
+          写博客随笔
         
       </div>
     </a>
   
   
-    <a href="/2020/03/03/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0III/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的Vue学习03</div>
+    <a href="/2020/03/01/first/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的Vue学习04</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -356,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#课程安排-9-1"><span class="toc-number">1.</span> <span class="toc-text">课程安排(9+1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1）播放器的页面信息展示–模板语法"><span class="toc-number">2.</span> <span class="toc-text">1）播放器的页面信息展示–模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模板语法"><span class="toc-number">2.1.</span> <span class="toc-text">模板语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拓展"><span class="toc-number">2.2.</span> <span class="toc-text">拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原生js-VS-vue"><span class="toc-number">2.3.</span> <span class="toc-text">原生js VS vue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现点击播放音乐–指令-amp-事件监听"><span class="toc-number">3.</span> <span class="toc-text">2)实现点击播放音乐–指令&amp;事件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#audio标签的学习"><span class="toc-number">3.1.</span> <span class="toc-text">audio标签的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原生js写音乐播放器"><span class="toc-number">3.1.1.</span> <span class="toc-text">原生js写音乐播放器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue中的指令及事件监听"><span class="toc-number">3.2.</span> <span class="toc-text">Vue中的指令及事件监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充拓展–监听元素的点击事件"><span class="toc-number">3.3.</span> <span class="toc-text">补充拓展–监听元素的点击事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3）实现封面的自动旋转–class与style绑定"><span class="toc-number">4.</span> <span class="toc-text">3）实现封面的自动旋转–class与style绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4）实现进度条—计算属性"><span class="toc-number">5.</span> <span class="toc-text">4）实现进度条—计算属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5）实现评论列表–列表渲染"><span class="toc-number">6.</span> <span class="toc-text">5）实现评论列表–列表渲染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6）实现发表评论–表单输入绑定"><span class="toc-number">7.</span> <span class="toc-text">6）实现发表评论–表单输入绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7）-视频-本地搭建vue-Hello-World"><span class="toc-number">8.</span> <span class="toc-text">7）[视频]本地搭建vue Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8）-视频-迁移项目到本地"><span class="toc-number">9.</span> <span class="toc-text">8）[视频]迁移项目到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9）-视频-抽离子组件（父子组件的通信）"><span class="toc-number">10.</span> <span class="toc-text">9）[视频]抽离子组件（父子组件的通信）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10）大作业"><span class="toc-number">11.</span> <span class="toc-text">10）大作业</span></a></li></ol>
                     </div>
                 </span>
             </div>

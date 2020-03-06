@@ -6,19 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue学习小结 | Blog</title>
+  <title>Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习小结">
-<meta property="og:url" content="http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Blog">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
-<meta property="article:published_time" content="2020-03-03T08:09:12.000Z">
-<meta property="article:modified_time" content="2020-03-03T10:39:22.314Z">
 <meta property="article:author" content="ximoxiyu">
-<meta property="article:tag" content="Vue学习">
-<meta property="article:tag" content="总结">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -161,180 +155,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Vue学习小结" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Vue学习小结
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/01/hello-world/">Hello World</a>
     </h1>
   
 
         
         
-	<!-- 不蒜子统计 -->
-	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-	</span>
 
-
-<a href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-03-03T08:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+<a href="/2020/03/01/hello-world/" class="archive-article-date">
+  	<time datetime="2020-03-01T09:30:24.181Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。</p>
-<a id="more"></a>
-<p>2.通过总结整理Vue笔记，理清播放器的架构，基本学习流程：<br> 1)更改歌曲与作者的名字-插值，认识Vue<br> 2)控制播放、暂停–audio标签及属性src,controls和方法play(),pause(),同时认识了三条指令：v-bind绑定属性，v-if控制元素渲染，v-on事件监听(此时监听的是click事件)<br> 3)CD旋转–每隔一段时间进行旋转角度的增加<br> CSS中transform:rotate(30deg)属性，及JS中的定时器selnterval(函数,时间间隔),v-bind的深度使用，绑定class和style属性<br> 4)进度条–(当前时间/总时间)*100的百分比</p>
-<ul>
-<li>audio的两个属性duration(总时间),currentTime(当前播放位置，即播放了的时间，其返回值一直随播放改变);</li>
-<li>两个事件canplay:浏览器播放音频时(音乐播放开始时触发);timeupdata:当前播放位置发生更改时(在音乐播放过程中一直触发)</li>
-<li>格式转换-因duration和currentTime返回的时间格式带小数点，不是常规格式，需转换为00:00</li>
-<li>小圆点–播放进度百分比，计算属性computed<br>5)评论列表的展示(仅展示已有，不添加)–v-for列表渲染,对比原生JS的for循环+DOM操作(增加子节点，子节点添加内容)，Vue的v-for更简单方便,数据多以数组形式存放data中<br>6）发表评论(写评论并添加到5)的已有列表中)–v-bind双向绑定,实时更改评论内容,同时利用Data()对象来获取当前日期:var createAt = new Date().toLocaleDateString()</li>
-</ul>
-<p>3.还有三节视频将制作好的音乐播放器项目进行项目迁移及组件的通信与抽离，最后根据几天的学习内容，优化播放器<br>4.大作业要求</p>
-<ul>
-<li>将网站上的现有播放器代码迁移到本地 </li>
-<li>抽离进度条为组件（思考这个组件该接受什么参数） </li>
-<li>抽离评论列表为组件&amp;评论列表样式优化 </li>
-<li>完成上一曲，下一曲切换功能（需要考虑边界情况）</li>
-</ul>
-<p>5.总结一下在写大作业中遇到的问题：<br>1).组件中传递的数据只能在原组件中进行更改，传过去的是拷贝份，不可更改！（只读不改）<br>2).抽成组件的意思是：把一部分内容进行封装，以标签形式在父组件中进行使用其显示效果同没抽掉之前相同<br>3). :audioInfo子组件的props中的属性=”audioInfo”父组件的属性值<br>4).关于上下切换，每一首歌的自身内容建议封装成一个对象，几首歌，几个对象<br>5)导入文件的方法，放入assets中，其中song为第一首歌的地址链接<br>import song from ‘./assets/music/1.mp3’<br>在data中<br>    song: [song, song1,],<br>6.刚学会写博客，一枚努力学前端的小白,摸索前进，要求自己坚持写博客，坚持反思，进一步有一步的欢喜<br>7.【收获】练习用VScode写.md文件,基本语法掌握的不太熟练，所以排版会有些丑，多见谅;梳理了近期学习的Vue知识,从整体到局部再到整体，对学过的知识和笔记二次加工，对知识的理解更透彻;锻炼自己的总结能力和表达能力<br>8.最后感谢小黑和Alex在学习前端路上的帮助，给他们的公共号做个推广<br><a href="https://mp.weixin.qq.com/s/W_KNZyAqktN371gqM-IpQg" target="_blank" rel="noopener">小黑的前端课程</a></p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/01/hello-world/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          项目1-音乐播放器
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/03/03/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0III/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的Vue学习03</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -349,33 +227,10 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
 
-
-  
-  
-  
-
-  
-
-  
-
-  
 
 
 
@@ -383,6 +238,14 @@
       
         <div class="declare" hidden="hidden"></div>
       
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+
+
           </div>
         </div>
       </div>
@@ -415,8 +278,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

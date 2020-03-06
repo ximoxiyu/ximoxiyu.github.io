@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vue学习小结 | Blog</title>
+  <title>js实现聊天机器人 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
+  <meta name="description" content="客服，制作一个淘宝客服机器人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue学习小结">
-<meta property="og:url" content="http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/index.html">
+<meta property="og:title" content="js实现聊天机器人">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/JS%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。">
-<meta property="article:published_time" content="2020-03-03T08:09:12.000Z">
-<meta property="article:modified_time" content="2020-03-03T10:39:22.314Z">
+<meta property="og:description" content="客服，制作一个淘宝客服机器人">
+<meta property="article:published_time" content="2020-03-06T09:29:29.000Z">
+<meta property="article:modified_time" content="2020-03-06T23:08:54.408Z">
 <meta property="article:author" content="ximoxiyu">
-<meta property="article:tag" content="Vue学习">
-<meta property="article:tag" content="总结">
+<meta property="article:tag" content="前端学习">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -161,14 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Vue学习小结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS实现聊天机器人" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Vue学习小结
+      js实现聊天机器人
     </h1>
   
 
@@ -180,31 +181,90 @@
 	</span>
 
 
-<a href="/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-03-03T08:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+<a href="/2020/03/06/JS%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="archive-article-date">
+  	<time datetime="2020-03-06T09:29:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.前7天通过制作音乐播放器，学习Vue知识，对比原生JS,Vue框架更加简单，容易上手。</p>
+        <h3 id="html-css复习"><a href="#html-css复习" class="headerlink" title="html+css复习"></a>html+css复习</h3><p>1.拆解网页：3块–标题区,对话区,输入区<br>html-网页骨架<br>标题区：一个div加内容<br>对话区：一个大div,包含一堆小元素–列表展示<ul><br>输入区：一个输入框加多按钮，输入框需要输入多行文本(可换行)，用textarea<br> <div class="send-message"><br>    <textarea></textarea><br>    <button>发送</button><br>  </div></p>
 <a id="more"></a>
-<p>2.通过总结整理Vue笔记，理清播放器的架构，基本学习流程：<br> 1)更改歌曲与作者的名字-插值，认识Vue<br> 2)控制播放、暂停–audio标签及属性src,controls和方法play(),pause(),同时认识了三条指令：v-bind绑定属性，v-if控制元素渲染，v-on事件监听(此时监听的是click事件)<br> 3)CD旋转–每隔一段时间进行旋转角度的增加<br> CSS中transform:rotate(30deg)属性，及JS中的定时器selnterval(函数,时间间隔),v-bind的深度使用，绑定class和style属性<br> 4)进度条–(当前时间/总时间)*100的百分比</p>
+<p>2.布局+样式美化<br>整体区域：设定全部元素的padding和margin</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">初始化</span><br><span class="line">* &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line">标题区：居中</span><br><span class="line">对话区：分左右</span><br><span class="line">.message-list__item-robot,</span><br><span class="line">.message-list__item-user &#123;</span><br><span class="line">  margin-bottom: 10px;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.message-list__item-user &#123;</span><br><span class="line">  flex-direction: row-reverse;//以相反顺序，等同于justify-content:flex-end;</span><br><span class="line">&#125;</span><br><span class="line">.send-message textarea &#123;</span><br><span class="line">  flex-grow: 1;//flex-grow的默认值为0，意思是该元素不索取父元素的剩余空间，如果值大于0，表示索取。值越大，索取的越厉害</span><br><span class="line">  //flex-grow、flex-shrink、flex-basis三个属性的作用：</span><br><span class="line">在flex布局中，父元素在不同宽度下，子元素是如何分配父元素空间的。</span><br></pre></td></tr></table></figure>
+
+<h3 id="机器人的自动回复"><a href="#机器人的自动回复" class="headerlink" title="机器人的自动回复"></a>机器人的自动回复</h3><p>将机器人按功能分：消息列表(机器人消息,自己消息),输入框,发送<br>1.工作流程：输入消息，点击发送，发送用户消息，发送机器人消息<br>点击发送时：监听click事件，得输入框内容<br>发送用户消息：创建一个气泡节点(li),在li中写你要发送的内容，将此节点添加到页面<br>第四步同第三步<br>2.获取输入信息–数组[],数据的集合<br>监听发送按钮的点击事件<br>1)找到输入框<br>2)获得里面的消息,value属性<br>3)alert到屏幕上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var a=document.getElementsByTagName(<span class="string">'textarea'</span>)[0];//获取输入框</span><br><span class="line">var b=document.getElementsByTagName(<span class="string">'button'</span>)[0];//获取按钮</span><br><span class="line"> //事件监听</span><br><span class="line"> b.onclick=<span class="keyword">function</span>(e)&#123;</span><br><span class="line"> var kk= a.value;</span><br><span class="line">  a.innerText=<span class="string">''</span>;</span><br><span class="line">  alert(kk);</span><br><span class="line">&#125;</span><br><span class="line">也可以写成addEventListener格式</span><br><span class="line"> b.addEventListener(<span class="string">'click'</span>, <span class="keyword">function</span>(e) &#123;</span><br><span class="line">    var kk = a.value;</span><br><span class="line">    inputArea.value = <span class="string">''</span></span><br><span class="line">    alert(kk)</span><br><span class="line">  &#125;)</span><br><span class="line">  注：除了id选择器,class与tag选择器每次都是选一堆元素--数组，所以使用时加上索引[0]</span><br></pre></td></tr></table></figure>
+
+<p>3.发送输入消息(用户发送信息)<br>1)在ul列表中添加子节点li,注意加上类名,获取节点类名属性:className<br>创建一个节点<br>2)给这个节点添加类名<br>3)把这个节点添加到界面上去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var li = document.createElement(<span class="string">'li'</span>);//创建节点</span><br><span class="line">   li.className = <span class="string">'message-list__item message-list__item-user'</span>;//加类名</span><br><span class="line">   var childNode = document.createElement(<span class="string">'div'</span>); //创建div节点，里面用来写内容</span><br><span class="line">   childNode.innerText = userMsg;//添加内容</span><br><span class="line">   li.appendChild(childNode)//添加子节点到li</span><br><span class="line"></span><br><span class="line">   var msgList = document.getElementsByClassName(<span class="string">'message-list'</span>)[0];</span><br><span class="line">   msgList.appendChild(li);//将li节点添加到消息列表！</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>4.获取机器人消息–数组<br>Math.random()是随机函数，可以随机一个0-1之间的数字[0,1)<br>Math.floor()是取整函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var data = [</span><br><span class="line">  <span class="string">'我是小二黑，你好啊'</span>,</span><br><span class="line">  <span class="string">'今天天气不错哎'</span>,</span><br><span class="line">  <span class="string">'手机快没电了，回聊呗'</span>,</span><br><span class="line">  <span class="string">'我去洗澡了，待会聊呗'</span>,</span><br><span class="line">  <span class="string">'惊不惊喜，意不意外，刺不刺激？'</span></span><br><span class="line">]</span><br><span class="line">var randomNumber = Math.floor(Math.random() * 5)</span><br><span class="line">var robotMsg = data[randomNumber]</span><br><span class="line">//console.log(robotMsg)</span><br><span class="line">//显示机器人信息-同发送信息，只是类名不同</span><br><span class="line">var li = document.createElement(<span class="string">'li'</span>);</span><br><span class="line">    li.className = <span class="string">'message-list__item message-list__item-robot'</span></span><br><span class="line">    var childNode = document.createElement(<span class="string">'div'</span>)</span><br><span class="line">    childNode.innerText = robotMsg</span><br><span class="line">    li.appendChild(childNode)</span><br><span class="line"></span><br><span class="line">    var msgList = document.getElementsByClassName(<span class="string">'message-list'</span>)[0];</span><br><span class="line">    msgList.appendChild(li);</span><br></pre></td></tr></table></figure>
+
+<p>5.函数优化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="前后端通信"><a href="#前后端通信" class="headerlink" title="前后端通信"></a>前后端通信</h3><h4 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h4><p>http（HyperText Transfer Protocol）协议，中文名称超文本传输协议<br>协议:共同制定的规则–语言<br>协议定义了传输信息的格式，信息所表示的具体的含义<br>1.前端给后端发送的信息叫做请求报文，HTTP request<br>2.后端回复前端的信息叫做响应报文，HTTP response<br>http协议最主要的内容就是定义了请求报文和响应报文的格式以及各个字段的含义<br>请求报文：请求行，首部字段，消息体<br>其中请求行:请求方法 请求地址 协议版本,前两种比较重要<br>请求方法：<br>1.GET<br>2.POST<br>3.PUT<br>4.DELETE<br>消息体和首部字段之间通过一个空行分隔开来<br>3.响应报文<br>状态行也是由三个字段通过空格分隔构成的，依次是：协议版本、状态码、状态码对应的文本描述;前端就是根据状态码来判断本次请求是否成功!</p>
+<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><p>Ajax（Asynchronous JavaScript and XML）异步 JavaScript 和 XML<br>Asynchronous异步<br>JavaScript浏览器给予了 Javascript 主动发起网络请求的能力<br>XML（Extensible Markup Language）–可扩展标记语言<br>Ajax是一系列技术的集合<br>2.Ajax具体实现<br>浏览器赋予Javascript主动发送网络请求的能力,赋予途径： XMLHttpRequest构造函数：JS主动发起http请求，从而与服务器之间通过http协议来达到相互通信的目的<br>３.XMLHttpRequest(XML(早期数据格式)+HttpRequest（请求报文）)<br>1)JS发起一个http请求，先new一个XHR对象<br>var xhr = new XMLHttpRequest();</p>
+<p>2)利用open方法”打开”此xhr对象<br>xhr.open(‘GET’,’<a href="http://www.baicn&#39;" target="_blank" rel="noopener">http://www.baicn&#39;</a>)<br>open方法接受三个参数，仅前两个用的多<br>11)method:http请求类型<br>12)url:请求地址<br>13)是否为异步请求–async<br>注：类比请求报文中的字段<br>调用了 open 方法之后并不会真正发送请求，而只是启动一个请求以备发送。</p>
+<p>3)send方法接受将要发送给服务器的信息–请求报文中的消息体<br>打开浏览器的控制台<br>tab切换到Network<br>切换子tab为XHR,查看此网页发送的所有的网络请求<br>再切换到Response tab,服务器返回的响应报文中消息体所包含的信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个XHR对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">// 打开XHR对象，</span><br><span class="line">xhr.open(<span class="string">'POST'</span>, <span class="string">'http://yapi.demo.qunar.com/mock/63071/helloworld'</span>);</span><br><span class="line">// 发送http请求</span><br><span class="line">xhr.send(<span class="string">'hello'</span>);</span><br></pre></td></tr></table></figure>
+<p>4)获取服务器返回的数据<br>xhr对象的三个属性<br>1.responseText：保存了服务器返回的数据<br>2.status：服务器响应报文的状态码<br>3.readyState：表示当前 XHR 对象请求/响应过程的当前活动阶段，这个属性有以下一些取值：(0-4)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个XHR对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">console.log(<span class="string">'刚刚创建的XHR对象：'</span>, xhr.readyState);//0</span><br><span class="line">// 打开XHR对象，</span><br><span class="line">xhr.open(<span class="string">'POST'</span>, <span class="string">'http://yapi.demo.qunar.com/mock/63071/helloworld'</span>);</span><br><span class="line">console.log(<span class="string">'调用open函数后的XHR对象：'</span>, xhr.readyState);//1</span><br><span class="line">// 设定XHR对象的onreadystatechange属性</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'调用send函数后的XHR对象：'</span>, xhr.readyState);//2,3,4</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 发送http请求</span><br><span class="line">xhr.send(<span class="string">'hello'</span>);</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>audio的两个属性duration(总时间),currentTime(当前播放位置，即播放了的时间，其返回值一直随播放改变);</li>
-<li>两个事件canplay:浏览器播放音频时(音乐播放开始时触发);timeupdata:当前播放位置发生更改时(在音乐播放过程中一直触发)</li>
-<li>格式转换-因duration和currentTime返回的时间格式带小数点，不是常规格式，需转换为00:00</li>
-<li>小圆点–播放进度百分比，计算属性computed<br>5)评论列表的展示(仅展示已有，不添加)–v-for列表渲染,对比原生JS的for循环+DOM操作(增加子节点，子节点添加内容)，Vue的v-for更简单方便,数据多以数组形式存放data中<br>6）发表评论(写评论并添加到5)的已有列表中)–v-bind双向绑定,实时更改评论内容,同时利用Data()对象来获取当前日期:var createAt = new Date().toLocaleDateString()</li>
+<li>其中onreadystatechange属性，给它赋值了一个函数，决定我们能获取到服务器数据</li>
+<li>每当XHR对象的readyState属性发生改变时，如果onreadystatechange属性是一个函数，那么浏览器都会运行这个函数</li>
+<li>每当XHR对象的readyState属性发生改变时，如果onreadystatechange属性是一个函数，那么浏览器都会运行这个函数</li>
+<li>服务器的响应数据又是存放于xhr对象的responseText属性<br>即：在readyState属性变为4的时候访问responseText属性，就能获取到服务器的响应数据</li>
 </ul>
-<p>3.还有三节视频将制作好的音乐播放器项目进行项目迁移及组件的通信与抽离，最后根据几天的学习内容，优化播放器<br>4.大作业要求</p>
-<ul>
-<li>将网站上的现有播放器代码迁移到本地 </li>
-<li>抽离进度条为组件（思考这个组件该接受什么参数） </li>
-<li>抽离评论列表为组件&amp;评论列表样式优化 </li>
-<li>完成上一曲，下一曲切换功能（需要考虑边界情况）</li>
-</ul>
-<p>5.总结一下在写大作业中遇到的问题：<br>1).组件中传递的数据只能在原组件中进行更改，传过去的是拷贝份，不可更改！（只读不改）<br>2).抽成组件的意思是：把一部分内容进行封装，以标签形式在父组件中进行使用其显示效果同没抽掉之前相同<br>3). :audioInfo子组件的props中的属性=”audioInfo”父组件的属性值<br>4).关于上下切换，每一首歌的自身内容建议封装成一个对象，几首歌，几个对象<br>5)导入文件的方法，放入assets中，其中song为第一首歌的地址链接<br>import song from ‘./assets/music/1.mp3’<br>在data中<br>    song: [song, song1,],<br>6.刚学会写博客，一枚努力学前端的小白,摸索前进，要求自己坚持写博客，坚持反思，进一步有一步的欢喜<br>7.【收获】练习用VScode写.md文件,基本语法掌握的不太熟练，所以排版会有些丑，多见谅;梳理了近期学习的Vue知识,从整体到局部再到整体，对学过的知识和笔记二次加工，对知识的理解更透彻;锻炼自己的总结能力和表达能力<br>8.最后感谢小黑和Alex在学习前端路上的帮助，给他们的公共号做个推广<br><a href="https://mp.weixin.qq.com/s/W_KNZyAqktN371gqM-IpQg" target="_blank" rel="noopener">小黑的前端课程</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个XHR对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">console.log(<span class="string">'刚刚创建的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">// 打开XHR对象，</span><br><span class="line">xhr.open(<span class="string">'POST'</span>, <span class="string">'http://yapi.demo.qunar.com/mock/63071/helloworld'</span>);</span><br><span class="line">console.log(<span class="string">'调用open函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">// 设定XHR对象的onreadystatechange属性</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'调用send函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">  // 浏览器接收完成服务器数据(新增)</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState === 4) &#123;</span><br><span class="line">    // 判断响应报文状态码的有效性</span><br><span class="line">    <span class="keyword">if</span> (200 &lt;= xhr.status &lt; 300 || xhr.status === 304) &#123;</span><br><span class="line">      console.log(<span class="string">'接收到服务器数据：'</span>, xhr.responseText);//获取响应数据</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 发送http请求</span><br><span class="line">xhr.send(<span class="string">'hello'</span>);</span><br><span class="line"></span><br><span class="line">【输出】</span><br><span class="line">刚刚创建的XHR对象：0</span><br><span class="line">调用open函数后的XHR对象：1</span><br><span class="line">调用send函数后的XHR对象：2</span><br><span class="line">调用send函数后的XHR对象：3</span><br><span class="line">调用send函数后的XHR对象：4</span><br><span class="line">接收到服务器数据：Hello World!</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用Ajax改造机器人"><a href="#利用Ajax改造机器人" class="headerlink" title="利用Ajax改造机器人"></a>利用Ajax改造机器人</h3><p>你给服务端说了hello(通过xhr.send(‘hello’)),服务端则给你回复了hello world</p>
+<h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><p>1.最常见的是get请求，其次是post请求<br>2.get请求直接通过URL来给服务端发消息，也就是消息被一起拼接在URL里;post请求，约定通过content来传递消息，也就是XHR.send()括号里的内容<br>3.get请求(中文：获得)一般都是获取数据的请求,我需要一本xx书，服务端把这本书拿来给你，把xx拼在url里就好了;post（中文：发布）一般是，告诉服务端，我需要给你一本书，让你放在你的书架上,放在url中不安全，故选择放在请求的body里发送（也就是xhr.send()括号里的东西）<br>4.xhr.open(‘GET’, ‘<a href="http://wang.norma.shop:8080/api.php?key=free&amp;appid=0&amp;msg=&#39;+msg);表示，给服务端发送了一条get请求，传输了一个msg，msg的值是hello" target="_blank" rel="noopener">http://wang.norma.shop:8080/api.php?key=free&amp;appid=0&amp;msg=&#39;+msg);表示，给服务端发送了一条get请求，传输了一个msg，msg的值是hello</a><br>5.具体什么请求，看接口文档</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">var msg = <span class="string">'hello'</span></span><br><span class="line">// 创建一个XHR对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">console.log(<span class="string">'刚刚创建的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">// 打开XHR对象，</span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'http://wang.norma.shop:8080/api.php?key=free&amp;appid=0&amp;msg='</span>+msg);</span><br><span class="line">console.log(<span class="string">'调用open函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">// 设定XHR对象的onreadystatechange属性</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'调用send函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">  // 浏览器接收完成服务器数据</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState === 4) &#123;</span><br><span class="line">    // 响应状态码有效</span><br><span class="line">    <span class="keyword">if</span> (200 &lt;= xhr.status &lt; 300 || xhr.status === 304) &#123;</span><br><span class="line">      console.log(<span class="string">'接收到服务器数据：'</span>, xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 发送http请求</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
+
+<h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><p>机器人-get请求</p>
+<pre><code class="bash">//封装成函数使用
+
+<span class="keyword">function</span> ajax(method, url, data, cb) {
+  // 默认请求方式为 GET
+  method = method || <span class="string">"GET"</span>;
+  data = data || null;
+
+  <span class="keyword">if</span> (!url) {
+    throw new Error(<span class="string">"必须指定 url 参数"</span>);
+  }
+//之前内容
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() {
+    // readyState 为 4 时表示已经全部接收到响应数据
+    <span class="keyword">if</span> (xhr.readyState === 4) {
+      // Http 状态码大于等于 200 小于 300，或者等于 304，表示请求成功
+      <span class="keyword">if</span> ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) {
+        cb(xhr.responseText);
+      } <span class="keyword">else</span> {
+        cb(null);
+      }
+    }
+  };
+
+  xhr.send(data);
+}
+//使用时
+var msg = <span class="string">'hello'</span>
+ajax(<span class="string">'GET'</span>, <span class="string">'http://wang.norma.shop:8080/api.php?key=free&amp;appid=0&amp;msg='</span>+msg, null,<span class="keyword">function</span> success(response){console.log(response)})
+【结果】
+{<span class="string">"result"</span>:0,<span class="string">"content"</span>:<span class="string">"{face:14}Hi~"</span>}
+{<span class="string">"result"</span>:0,<span class="string">"content"</span>:<span class="string">"Nice to meet you"</span>}</code></pre>
+<p>ajax这个函数可以传入一个函数(此函数即为回调函数)作为参数，在ajax函数执行后，调用这个函数给你消息</p>
+<h4 id="大作业"><a href="#大作业" class="headerlink" title="大作业"></a>大作业</h4><p>a.实现基础的聊天机器人(其实复制粘贴上面的代码就足够了)+1分</p>
+<p>b.实现发送点击回车按钮，自动发送消息+1分</p>
+<p>c.现在服务端机器人名叫菲菲，在前端显示的时候，实现问机器人的名字的时候，机器人回答叫小二黑 +1分</p>
+<p>d.实现机器人回复的时候自动显示最新消息，也就是消息列表滚动到最底部，页面不被遮挡 +1分</p>
 
       
 
@@ -244,11 +304,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -304,7 +368,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/03/Vue%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/06/JS%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +382,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          项目1-音乐播放器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/03/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0III/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的Vue学习03</div>
+    <a href="/2020/03/06/js%E5%AD%A6%E4%B9%A001/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js学习01</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -356,7 +411,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#html-css复习"><span class="toc-number">1.</span> <span class="toc-text">html+css复习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#机器人的自动回复"><span class="toc-number">2.</span> <span class="toc-text">机器人的自动回复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前后端通信"><span class="toc-number">3.</span> <span class="toc-text">前后端通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#http协议"><span class="toc-number">3.1.</span> <span class="toc-text">http协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax"><span class="toc-number">4.</span> <span class="toc-text">Ajax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用Ajax改造机器人"><span class="toc-number">5.</span> <span class="toc-text">利用Ajax改造机器人</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GET请求"><span class="toc-number">5.1.</span> <span class="toc-text">GET请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#回调函数"><span class="toc-number">5.2.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大作业"><span class="toc-number">5.3.</span> <span class="toc-text">大作业</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

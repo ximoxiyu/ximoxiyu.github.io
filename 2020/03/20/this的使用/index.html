@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js学习01 | Blog</title>
+  <title>this的指向 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量的命名1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！2.其他字母可以是下划线（_）、美元符号（$）、字母或者数字3.一般采用驼峰法：第一个字母小写，其余有意义的单词首字母大写4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义 数据类型及操作基本：number(">
+  <meta name="description" content="了解this的指向问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js学习01">
-<meta property="og:url" content="http://yoursite.com/2020/03/06/js%E5%AD%A6%E4%B9%A001/index.html">
+<meta property="og:title" content="this的指向">
+<meta property="og:url" content="http://yoursite.com/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="变量的命名1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！2.其他字母可以是下划线（_）、美元符号（$）、字母或者数字3.一般采用驼峰法：第一个字母小写，其余有意义的单词首字母大写4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义 数据类型及操作基本：number(">
-<meta property="article:published_time" content="2020-03-06T05:30:31.000Z">
-<meta property="article:modified_time" content="2020-03-06T09:27:12.184Z">
+<meta property="og:description" content="了解this的指向问题">
+<meta property="article:published_time" content="2020-03-20T10:40:51.000Z">
+<meta property="article:modified_time" content="2020-03-21T04:07:13.956Z">
 <meta property="article:author" content="ximoxiyu">
 <meta property="article:tag" content="前端学习">
 <meta property="article:tag" content="js">
-<meta property="article:tag" content="基础知识">
+<meta property="article:tag" content="前端面试">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
@@ -162,14 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js学习01" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-this的使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js学习01
+      this的指向
     </h1>
   
 
@@ -181,50 +181,71 @@
 	</span>
 
 
-<a href="/2020/03/06/js%E5%AD%A6%E4%B9%A001/" class="archive-article-date">
-  	<time datetime="2020-03-06T05:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
+<a href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-03-20T10:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h2><p>1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！<br>2.其他字母可以是下划线（_）、美元符号（$）、字母或者数字<br>3.一般采用驼峰法：第一个字母小写，其余有意义的单词首字母大写<br>4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)<br>【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义</p>
-<h3 id="数据类型及操作"><a href="#数据类型及操作" class="headerlink" title="数据类型及操作"></a>数据类型及操作</h3><p>基本：number(浮点)，string,Boolean<br>特殊：null,undefined(未定义)<br>利用typeof(内容)l检测数据类型，注typeof(null)–object</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var name = <span class="string">'小明'</span></span><br><span class="line">var age = 17</span><br><span class="line">var isMarried = <span class="literal">false</span></span><br><span class="line">var firstName</span><br><span class="line">var lastName = null</span><br><span class="line">console.log(typeof(name))----string</span><br><span class="line">console.log(typeof(age))---number</span><br><span class="line">console.log(typeof(isMarried))--boolean</span><br><span class="line">console.log(typeof(firstName))---undefined</span><br><span class="line">console.log(typeof(lastName))--object</span><br></pre></td></tr></table></figure>
+        <h2 id="this的四种绑定格式"><a href="#this的四种绑定格式" class="headerlink" title="this的四种绑定格式"></a>this的四种绑定格式</h2><p>优先级：new&gt;显性&gt;隐形&gt;默认绑定</p>
+<p> 1.默认绑定<br>输出10，使用全局变量var a=10,此时this绑定window</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">            var a=1;</span><br><span class="line">            console.log(this.a);</span><br><span class="line">        &#125;</span><br><span class="line">        var a=10;</span><br><span class="line">        foo();</span><br><span class="line">补充：转换为foo.call(undefined),此时this为window</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<p>2.隐形绑定<br>输出100，直接可维护性差，使用obj中的变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">         console.log(this.a)</span><br><span class="line">     &#125;</span><br><span class="line">     // 创建对象</span><br><span class="line">     var obj=&#123;</span><br><span class="line">         a:100,</span><br><span class="line">         foo</span><br><span class="line">     &#125;</span><br><span class="line">     // 调用全局变量，未定义，打印undefined</span><br><span class="line">     foo() //转换为foo.call(undefined)</span><br><span class="line">     //调用obj中变量，输出100</span><br><span class="line">     obj.foo() //转换为obj.foo.call(obj)</span><br></pre></td></tr></table></figure>
+<p>3.显性绑定<br>输出1000,两个方法call(对象,参数,参数…)及apply(对象，数组-绑定函数的参数列表)及bind</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">          console.log(this.a)</span><br><span class="line">      &#125;</span><br><span class="line">      var obj=&#123;</span><br><span class="line">          a:1000,</span><br><span class="line">      &#125;</span><br><span class="line">      foo.call(obj,0) //已经使用了call形式，故此时this为obj</span><br></pre></td></tr></table></figure>
 
-<h3 id="字符串拼接-，数学运算"><a href="#字符串拼接-，数学运算" class="headerlink" title="字符串拼接(+)，数学运算"></a>字符串拼接(+)，数学运算</h3><p>注：/不是整除，%取余数</p>
+<p>4.new绑定<br>创建新对象，将其proto属性指向原函数的prototype属性（对象），新对象绑定到此函数的this,返回新对象<br>this访问临时对象！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">    this.a=1;</span><br><span class="line">     console.log(this)</span><br><span class="line">   //   当返回对象类型，新对象会丢失</span><br><span class="line">   &#125;</span><br><span class="line">   // 默认绑定,打印Window</span><br><span class="line">   foo();</span><br><span class="line">   // 创建新对象，打印foo</span><br><span class="line">   var obj=new foo();</span><br><span class="line">   // 打印1</span><br><span class="line">   console.log(obj.a)</span><br></pre></td></tr></table></figure>
+<p><a href="https://zhuanlan.zhihu.com/p/23987456?refer=study-fe" target="_blank" rel="noopener">补充：new的使用</a></p>
+<h3 id="补充-new–语法糖"><a href="#补充-new–语法糖" class="headerlink" title="补充-new–语法糖"></a>补充-new–语法糖</h3><p>实质：省略几行代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> 士兵(ID)&#123;</span><br><span class="line">  var 临时对象 = &#123;&#125;//可省略-创建临时对象</span><br><span class="line"></span><br><span class="line">  临时对象.__proto__ = 士兵.原型 //可省略-绑定原型</span><br><span class="line"></span><br><span class="line">  临时对象.ID = ID</span><br><span class="line">  临时对象.生命值 = 42</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">return</span> 临时对象 //可省略<span class="built_in">return</span></span><br><span class="line">&#125;</span><br><span class="line"> 士兵.原型 = &#123;  //统一</span><br><span class="line">  兵种:<span class="string">"美国大兵"</span>,</span><br><span class="line">  攻击力:5,</span><br><span class="line">  行走:<span class="function"><span class="title">function</span></span>()&#123; /*走俩步的代码*/&#125;，</span><br><span class="line">  奔跑:<span class="function"><span class="title">function</span></span>()&#123; /*狂奔的代码*/  &#125;,</span><br><span class="line">  死亡:<span class="function"><span class="title">function</span></span>()&#123; /*Go die*/    &#125;,</span><br><span class="line">  攻击:<span class="function"><span class="title">function</span></span>()&#123; /*糊他熊脸*/   &#125;,</span><br><span class="line">  防御:<span class="function"><span class="title">function</span></span>()&#123; /*护脸*/       &#125;</span><br></pre></td></tr></table></figure>
+<p>使用new和this </p>
 <ul>
-<li>数学运算时，数据会转换为数据类型，如true–1,null–0</li>
-<li>1-‘1’=0,但是1+’1’=11;此时+做字符串连接符<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var b = 2</span><br><span class="line">console.log(a+b)--3</span><br><span class="line">console.log(a-b)---1</span><br><span class="line">console.log(a*b)---2</span><br><span class="line">console.log(a/b)---0.5</span><br><span class="line">console.log(a%b)---1</span><br></pre></td></tr></table></figure></li>
-<li>NaN和任何数字参与运算时，结果均为NaN，undefined参与数字运算时，转换为NAN</li>
-<li>NaN之间也是不相等的，也就是说NaN!==NaN,判断NAN,Number.isNaN(),返回T/F<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var b = <span class="string">'一个奇怪的字符串'</span></span><br><span class="line">console.log(a * b)---NAN</span><br><span class="line">console.log(Number.isNaN(a*b))--<span class="literal">true</span></span><br><span class="line">console.log(Number.isNaN(a))--<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2></li>
+<li>不用创建临时对象，因为 new 会帮你做（你使用「this」就可以访问到临时对象）</li>
+<li>不用绑定原型，因为 new 会帮你做（new 为了知道原型在哪，所以指定原型的名字为 prototype）；</li>
+<li>不用 return 临时对象，因为 new 会帮你做；</li>
+<li>不要给原型想名字,因为 new 指定名字为 prototype<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> 士兵(ID)&#123;</span><br><span class="line">  this.ID = ID</span><br><span class="line">  this.生命值 = 42</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">士兵.prototype = &#123;  //已改为prototype</span><br><span class="line">  兵种:<span class="string">"美国大兵"</span>,</span><br><span class="line">  攻击力:5,</span><br><span class="line">  行走:<span class="function"><span class="title">function</span></span>()&#123; /*走俩步的代码*/&#125;,</span><br><span class="line">  奔跑:<span class="function"><span class="title">function</span></span>()&#123; /*狂奔的代码*/  &#125;,</span><br><span class="line">  死亡:<span class="function"><span class="title">function</span></span>()&#123; /*Go die*/    &#125;,</span><br><span class="line">  攻击:<span class="function"><span class="title">function</span></span>()&#123; /*糊他熊脸*/   &#125;,</span><br><span class="line">  防御:<span class="function"><span class="title">function</span></span>()&#123; /*护脸*/       &#125;</span><br><span class="line">&#125;</span><br><span class="line">注：使用时 var obj= new 士兵(ID)</span><br></pre></td></tr></table></figure>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var x=10;</span><br><span class="line">   var obj=&#123;</span><br><span class="line">       x:20,</span><br><span class="line">       <span class="function"><span class="title">f</span></span>()&#123;</span><br><span class="line">           console.log(this.x); </span><br><span class="line">           var foo =<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">               console.log(this.x);</span><br><span class="line">           &#125;</span><br><span class="line">      //打印10--全局(向外一层)</span><br><span class="line">           foo() //等价于foo.call(undefined)--window--全局10</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   //打印20--对象</span><br><span class="line">   obj.f()  //等价于obj.f.call(obj)--obj--20</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p>条件判断：if-else,if-else if-else,循环for,while的使用<br>1)等号</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 两个等号,先转数据类型再判断</span><br><span class="line">console.log(1 == <span class="string">'1'</span>);--<span class="literal">true</span></span><br><span class="line">// 三个等号，直接判断</span><br><span class="line">console.log(1 === <span class="string">'1'</span>);--<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>面试题2—还是不理解？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> foo(num)&#123;</span><br><span class="line">     this.a=num;</span><br><span class="line">     <span class="built_in">return</span> this</span><br><span class="line"> &#125;</span><br><span class="line"> var a=foo(1);//等价于a=foo.call(undifined,1)---指向全局window</span><br><span class="line"> var b=foo(10);</span><br><span class="line"> console.log(a.a);</span><br><span class="line"> console.log(b.a)</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h3 id="函数与对象"><a href="#函数与对象" class="headerlink" title="函数与对象"></a>函数与对象</h3><p>1.定义 function 函数名(参数){}<br>返回值：关键字return,多个return时只返回第一个，即遇到return,就返回并退出函数，所以return后面的代码均不会执行;不写return时，函数返回值为undefined<br>2.对象(属性和方法)：每个对象都有自己的属性 var cat={},其中{}为对象！<br>类似css的属性：属性值，但css是;结尾，对象是,结尾</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var cat = &#123;</span><br><span class="line">  name: <span class="string">'糖糖'</span>,</span><br><span class="line">  age: 0.8,</span><br><span class="line">  color: <span class="string">'whiteAndBlack'</span></span><br><span class="line">&#125;</span><br><span class="line">//获取对象属性值的两种方法</span><br><span class="line">console.log(cat.age) //常用</span><br><span class="line">console.log(cat[<span class="string">'age'</span>]) //有自身优势,[]内的属性名可变，如obj.style[name],其中的name可以为height,width,color等，用于做函数的参数很好</span><br></pre></td></tr></table></figure>
-<p>2)方法：对象中的函数，省略关键字function<br>cat.year//调用属性<br>cat.say()//调用方法</p>
-<p>3.构造函数：生成各种对象的函数,即函数内部为一个对象，外面套了function 函数名(参数){}<br>目的：利用构造函数生成对象<br>使用：var car1 = new 函数名(参数)<br>其中new为构造函数的关键字，此时的car1为一个对象</p>
-<h3 id="DOM和BOM-重难点"><a href="#DOM和BOM-重难点" class="headerlink" title="DOM和BOM (重难点)"></a>DOM和BOM (重难点)</h3><p>HTML文档树：html为根节点，分head和body节点<br>DOM:Document Object Model文档对象模型<br>document就是dom对象，整个页面的全部信息都在这个对象中，节点一般从此找<br>DOM—文档树对象，通过文档树对象来控制html(增删改查)<br>属性：html+css<br>方法：很多</p>
-<h4 id="节点的操作"><a href="#节点的操作" class="headerlink" title="节点的操作"></a>节点的操作</h4><p>常用的节点操作方法<br>1.创建节点：document.createElement<br>2.添加节点：element.appendChild<br>3.删除节点：element.removeChild<br>4.查找节点：document.getElementById、document.getElementsByClassName、document.querySelector、document.querySelectorAll</p>
-<p>1)改—-找节点，改内容(2步)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = document.getElementById(<span class="string">'div1-1'</span>)</span><br><span class="line">a.innerText = <span class="string">'汪小黑'</span> //innerText属性</span><br></pre></td></tr></table></figure>
-<p>2)删—找子节点，找父节点，删子节点(3步)<br>节点操作依赖父节点(增删子节点)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var childElement = document.getElementById(<span class="string">'div1-2'</span>) //找子节点</span><br><span class="line">var ParentElement = document.getElementById(<span class="string">'div1'</span>) //找父节点</span><br><span class="line">ParentElement.removeChild(childElement) //从父节点中删子节点</span><br></pre></td></tr></table></figure>
-<p>3)增—创建子节点，注创建时，()为html标签名–(3步)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ParentElement = document.getElementById(<span class="string">'div1'</span>) //找父节点</span><br><span class="line">var childElement = document.createElement(<span class="string">'div'</span>) //创建子节点，是div而不是div1-3,创建标签是标签元素</span><br><span class="line">ParentElement.appendChild(childElement) //从父节点中增加子节点</span><br></pre></td></tr></table></figure>
+<p>拓展：</p>
+<ol>
+<li>打印结果 undefined 和10</li>
+<li>若将a换成c，此时打印10和10,<br>c和b均指向window,全局变量10重新覆盖</li>
+</ol>
+<p>【分析】：执行var a=foo(1)后，a=1,但执行var b=foo(100);后，将100传给a，及此时a.a为100.100错误表示</p>
+<ol start="3">
+<li><p>更改a,b语句顺序</p>
+<p> var b=foo(1);<br> var a=foo(10);<br>此时打印window和window</p>
+</li>
+<li><p>补充<br><a href="https://www.bilibili.com/video/av86982631" target="_blank" rel="noopener">this绑定</a></p>
+</li>
+</ol>
+<h2 id="利用代码转换理解this"><a href="#利用代码转换理解this" class="headerlink" title="利用代码转换理解this"></a>利用代码转换理解this</h2><p>this指向的是执行环境，执行环境不同指向不同</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  foo: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var bar = obj.foo</span><br><span class="line">obj.foo() // 打印出的 this 是 obj</span><br><span class="line">bar() // 打印出的 this 是 window</span><br><span class="line">说明：obj.foo() 等价于obj.foo().call(obj)</span><br><span class="line">bar()等价于bar.call(undefined)---window</span><br></pre></td></tr></table></figure>
 
-<h4 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h4><p>【每个节点】都可以【监听】发生在【自己】身上的【事件】<br>如：点击-按钮：执行自身预设的js代码<br>目的：点击div-1,div块变黄<br>1.找到div1-1<br>2.监听div1-1上的「点击」事件 obj.onclick=function(){}<br>3.写触发【点击】事件之后的逻辑<br>a.找到div1<br>b.改变div1的背景颜色</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">基本思路：获取节点，写事件触发函数</span><br><span class="line">var element = document.getElementById(<span class="string">'div1-1'</span>);//找节点</span><br><span class="line">element.onclick=<span class="keyword">function</span>(e)&#123; //有参数e</span><br><span class="line">var dObj = document.getElementById(<span class="string">'div1'</span>) //找节点</span><br><span class="line">dObj.style.backgroundColor=<span class="string">'yellow'</span></span><br><span class="line">&#125;</span><br><span class="line">注：每个节点的css存储在此节点的style中</span><br><span class="line">e-指event对象，document属性有很多</span><br></pre></td></tr></table></figure>
-
-<h3 id="BOM操作"><a href="#BOM操作" class="headerlink" title="BOM操作"></a>BOM操作</h3><p>浏览器提供的一个对象，用来操作浏览器<br>BOM（Browser Object Model），即浏览器对象模型<br>核心对象：window,含6大核心模块<br>document：文档对象<br>frames：窗口中所有命名的框架<br>history：当前页面历史记录<br>location：当前页面地址信息<br>navigator：浏览器相关信息<br>screen：用户显示屏幕相关属性<br>【重点】掌握BOM的属性和方法</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(window.location.href)//打开当前页面地址</span><br><span class="line">// 下面这条语句会打开新页面，关掉就好了</span><br><span class="line">window.open(<span class="string">'http://www.baidu.com'</span>)</span><br></pre></td></tr></table></figure>
-<p>【补充】<br>1.DOM查找节点方法：document.querySelector(), document.getElementById(), document.getElementsByClassName(), document.getElementsByTagName()<br>2.常用节点属性<br> element.style 表示节点的样式<br> element.innerHTML表示节点里的html<br> element.innerText 表示节点里的文本<br>3.关于事件参数e<br> 1)e是事件触发时，浏览器传给事件触发函数的一个参数对象<br> 2)触发一个鼠标点击事件，e里面包括了鼠标的坐标信息（鼠标在屏幕的坐标）<br> 3)触发一个键盘点击事件，e里面包括了键盘的按键信息（键盘按了哪个键）<br> 4.事件<br> 1)js事件的冒泡指的是事件从子元素向父元素「渗透」的过程<br> 2)给一个元素绑定点击事件，有addEventListener和onclick等多种方式<br> 3)onclick只能给元素点击事件绑定一个事件，addEventerListener可以绑定多个</p>
+<p>函数的三种调用方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func(p1,p2)</span><br><span class="line">obj.child.method(p1,p2)//语法糖</span><br><span class="line">func.call(context,p1,p2)//正常调用方式</span><br></pre></td></tr></table></figure>
+<p>两种语法糖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func(p1, p2) 等价于func.call(undefined, p1, p2)</span><br><span class="line">obj.child.method(p1, p2) 等价于obj.child.method.call(obj.child, p1, p2)</span><br></pre></td></tr></table></figure>
+<p>注：func.call(context,p1,p2)//正常调用方式<br>this即为代码的context，call此函数时传递的context</p>
+<ol>
+<li>func(p1, p2) 中的 this<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">func</span></span>()&#123;</span><br><span class="line">  console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">func()//等价于func.call(undefined),简写为func.call()</span><br><span class="line">说明：理论上是输出undefined，实际上是window</span><br><span class="line">原因：浏览器规则--若context=null/undefined,则使用window对象</span><br><span class="line">理解：func.call(undefined) // this 为window对象</span><br><span class="line">func.call(obj) //  this 为 obj 对象</span><br></pre></td></tr></table></figure></li>
+<li>obj.child.method(p1, p2) 的 this<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  foo: <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.foo() //等价为obj.foo.call(obj),故this为obj</span><br></pre></td></tr></table></figure></li>
+<li>数组【】<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">fn</span></span> ()&#123; console.log(this) &#125;</span><br><span class="line">var arr = [fn, 1]</span><br><span class="line">arr[0]() //假想为arr.0()等价为arr.0.call(arr)</span><br></pre></td></tr></table></figure></li>
+<li>箭头函数<br>箭头函数里面的 this 等价于箭头函数外面的 this</li>
+<li>Event Handler 中的 this<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//事件监听</span><br><span class="line">btn.addEventListener(<span class="string">'click'</span> ,<span class="keyword">function</span> <span class="function"><span class="title">handler</span></span>()&#123;</span><br><span class="line">  console.log(this) // 请问这里的 this 是什么--handler代码</span><br><span class="line">  //等价于-事件触发handler.call(event.currentTarget, event) </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>jQuery Event Handler 中的 this<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ul</span>.on(<span class="string">'click'</span>, <span class="string">'li'</span> , <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(this)</span><br><span class="line">&#125;)//this关键字指向的是当前正在执行事件的元素</span><br></pre></td></tr></table></figure></li>
+<li>确定this总结：1)this是call函数时的第一个参数,遇见函数转化为call形式<br>2)看文档 3)console.log(this)</li>
+</ol>
 
       
 
@@ -272,7 +293,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
         		</li>
       		
 		</ul>
@@ -328,7 +349,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/06/js%E5%AD%A6%E4%B9%A001/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +363,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/06/JS%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js实现聊天机器人
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/06/html-css%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html+css总结</div>
+    <a href="/2020/03/08/flex%E5%B8%83%E5%B1%80%E7%9A%84%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css垂直居中的5种方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -380,7 +392,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量的命名"><span class="toc-number">1.</span> <span class="toc-text">变量的命名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型及操作"><span class="toc-number">1.1.</span> <span class="toc-text">数据类型及操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串拼接-，数学运算"><span class="toc-number">1.2.</span> <span class="toc-text">字符串拼接(+)，数学运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制语句"><span class="toc-number">2.</span> <span class="toc-text">流程控制语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数与对象"><span class="toc-number">2.1.</span> <span class="toc-text">函数与对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM和BOM-重难点"><span class="toc-number">2.2.</span> <span class="toc-text">DOM和BOM (重难点)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#节点的操作"><span class="toc-number">2.2.1.</span> <span class="toc-text">节点的操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM事件"><span class="toc-number">2.2.2.</span> <span class="toc-text">DOM事件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM操作"><span class="toc-number">2.3.</span> <span class="toc-text">BOM操作</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#this的四种绑定格式"><span class="toc-number">1.</span> <span class="toc-text">this的四种绑定格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#补充-new–语法糖"><span class="toc-number">1.1.</span> <span class="toc-text">补充-new–语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#面试题"><span class="toc-number">1.1.1.</span> <span class="toc-text">面试题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用代码转换理解this"><span class="toc-number">2.</span> <span class="toc-text">利用代码转换理解this</span></a></li></ol>
                     </div>
                 </span>
             </div>

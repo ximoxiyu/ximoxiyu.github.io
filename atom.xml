@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-21T04:07:13.956Z</updated>
+  <updated>2020-03-21T05:53:47.657Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,101 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ajax与fetch学习</title>
+    <link href="http://yoursite.com/2020/03/21/ajax%E4%B8%8Efetch/"/>
+    <id>http://yoursite.com/2020/03/21/ajax%E4%B8%8Efetch/</id>
+    <published>2020-03-21T05:04:07.000Z</published>
+    <updated>2020-03-21T05:53:47.657Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ajax学习"><a href="#Ajax学习" class="headerlink" title="Ajax学习"></a>Ajax学习</h2><p>在控制台查看网页发送的网络请求,Network-XHR–Response</p><ol><li>定义:Asynchronous JavaScript and XML—异步 JavaScript 和 XML</li><li>用途:浏览器赋予js主动发起网络请求</li><li>XML数据传输格式(早期ajax使用)，现被JSON取代</li><li>实现方式：提供XMLHttpRequest构造函数，两部分XML+HttpRequest(指http协议中的请求报文);XMLHttpRequest函数让JS主动发起http请求，从而与服务器之间通过http协议来相互通信<a id="more"></a></li><li>1)一般将上述构造函数，new一个新对象xhr，即<br> var xhr =new XMLHttpRequest();</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">xhr对象的三个属性:</span><br><span class="line">1).readyState：表示当前 XHR 对象请求/响应过程的当前活动阶段,四个属性值(0,1,2,3,4)   <span class="keyword">if</span>(xhr.readyState ===4)</span><br><span class="line">0 UNSENT (初始状态，未打开)</span><br><span class="line">此时xhr对象被成功构造，open()方法还未被调用</span><br><span class="line"></span><br><span class="line">1 OPENED (已打开，未发送)</span><br><span class="line">open() 方法已被成功调用，send()方法还未被调用。注意：只有xhr处于OPENED状态，才能调用xhr.setRequestHeader()</span><br><span class="line">和xhr.send()，否则会报错</span><br><span class="line"></span><br><span class="line">2 HEADERS_RECEIVED (已获取响应头)</span><br><span class="line">send()方法已经被调用, 响应头和响应状态已经返回</span><br><span class="line"></span><br><span class="line">3 LOADING (正在下载响应体)</span><br><span class="line">响应体(response entity body)正在下载中，此状态下通过xhr.response可能已经有了响应数据</span><br><span class="line"></span><br><span class="line">4 DONE (整个数据传输过程结束)</span><br><span class="line">整个数据传输过程结束，不管本次请求是成功还是失败</span><br><span class="line">2).status：服务器响应报文的[状态码](http://blog.poetries.top/FE-Interview-Questions/base/<span class="comment">#_6-http%E7%8A%B6%E6%80%81%E7%A0%81%E5%8F%8A%E5%85%B6%E5%90%AB%E4%B9%89)if(xhr.status ===200)</span></span><br><span class="line">3).responseText：保存了服务器返回的数据  console.log(xhr.responseText);</span><br></pre></td></tr></table></figure><p>   2)open方法打开xhr对象–启动请求未发送<br>      xhr.open(‘GET’,url,true)//三个参数：<a href="http://blog.poetries.top/FE-Interview-Questions/base/#_3-http%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%94%A8%E9%80%94" target="_blank" rel="noopener">http请求方法</a>，http请求地址，第三个不常用<br>    3)send方法–发送http请求<br>    xhr.send(null)//一个参数–发送给server的信息(请求报文中的消息体)，字符串类型xhr.send(‘hello’);或null<br>    4)onreadystatechange属性–获取服务器数据<br>    在readyState属性变为4(请求完成)的时候访问responseText属性(存放服务器的响应数据)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 设定XHR对象的onreadystatechange属性</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'调用send函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">  // 浏览器接收完成server数据,下面用了xhr对象的三个属性</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState === 4) &#123;</span><br><span class="line">    // 响应状态码有效,2XX：成功状态码,304自从上次请求后，请求的网页未修改过</span><br><span class="line">    <span class="keyword">if</span> (200 &lt;= xhr.status &lt; 300 || xhr.status === 304) &#123;</span><br><span class="line">      console.log(<span class="string">'接收到服务器数据：'</span>, xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>总代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个XHR对象</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">console.log(<span class="string">'刚刚创建的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">// 打开XHR对象，</span><br><span class="line">xhr.open(<span class="string">'POST'</span>, <span class="string">'http://yapi.demo.qunar.com/mock/63071/helloworld'</span>);</span><br><span class="line">console.log(<span class="string">'调用open函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">// 设定XHR对象的onreadystatechange属性</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  console.log(<span class="string">'调用send函数后的XHR对象：'</span>, xhr.readyState);</span><br><span class="line"></span><br><span class="line">  // 浏览器接收完成服务器数据</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState === 4) &#123;</span><br><span class="line">    // 响应状态码有效</span><br><span class="line">    <span class="keyword">if</span> (200 &lt;= xhr.status &lt; 300 || xhr.status === 304) &#123;</span><br><span class="line">      console.log(<span class="string">'接收到服务器数据：'</span>, xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 发送http请求</span><br><span class="line">xhr.send(<span class="string">'hello'</span>);</span><br></pre></td></tr></table></figure><p>结果输出：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">刚刚创建的XHR对象：0</span><br><span class="line">调用open函数后的XHR对象：1</span><br><span class="line">调用send函数后的XHR对象：2</span><br><span class="line">调用send函数后的XHR对象：3</span><br><span class="line">调用send函数后的XHR对象：4</span><br><span class="line">接收到服务器数据：Hello World!</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Ajax学习&quot;&gt;&lt;a href=&quot;#Ajax学习&quot; class=&quot;headerlink&quot; title=&quot;Ajax学习&quot;&gt;&lt;/a&gt;Ajax学习&lt;/h2&gt;&lt;p&gt;在控制台查看网页发送的网络请求,Network-XHR–Response&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义:Asynchronous JavaScript and XML—异步 JavaScript 和 XML&lt;/li&gt;
+&lt;li&gt;用途:浏览器赋予js主动发起网络请求&lt;/li&gt;
+&lt;li&gt;XML数据传输格式(早期ajax使用)，现被JSON取代&lt;/li&gt;
+&lt;li&gt;实现方式：提供XMLHttpRequest构造函数，两部分XML+HttpRequest(指http协议中的请求报文);XMLHttpRequest函数让JS主动发起http请求，从而与服务器之间通过http协议来相互通信
+    
+    </summary>
+    
+    
+    
+      <category term="前端学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ajax" scheme="http://yoursite.com/tags/ajax/"/>
+    
+      <category term="http协议" scheme="http://yoursite.com/tags/http%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ximixiyu博客</title>
+    <link href="http://yoursite.com/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9803/"/>
+    <id>http://yoursite.com/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9803/</id>
+    <published>2020-03-21T05:03:21.000Z</published>
+    <updated>2020-03-21T05:03:21.403Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试题02</title>
+    <link href="http://yoursite.com/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9802/"/>
+    <id>http://yoursite.com/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9802/</id>
+    <published>2020-03-21T05:03:06.000Z</published>
+    <updated>2020-03-22T08:24:33.582Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a><a href="http://blog.poetries.top/FE-Interview-Questions/base/#_19-%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%9A%84%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E5%A5%87%E6%95%B0%E8%BF%98%E6%98%AF%E5%81%B6%E6%95%B0%E7%9A%84%E5%AD%97%E4%BD%93%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F" target="_blank" rel="noopener">CSS部分</a></h2><ol><li><a href="">css sprite是什么及优缺点？</a><a href="https://www.cnblogs.com/evenyao/p/9262371.html">https://www.cnblogs.com/evenyao/p/9262371.html</a><br>css精灵或雪碧图,网页图片的应用处理—多个小图拼成一个大图(背景图像)<br>background-position 背景图像background-image的起始位置(左上角)。使用雪碧图前确定每个小图标的位置 background-position:x y<a id="more"></a></li><li>display: none;与visibility: hidden;的区别<br>均是元素不可见;display: none元素从渲染树消失，不占空间，非继承性，读屏器不读取</li><li><a href="http://www.divcss5.com/rumen/r431.shtml" target="_blank" rel="noopener">link与@import的区别</a><br>均是引入css样式;<br>1)语法结构<br>link是html标签,而@import url(CSS文件路径地址);在style标签下使用<br>2)link最大限度支持并行下载;@import是串行下载，出现FOUC,且必须在样式规则前，可在css文件中引用其他文件<br>3)link优于@import</li><li><a href="https://www.cnblogs.com/gxx129/p/10859117.html" target="_blank" rel="noopener">FOUC-文档样式短暂失效</a><br>Flash Of Unstyled Content无样式内容闪烁，在IE下由@import导入css文件引起;IE先加载文档DOM树，再导入外部css,两者时间中页面无样式<br>解决：使用link标签</li><li><a href="https://blog.csdn.net/sinat_36422236/article/details/88763187" target="_blank" rel="noopener">BFC的创建与用途</a><br>block formatting context块格式化上下文<br>用途：1)使BFC内部浮动元素不乱跑，2)与浮动元素产生边界<br>正常的文档流中，块级元素是按照从上自下，内联元素从左到右的顺序排列，给float或绝对定位absolute，元素脱离正常文档流<br>举例子而不要纠结定义<br>BFC规范：决定元素对其内容定位及其他元素的关系与相互作用<ol start="6"><li>display、float、position的关系：绝对定位、浮动、根元素都需要调整display</li><li>清除浮动的几种方式,最佳：父级div定义伪类:after和zoom</li><li>初始化CSS样式：浏览器的兼容问题，但会影响SEO</li><li>css3新特性：圆角 border-radius, 文字特效text-shadow,线性渐变,旋转transform,新增伪类</li><li>display有哪些值7【重点】 </li><li>标准的CSS的盒子模型：W3C盒子模型content+padiing+border+margin;低版本IE的盒模型中的content包含border与padding</li><li>css优先级算法：就近；!important &gt; id &gt; class &gt; tag; !important 比 内联优先级高</li><li>浮动和清除浮动</li><li>position的值， relative(原位置)和absolute定位原点(不为static的父元素)</li><li>display:inline-block 什么时候不会显示间隙？移除空格，使用margin负值，使用font-size:0,【参考代码04间隙解决】</li><li>PNG\GIF\JPG的区别及如何选【记住】</li><li>行内元素float:left后是否变为块级元素？像inline-block,但默认效果不是100%,可以设置padding-top和padding-bottom或者width、height</li><li><a href="https://blog.csdn.net/jian_xi/article/details/79346477" target="_blank" rel="noopener">在网页中使用偶数字体</a>：更容易与web设计的其他部分构成比例关系;低版本浏览器ie6会将奇数字体强制转换成偶数字体</li><li>::before 和 :after中双冒号–伪元素和单冒号–CSS3伪类<br>伪类用于选择DOM树之外的信息，或是不能用简单选择器进行表示的信息。伪元素为DOM树没有定义的虚拟元素<br><a href="https://segmentfault.com/a/1190000019122105" target="_blank" rel="noopener">伪类与伪元素</a>伪类-状态-：  伪元素-真有元素-::</li><li>手写动画的最小时间间隔：多数显示器默认频率是60Hz，即1秒刷新60次，所以理论上最小间隔为1/60*1000ms ＝ 16.7ms</li><li>CSS合并方法：css工具(sass/compass)将css合并成一个css文件</li><li>CSS不同选择器的权重(CSS层叠的规则)<a href="https://www.cnblogs.com/piaoyi1997/p/12530163.html" target="_blank" rel="noopener">内联样式表(1000)&gt;id选择符(100)&gt;class选择符(10)&gt;标签选择符(1)</a></li><li>改变页面布局的属性：display,padding,margin,postion,top,left,right,width,height,float</li><li>CSS性能优化:尽量用缩写、避免用滤镜、合理使用选择器</li><li>css3简单动画：旋转<br>3个属性：transition,transform,animation</li><li>base64原理及优缺点：Base64是用于传输8Bit字节码的编码方式之一，Base64就是一种基于64个字符来表示二进制数据的方法;优点：可加密，减少HTTP请求;缺点：消耗CPU来编解码;base适用于小图片，体积约为原图3/4</li><li>常见CSS布局：流体布局,圣杯布局,双飞翼布局</li><li><a href="https://blog.csdn.net/ly2983068126/article/details/77737292" target="_blank" rel="noopener">stylus/sass/less区别</a><br>为三款不同的css预处理器</li><li><a href="https://www.jianshu.com/p/288963680642" target="_blank" rel="noopener">postcss</a></li><li>自定义字体的使用场景:宣传、品牌等固定文案;字体图标</li><li>美化CheckBox<br>Checkbox 对象代表一个 HTML 表单中的 一个选择框。3种方法</li><li><a href="https://zhuanlan.zhihu.com/p/25220324" target="_blank" rel="noopener">自适应布局</a></li><li>用css写一个简单的幻灯片效果-代码37</li><li>外边距重叠margin-collapse,相邻外边距结合成一个单独外边距<br>重叠结果：同正或同负，取绝对值最大;一正一负取两者和</li><li>透明效果rgba()仅作用于元素颜色及背景色，子元素不继承<br>opacity作用于元素及元素内容</li><li>css文字在垂直line-height与水平方向重叠letter-spacing</li><li>垂直居中一个浮动元素:已知宽高-父绝对，上左为50%，margin-top与margin-left为-1/2宽高;<br>未知宽高-父相对，margin:auto,上下左右均为0</li><li>px固定与em不固定区别：长度单位，em可继承，1em=16px,浏览器默认字体高16px</li><li>css的content属性：应用于before与after伪元素上，用于插入生成内容，应用：利用伪类清除浮动</li><li>水平居中(5种)，垂直居中5种【重点】</li><li>CSS实现硬件加速：创建独立的复合图层，让GPU来渲染这个图层，从而提高性能，css属性transform、opacity、filter</li><li><a href="https://www.cnblogs.com/soyxiaobi/p/9963019.html" target="_blank" rel="noopener">重绘与重排</a></li><li>css3的animation</li><li>左边宽度固定，右边自适应(代码)</li><li>垂直水平居中(5种–博客)</li><li>小于12px的字体–利用display:inline;//设成行内块元素<br>transform: scale(0.7);//缩放有宽高的元素<br><a href="http://blog.poetries.top/FE-Interview-Questions/base/#%E4%BA%8C%E3%80%81css%E9%83%A8%E5%88%86" target="_blank" rel="noopener">题库</a></li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      基础篇-css部分
+    
+    </summary>
+    
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="前端面试" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="基础篇" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题01</title>
+    <link href="http://yoursite.com/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9801/"/>
+    <id>http://yoursite.com/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9801/</id>
+    <published>2020-03-21T05:02:53.000Z</published>
+    <updated>2020-03-22T03:05:58.663Z</updated>
+    
+    <content type="html"><![CDATA[<p>真的快哭死了，敲了三个小时的内容，一个保存–否，回到解放前！被自己蠢哭<br>所以我决定<a href="https://www.jb51.net/article/151649.htm" target="_blank" rel="noopener">在VScode中使用git</a></p><h2 id="基础篇-HTML-HTTP，Web综合问题"><a href="#基础篇-HTML-HTTP，Web综合问题" class="headerlink" title="[基础篇]HTML,HTTP，Web综合问题"></a>[基础篇]HTML,HTTP，Web综合问题</h2><ol><li>前端需要注意哪些SEO<br>SEO：搜索引擎优化<br>1)合理title&gt;description(内容高度概括)&gt;keyworks(关键字)<br>不同页面的title,description不同<br>2)语义化html代码，重要内容的html往前写，不用js输出<br>3)少用frame<br>4)非装饰性img加alt属性<br>5)提高网站的速度<a id="more"></a></li><li>HTTP的请求方法：GET POST PUT HEAD DELETE</li><li>【重点】 从浏览器地址栏输入url到显示页面的步骤</li><li>网站性能优化<br>js与css多用外链,尾与头部，减少DOM的数量与调用，较小cookie大小</li><li>HTTP状态码<br>1xx–信息状态码<br>2xx–成功状态码，200-正常返回<br>3xx–重定向,304上次请求后页面未修改<br>4xx–客户端错误，403禁止访问，404没找到资源<br>5xx–服务器错误，500服务器端错误</li><li>语义化理解<br>正确的标签做正确的事，利于SEO</li><li>浏览器内核–渲染引擎</li><li><a href="https://blog.csdn.net/weixin_41796631/article/details/89313941" target="_blank" rel="noopener">.appcache</a><br>AppCache就是对app内存缓存的方案，具体表现为当请求某个文件时不是从网络获取该文件，而是从本地获取。<br>优势：离线浏览,速度,减少服务器负载</li><li>【重点】cookies，sessionStorage 和 localStorage 的区别？存储地址,大小,寿命</li><li>iframe缺点：阻碍主页面onload事件;不利于SEO;影响页面并行加载;解决-js动态给iframe添加src属性</li><li>web标准与W3C标准<br>标签闭合，标签大小写，不乱嵌套，css与js外链</li><li>Doctype作用? &lt;!DOCTYPE&gt; 声明位于文档中的最前面，定义文档规范;不存在或错误使用时导致文档以混杂模式呈现<br>HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为</li><li>行内元素：span img input a select<br>块元素：div h1-h6 p ul li dd<br>空元素：input img hr br link meta</li><li>全局属性：class title id style</li><li><a href="https://blog.csdn.net/yaodebian/article/details/84778425" target="_blank" rel="noopener">如何在页面上实现一个圆形的可点击区域？</a><br>svg–矢量图<br>border-radius=50%(css3)<br>纯js–有代码<ol start="22"><li>网页验证码(输入证书)<br>区分用户是否为人;防止黑客</li><li>渲染优化【理解】</li><li>你做的页面在哪些流览器测试过？这些浏览器的内核分别是什么?<br>IE: trident内核<br>Firefox：gecko内核<br>Safari:webkit内核<br>Opera:以前是presto内核，Opera现已改用Google - Chrome的Blink内核<br>Chrome:Blink(基于webkit，Google与Opera Software共同开发) </li></ol></li><li>div+css的布局较table布局有什么优点？<br>html与css分离，更改方便;加载速度快，结构化清晰，页面简洁，SEO友好</li><li>a：img的alt与title有何异同？b：strong与em的异同？</li><li>为什么利用多个域名来存储网站资源会更有效？<br>CDN缓存更方便<br>突破浏览器并发限制<br>节约cookie带宽<br>节约主域名的连接数，优化页面响应速度<br>防止不必要的安全问题 </li><li>src与href的区别<br>src替换当前元素，href当前文档和引用资源之间确立联系；<br>src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；href是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接<br>link标签中href，并行下载资源对当前文档的处理</li><li>网页制作会用到的图片格式<br>png-8、png-24、jpeg、gif、svg,新技术：Webp(加快图片加载速度)与Apng(动态图标准)</li><li>在css/js代码上线之后开发人员经常会优化性能，从用户刷新网页开始，一次js请求一般情况下有哪些地方会有缓存处理？dns缓存，cdn缓存，浏览器缓存，服务器缓存</li><li>优化页面加载<br>图片懒加载等</li><li>常见排序算法的时间复杂度,空间复杂度【重点】</li><li>HTTP request报文结构是怎样的【掌握】</li><li>HTTP response报文结构是怎样的【掌握】</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;真的快哭死了，敲了三个小时的内容，一个保存–否，回到解放前！被自己蠢哭&lt;br&gt;所以我决定&lt;a href=&quot;https://www.jb51.net/article/151649.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在VScode中使用git&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;基础篇-HTML-HTTP，Web综合问题&quot;&gt;&lt;a href=&quot;#基础篇-HTML-HTTP，Web综合问题&quot; class=&quot;headerlink&quot; title=&quot;[基础篇]HTML,HTTP，Web综合问题&quot;&gt;&lt;/a&gt;[基础篇]HTML,HTTP，Web综合问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;前端需要注意哪些SEO&lt;br&gt;SEO：搜索引擎优化&lt;br&gt;1)合理title&amp;gt;description(内容高度概括)&amp;gt;keyworks(关键字)&lt;br&gt;不同页面的title,description不同&lt;br&gt;2)语义化html代码，重要内容的html往前写，不用js输出&lt;br&gt;3)少用frame&lt;br&gt;4)非装饰性img加alt属性&lt;br&gt;5)提高网站的速度
+    
+    </summary>
+    
+    
+    
+      <category term="前端面试" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>this的指向</title>

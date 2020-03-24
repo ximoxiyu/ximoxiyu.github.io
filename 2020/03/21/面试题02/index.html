@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="基础篇-css部分">
 <meta property="article:published_time" content="2020-03-21T05:03:06.000Z">
-<meta property="article:modified_time" content="2020-03-22T08:24:33.582Z">
+<meta property="article:modified_time" content="2020-03-24T10:17:09.636Z">
 <meta property="article:author" content="ximoxiyu">
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="前端面试">
@@ -194,7 +194,7 @@
 <li>display: none;与visibility: hidden;的区别<br>均是元素不可见;display: none元素从渲染树消失，不占空间，非继承性，读屏器不读取</li>
 <li><a href="http://www.divcss5.com/rumen/r431.shtml" target="_blank" rel="noopener">link与@import的区别</a><br>均是引入css样式;<br>1)语法结构<br>link是html标签,而@import url(CSS文件路径地址);在style标签下使用<br>2)link最大限度支持并行下载;@import是串行下载，出现FOUC,且必须在样式规则前，可在css文件中引用其他文件<br>3)link优于@import</li>
 <li><a href="https://www.cnblogs.com/gxx129/p/10859117.html" target="_blank" rel="noopener">FOUC-文档样式短暂失效</a><br>Flash Of Unstyled Content无样式内容闪烁，在IE下由@import导入css文件引起;IE先加载文档DOM树，再导入外部css,两者时间中页面无样式<br>解决：使用link标签</li>
-<li><a href="https://blog.csdn.net/sinat_36422236/article/details/88763187" target="_blank" rel="noopener">BFC的创建与用途</a><br>block formatting context块格式化上下文<br>用途：1)使BFC内部浮动元素不乱跑，2)与浮动元素产生边界<br>正常的文档流中，块级元素是按照从上自下，内联元素从左到右的顺序排列，给float或绝对定位absolute，元素脱离正常文档流<br>举例子而不要纠结定义<br>BFC规范：决定元素对其内容定位及其他元素的关系与相互作用<ol start="6">
+<li><a href="https://blog.csdn.net/sinat_36422236/article/details/88763187" target="_blank" rel="noopener">BFC的创建与用途</a><br>block formatting context块格式化上下文<br>用途：1)使BFC内部浮动元素不乱跑，2)与浮动元素产生边界<br>正常的文档流中，块级元素是按照从上自下，内联元素从左到右的顺序排列，给float或绝对定位absolute，元素脱离正常文档流<br>举例子而不要纠结定义<br>BFC规范：决定元素对其内容定位及其他元素的关系与相互作用</li>
 <li>display、float、position的关系：绝对定位、浮动、根元素都需要调整display</li>
 <li>清除浮动的几种方式,最佳：父级div定义伪类:after和zoom</li>
 <li>初始化CSS样式：浏览器的兼容问题，但会影响SEO</li>
@@ -232,13 +232,18 @@
 <li>水平居中(5种)，垂直居中5种【重点】</li>
 <li>CSS实现硬件加速：创建独立的复合图层，让GPU来渲染这个图层，从而提高性能，css属性transform、opacity、filter</li>
 <li><a href="https://www.cnblogs.com/soyxiaobi/p/9963019.html" target="_blank" rel="noopener">重绘与重排</a></li>
-<li>css3的animation</li>
+<li>css3的animation动画效果</li>
 <li>左边宽度固定，右边自适应(代码)</li>
 <li>垂直水平居中(5种–博客)</li>
 <li>小于12px的字体–利用display:inline;//设成行内块元素<br>transform: scale(0.7);//缩放有宽高的元素<br><a href="http://blog.poetries.top/FE-Interview-Questions/base/#%E4%BA%8C%E3%80%81css%E9%83%A8%E5%88%86" target="_blank" rel="noopener">题库</a></li>
 </ol>
-</li>
-</ol>
+<hr>
+<h3 id="补充-css3学习"><a href="#补充-css3学习" class="headerlink" title="补充-css3学习"></a><a href="https://www.runoob.com/css3/css3-tutorial.html" target="_blank" rel="noopener">补充-css3学习</a></h3><p>CSS 用于控制网页的样式和布局,CSS3 是最新的 CSS 标准。模块化发展<br>【重点】选择器，盒模型，背景和边框，文字特效，2D/3D转换，动画动态盒子<br>1)border-radius使用(3种) 顺时针简写<br>   border-radius: 25px;<br>            /* background-color: blue; <em>/<br>            /</em> border: 1px solid red; <em>/<br>            /</em> background-image: url(bg.jpg) ; */<br>2)background背景 简写<br>background-image(可放多个背景图片,)/background-size/background-size/background-position/ background-repeat<br>background-origin:背景图片位置，三个值<br>  background-clip: content-box;默认：没有背景剪裁 border-box<br>3)渐变，减少下载的时间和宽带的使用;线性(下上左右对角)、径向渐变(中心，形状)<br>对角线性渐变background-image:linear-gradient(to top left,#e66465, #9198e5,blue);<br>透明度：创建逐渐变淡效果rgba() 函数来定义颜色结点，rgba() 函数中的最后一个参数可以是从 0 到 1 的值，它定义了颜色的透明度：0 表示完全透明，1 表示完全不透明。<br>径向渐变：默认椭圆background-image: radial-gradient(red, yellow, green);<br>4)文本效果：<br>text-shadow文字阴影：水平，垂直，阴影距离，颜色text-shadow: 5px 5px 5px #FF0000;<br>【做卡片】盒子阴影box-shadow: 10px 10px 5px #888888;//盒子距离，第三个属性值表模糊度<br>word-break:keep-all单词拆分、break-all换行;<br>5)CSS3字体：@font-face<br>6)2D/3D转换：移动、缩放、转动、拉长或拉伸，效果某元素改变大小，位置，形状<br>transform:translate()/rotate()/scale()/skew(倾斜角度)/matrix()<br>7)过渡transition–样式转变:添加效果样式，持续时间(样式转变更平滑)transition: width 2s;<br>简写属性：transition-property应用过渡的CSS名称<br>transition-duration默认为0,transition-timing-function,transition-delay何时开始<br>8)动画@keyframes 规则是创建动画,指定两个CSS3的动画属性(名称，时长)绑定一个选择器<br>动画是使元素从一种样式逐渐变化为另一种样式的效果。百分比来规定变化发生的时间，或用关键词 “from” 和 “to”，等同于 0%(开始) 和 100%(结束)且当动画完成时，会变回初始的样式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">   //animation所有动画属性的简写，除了animation-play-state 属性--动画运行或暂停。</span><br><span class="line">   animation: myfirst 5s;</span><br><span class="line">   &#125;</span><br><span class="line">@keyframes myfirst</span><br><span class="line">&#123;</span><br><span class="line">	from &#123;background:red;&#125;</span><br><span class="line">	to &#123;background:yellow;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>9)CSS3 多列column–报纸<br>(分割数count、列间隙gap,列边框/厚度/颜色 rule-style/width/color–简写column-rule)</p>
+<p>10)用户界面：调整元素尺寸，框尺寸和外边框resize,box-sizing,outline-offset<br>11)css图片img+border-radius实现圆角、椭圆形，缩略图<br>响应式图片–自动适配各种尺寸的屏幕<br>文字图片居中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">position: absolute;</span><br><span class="line"> top: 50%;</span><br><span class="line"> width: 100%;</span><br><span class="line"> text-align: center;</span><br></pre></td></tr></table></figure>
+<p>图片滤镜 img{filter:grayscale(100%)}<br>图片模态框(css+js)<br>12)<a href="https://www.runoob.com/css3/css3-buttons.html" target="_blank" rel="noopener">css按钮</a><br>13)css3分页：页面导航<br>14)框大小：CSS3 box-sizing 属性可以设置 width 和 height 属性中包含了 padding(内边距) 和 border(边框)。使用：box-sizing: border-box;<br>15)【重点：弹性盒子flex box】容器+子元素(一行，从左到右)<br>flex-direction 属性指定了弹性子元素在父容器中的位置。<br>弹性容器上：内容对齐（justify-content）属性-水平；align-item—垂直;flex-wrap 属性–子元素换行<br>【注】1.设置”margin”值为”auto”值，自动获取弹性容器中剩余的空间<br>居中：display:flex及margin:auto<br>2.flex 属性用于指定弹性子元素如何分配空间<br>flex: auto | initial | none | inherit |  [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]<br>16)<a href="https://www.runoob.com/css3/css3-mediaqueries-ex.html" target="_blank" rel="noopener">多媒体查询@media</a></p>
 
       
 
@@ -360,7 +365,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          ximixiyu博客
+          面试题03
         
       </div>
     </a>
@@ -394,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS部分"><span class="toc-number">1.</span> <span class="toc-text">CSS部分</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS部分"><span class="toc-number">1.</span> <span class="toc-text">CSS部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#补充-css3学习"><span class="toc-number">1.1.</span> <span class="toc-text">补充-css3学习</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -607,6 +612,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">基础篇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">js30</a>
               </li>
             
             <div class="clearfix"></div>

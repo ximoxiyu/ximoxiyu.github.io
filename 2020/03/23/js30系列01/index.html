@@ -14,12 +14,15 @@
 <meta property="og:url" content="http://yoursite.com/2020/03/23/js30%E7%B3%BB%E5%88%9701/index.html">
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="01 打鼓【基本思路】触发键盘按键ASDFGHJKL,进行audio播放与样式的改变,结束后触发transitionend事件去除样式;【html】一大块div(keys)内含9小块div(key)，每小块div有自身的键码data-key与音频sound;每个按键码对应一个audio标签，进行指定音频【注：音频地址为本地sounds文件夹】">
+<meta property="og:image" content="http://yoursite.com/images/js30/2.png">
+<meta property="og:image" content="http://yoursite.com/images/js30/3.png">
 <meta property="article:published_time" content="2020-03-23T13:04:31.000Z">
-<meta property="article:modified_time" content="2020-03-24T07:16:01.551Z">
+<meta property="article:modified_time" content="2020-03-26T10:23:45.228Z">
 <meta property="article:author" content="ximoxiyu">
 <meta property="article:tag" content="项目">
 <meta property="article:tag" content="js30">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/js30/2.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -199,7 +202,24 @@
 <li>模板字面量–模板字符串的标识<br><code>字符串 ${ 变量、属性名 }</code><br>const audio=document.querySelector(`audio[data-key=”${event.keyCode}”]//为什么加了””?</li>
 </ol>
 <hr>
-<h2 id="02-纯-JS、CSS-时钟"><a href="#02-纯-JS、CSS-时钟" class="headerlink" title="02 纯 JS、CSS 时钟"></a>02 <a href="https://github.com/ximoxiyu/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock" target="_blank" rel="noopener">纯 JS、CSS 时钟</a></h2><p>目的：动态更新指针位置<br>关键：指针的旋转与获取实时时间，每转一秒改变一次指针状态–类比音乐播放器的旋转<br>【html】最大块clock–含整个表clock-face–含时,分，秒针</p>
+<h2 id="02-纯-JS、CSS-时钟"><a href="#02-纯-JS、CSS-时钟" class="headerlink" title="02 纯 JS、CSS 时钟"></a>02 <a href="https://github.com/ximoxiyu/JavaScript30/tree/master/02%20-%20JS%20%2B%20CSS%20Clock" target="_blank" rel="noopener">纯 JS、CSS 时钟</a></h2><p>目的：动态更新指针位置<br>关键：指针的旋转与获取实时时间，每转一秒改变一次指针状态–类比音乐播放器的旋转<br>核心思想:每走1s，改变分针的角度;实质：利用定时器setInterval获取当前时间Date对象时分秒针的转动角度，改变转动样式<br><img src="/images/js30/2.png" alt="效果"><br>【html】最大块clock–含整个表clock-face–含时,分，秒针<br>【css】圆盘指针属性<br>【js】1.获html节点<br>2.定时器setInterval每隔1s=1000ms进行一次处理(获取当前时间，更改对应角度，注意加90°–起始位置,获取到的html节点来改变样式transform：rotate())</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    // 核心:动态改时间旋转角度</span><br><span class="line">// 1.获取三个指针的HTML</span><br><span class="line">const secHand = document.querySelector(<span class="string">'.second-hand'</span>);</span><br><span class="line">const minHand = document.querySelector(<span class="string">'.min-hand'</span>);</span><br><span class="line">const hourHand = document.querySelector(<span class="string">'.hour-hand'</span>);</span><br><span class="line">//定时器+Data获取时间,定时器间隔ms</span><br><span class="line">var num=setInterval(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  // 编写setDate函数,获取当前时分秒，计算相应角度</span><br><span class="line">  //获取当前时间</span><br><span class="line">  const data = new Date();</span><br><span class="line">  const second =data.getSeconds();//获取秒</span><br><span class="line">  //计算角度：90°--0秒，60秒走360度</span><br><span class="line">  const secondDeg = 90+(second/60)*360;</span><br><span class="line">  const min =data.getMinutes();</span><br><span class="line">  const minDeg = 90 +(min/60)*360;</span><br><span class="line">  const hour = data.getHours();</span><br><span class="line">  //加入分钟所占的时间，是时针缓慢移动</span><br><span class="line">  // 时针在一小时内缓慢的移动到下一个时间点。所以可以利用上分钟，计算每一分钟对时针的角度影响，将加到时针角度上即可</span><br><span class="line">  const hourDeg = 90 + (hour / 12) * 360 + (min / 12 / 60) * 360;</span><br><span class="line">  // const hourDeg =( 90+ (hour/12)*360);也可</span><br><span class="line"></span><br><span class="line">  // 动态将角度值赋值给 HTML 元素的 style 中的 transform 属性</span><br><span class="line">  secHand.style.transform=`rotate(<span class="variable">$&#123;secondDeg&#125;</span>deg)`;</span><br><span class="line">  minHand.style.transform = `rotate(<span class="variable">$&#123; minDeg &#125;</span>deg)`;</span><br><span class="line">  hourHand.style.transform = `rotate(<span class="variable">$&#123; hourDeg &#125;</span>deg)`;</span><br><span class="line">        //在控制台打印当前时间及对应的角度</span><br><span class="line">        console.log(`<span class="variable">$&#123;hour&#125;</span>:<span class="variable">$&#123;min&#125;</span>:<span class="variable">$&#123;second&#125;</span>-角度<span class="variable">$&#123;hourDeg&#125;</span>:<span class="variable">$&#123;minDeg&#125;</span>:<span class="variable">$&#123;secondDeg&#125;</span>`);</span><br><span class="line">&#125;,1000); </span><br><span class="line"></span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>【难点】css中的样式设定：指针加阴影box-shadow<br>1.贝塞尔曲线过渡<a href="https://www.cnblogs.com/tenfly/p/11559845.html" target="_blank" rel="noopener">transition-timing-function: cubic-bezier(0.9, 0.54, 0.26, 1.68);</a><br>2.转换–调整曲线轴点–旋转元素的基点位置[transform-origin]<br>3.过渡–时钟指针跳动时的过渡效果<br>transition: all 3s;//复合属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transition: property duration timing-function delay;</span><br></pre></td></tr></table></figure>
+<p>这里js主要改的是transform:rotate()</p>
+<h3 id="3-js控制css"><a href="#3-js控制css" class="headerlink" title="3.js控制css"></a><a href="https://github.com/ximoxiyu/JavaScript30/tree/master/03%20-%20CSS%20Variables" target="_blank" rel="noopener">3.js控制css</a></h3><p>【核心】触发事件mousemove或input的change,改变css的样式<br><img src="/images/js30/3.png" alt="效果"><br>【html】标题,<a href="https://blog.csdn.net/zhouziyu2011/article/details/58594447?utm_source=blogxgwz0" target="_blank" rel="noopener">label+input</a>构成控制栏(),图片img</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//通过为&lt;input&gt;设置id属性，在&lt;lable&gt;标签中设置<span class="keyword">for</span>=id来让说明文本和对应的&lt;input&gt;关联起来。</span><br><span class="line"> &lt;label <span class="keyword">for</span>=<span class="string">"spacing"</span>&gt;Spacing:&lt;/label&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">"range"</span> name=<span class="string">"spacing"</span> min=<span class="string">"10"</span> max=<span class="string">"200"</span> value=<span class="string">"10"</span> data-sizing=<span class="string">"px"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>【css】</p>
+<ol>
+<li>声明全局（:root）对应html标签的 CSS 变量  –变量名</li>
+<li>使用全局变量(要改变的元素hh类与img内使用) var(–变量名)<br>【js】</li>
+<li>两种事件均会改变样式，故将改变样式封装成函数，触发事件调用此函数即可</li>
+<li>多个input标签选定节点，forEach遍历;</li>
+<li>addEventListener事件监听，一个事件可执行多个函数</li>
+<li>change事件-input值变动，触发;mousemove-鼠标移动<br>【难点】样式改变<br>1)获取参数值后缀—数据属性 dataset<br>2)获取参数名与参数值<br>3)对应css变量赋值<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        //   用 JS和 CSS3 实现拖动滑块时，实时调整图片的内边距、模糊度、背景颜色，同时标题中 JS 两字的颜色也随图片背景颜色而变化。</span><br><span class="line"></span><br><span class="line">        // 编写处理更新操作的方法</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">handleUpdate</span></span>() &#123;</span><br><span class="line">            // 获取参数值后缀</span><br><span class="line">            const suffix = this.dataset.sizing || <span class="string">''</span>; // 根据 data-sizing 获取参数的后缀</span><br><span class="line">            // 获取参数名（blur、spacing、color）</span><br><span class="line">            document.documentElement.style.setProperty(`--<span class="variable">$&#123;this.name&#125;</span>`, this.value + suffix); // 设置页面 CSS 变量的值</span><br><span class="line">            // 获取参数值（12px、<span class="comment">#efefef）并赋值给相应的CSS变量--文档根元素</span></span><br><span class="line">            document.getElementById(this.name).innerText = this.value + suffix; // 页面参数实时显示</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 获取页面中 input 元素</span><br><span class="line">        const inputs = document.querySelectorAll(<span class="string">'.controls input'</span>);</span><br><span class="line">        // 给每个 input 添加监听事件(两种)，使其在值变动，触发更新操作</span><br><span class="line">        inputs.forEach(input =&gt; input.addEventListener(<span class="string">'mousemove'</span>, handleUpdate));//可以加多个函数,不能加多个事件</span><br><span class="line">        inputs.forEach( input =&gt; input.addEventListener(<span class="string">'change'</span>, handleUpdate));</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+【补充】<h4 id="处理参数值"><a href="#处理参数值" class="headerlink" title="处理参数值"></a>处理参数值</h4>只需要加上 data- 前缀，可以随便添加和命名,利用dataset来访问，dataset 的值是 DOMStringMap 的一个实例化对象，其中包含之前所设定的自定义属性的“名-值”对。<br>input标签中声明data-sizing=”px”,在js中用dataset.sizing来获取后缀名</li>
+</ol>
+<h4 id="js处理css样式"><a href="#js处理css样式" class="headerlink" title="js处理css样式"></a>js处理css样式</h4><p>获取文档根元素document.documentElement，改变css的全局变量</p>
 
       
 
@@ -313,6 +333,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/03/26/js30%E7%B3%BB%E5%88%9702/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js30系列02
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/03/21/ajax%E4%B8%8Efetch/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">ajax与fetch学习</div>
@@ -342,7 +371,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-打鼓"><span class="toc-number">1.</span> <span class="toc-text">01 打鼓</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-纯-JS、CSS-时钟"><span class="toc-number">2.</span> <span class="toc-text">02 纯 JS、CSS 时钟</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-打鼓"><span class="toc-number">1.</span> <span class="toc-text">01 打鼓</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-纯-JS、CSS-时钟"><span class="toc-number">2.</span> <span class="toc-text">02 纯 JS、CSS 时钟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-js控制css"><span class="toc-number">2.1.</span> <span class="toc-text">3.js控制css</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#处理参数值"><span class="toc-number">2.1.1.</span> <span class="toc-text">处理参数值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js处理css样式"><span class="toc-number">2.1.2.</span> <span class="toc-text">js处理css样式</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

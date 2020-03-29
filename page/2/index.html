@@ -157,6 +157,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-this的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/">this的指向</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-03-20T10:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="this的四种绑定格式"><a href="#this的四种绑定格式" class="headerlink" title="this的四种绑定格式"></a>this的四种绑定格式</h2><p>优先级：new&gt;显性&gt;隐形&gt;默认绑定</p>
+<p> 1.默认绑定<br>输出10，使用全局变量var a=10,此时this绑定window</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">            var a=1;</span><br><span class="line">            console.log(this.a);</span><br><span class="line">        &#125;</span><br><span class="line">        var a=10;</span><br><span class="line">        foo();</span><br><span class="line">补充：转换为foo.call(undefined),此时this为window</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+      <!--添加代码开始-->
+      
+        <div class="declare" hidden="hidden"></div>
+      
+  
     <article id="post-flex布局的学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -935,89 +1028,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/02/%E6%88%91%E7%9A%84Vue%E5%AD%A6%E4%B9%A0II/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-随笔" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/02/%E9%9A%8F%E7%AC%94/">写博客随笔</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/02/%E9%9A%8F%E7%AC%94/" class="archive-article-date">
-  	<time datetime="2020-03-02T07:42:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="利用VScode写markdown"><a href="#利用VScode写markdown" class="headerlink" title="利用VScode写markdown"></a>利用VScode写markdown</h2><p>  通过百度和坚持使用，逐渐熟悉.md的格式，利用博客记录学习前端的过程，总结笔记，push自己走出舒适区</p>
-        
-          <a class="article-more-a" href="/2020/03/02/%E9%9A%8F%E7%AC%94/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/02/%E9%9A%8F%E7%AC%94/">展开全文 >></a>
         </p>
       
 

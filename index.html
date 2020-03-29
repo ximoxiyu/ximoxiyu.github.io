@@ -157,6 +157,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-http协议梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/">http协议梳理</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-03-29T07:31:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="《图解http协议》总结"><a href="#《图解http协议》总结" class="headerlink" title="《图解http协议》总结"></a>《图解http协议》总结</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li><p>HTTP：HyperText Transfer Protocol 超文本传输协议(规则)<br>HTTP协议前：FTP文本传输协议</p>
+</li>
+<li><p>WWW: World Wide Web 万维网，简称web<br>  3项WWW构建技术：SGML-标准通用标记语言</p>
+<pre><code>HTTP协议
+URL-统一资源定位符</code></pre></li>
+<li><p>TCP/IP分层：应用层(FTP,DNS,HTTP协议)，传输层(TCP,UDP)，网络层(IP)，链路层(硬件)</p>
+</li>
+<li><p>TCP/IP 通信传输流(p19页图)<br>层与层传输数据时，加每层的首部信息</p>
+</li>
+<li><p><strong>IP,TCP,DNS协议</strong><br>1)IP协议：传数据包，节点分配地址(可变);依赖MAC地址-网卡的固定地址;中转时IP通过ARP协议，解析地址反查对应的MAC地址<br>2)TCP协议：确定数据传到(可靠性)，BSS-字节流服务,数据以报文段(单位)分割;牢记三次握手：SYN–SYN/ACK–ACK<br><img src="/images/http%E5%8D%8F%E8%AE%AE/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png" alt="三次握手"><br>3)DNS:域名解析，域名–IP地址，服务器接收IP地址，若是域名，则先经过DNS，将域名解析为IP地址<br>4)三者协议与HTTP协议关系(p24页图)</p>
+</li>
+<li><p>URI(标识符)&gt; URL(定位符),绝对URI,使用https:<br><img src="/images/http%E5%8D%8F%E8%AE%AE/%E7%BB%9D%E5%AF%B9URI.png" alt="绝对URI"></p>
+        
+          <a class="article-more-a" href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+      <!--添加代码开始-->
+      
+        <div class="declare" hidden="hidden"></div>
+      
+  
     <article id="post-js30系列04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -674,28 +758,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="js基础"><a href="#js基础" class="headerlink" title="js基础"></a><a href="http://blog.poetries.top/FE-Interview-Questions/base/#%E4%B8%89%E3%80%81javascript" target="_blank" rel="noopener">js基础</a></h2><p> 1)<a href="http://blog.poetries.top/FE-Interview-Questions/base/#_1-%E9%97%AD%E5%8C%85" target="_blank" rel="noopener">闭包</a><br> 读取函数内部变量的函数;创建闭包：函数内嵌套函数,内部函数可访问外变量与参数,变量与参数不会被垃圾机制回收<br> 理解：避免全局污染，但增加内存，使用不当会增加内存泄漏；在js中函数即闭包<br>2)作用域链<br>作用域:变量与函数的可访问范围,作用域链保证有序<br>3)<a href="https://www.jianshu.com/p/dee9f8b14771" target="_blank" rel="noopener">JS原型,原型链及特点</a><br>实例的构造函数属性指向构造函数<br>对象分普通对象和函数对象,每个对象都有 <strong>proto</strong> 属性，但只有函数对象才有 prototype 属性,原型对象就是 Person.prototype<br>原型对象（Person.prototype）是 构造函数（Person）的一个实例。<br>JS对象通过引用传递<br>原型:对象内部属性–prototype(原型)<br>原型链:访问一个对象属性,若没有,去原型里找,此原型又有自身原型,递推下去，一直检索到 Object 内建对象<br>关系：instance.constructor.prototype = instance.<strong>proto</strong><br>4)事件代理(事件委托):事件绑定到父元素–DOM元素事件冒泡<br>可节省内存,减少事件注册,提高性能<br>5)JS继承:构造继承,原型继承及两者混用(常用)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//构造函数首字母大写</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Parent</span></span>()&#123;</span><br><span class="line">    this.name =<span class="string">'wang'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">Child</span></span>()&#123;</span><br><span class="line">    this.age =<span class="string">'22'</span>;</span><br><span class="line">&#125;</span><br><span class="line">//通过原型,继承Parent属性</span><br><span class="line">Child.prototype =new Parent();</span><br><span class="line">//创建demo实例</span><br><span class="line">var demo = new Child();</span><br><span class="line">alert(demo.age);</span><br><span class="line">alert(demo.name);//得到被继承的属性</span><br></pre></td></tr></table></figure>
-<p>6)this对象的理解:<br>四种绑定:默认,显性,隐形,new<br>遇到this,函数还原foo.call();<br>this-函数直接调用者/new的对象/触发事件的对象/全局对象Window<br>7)事件模型<br>事件发生三阶段:捕获(父子)-目标-冒泡(子父)<br>DOM事件流:支持捕获型事件与冒泡型事件<br>阻止冒泡stopPropagation();阻止捕获:阻止事件的默认行为preventDefault()方法<br>8)new操作符用途:创建空对象,this变量引用此对象,属性方法被加入且继承函数原型<br>9)Ajax原理:前后端中间加入中间层(Ajax引擎),由XMLHttpRequest对象向服务器发送异步请求获数据,js操作DOM更新页面.【异步操作】<br>此过程只涉及JS，XMLHttpRequest与DOM<br>优缺点：异步操作，减少带宽占用，不易调试，不安全<br>【同步与异步区别】<br>10)跨域：<br>浏览器的同源策略(Sop)：”协议+域名+端口”安全协议</p>
-<p>多用：nginx代理跨域<br>11)模块化开发：ES6 module<br>12)异步加载JS:async?<br>13)内存泄漏：应用程序不再需要占用内存，内存仍存在<br>闭包使用不当;setTimeout第一个参数为字符串;控制台日志，循环(两对象彼此引用，保留)<br>14)JSON与XML：数据交换格式，多用JSON<br>基于JS的子集，易读写，占带宽小<br>JSON字符串转换为JSON对象:var obj = JSON.parse(str);<br>JSON对象转换为JSON字符串:var last=JSON.stringify(obj);<br>15)webpack:模块打包工具<br>16)AMD与Commonjs<br>Commonjs–Node.js采用的服务器模块规范，同步;module.exports属性赋值–模块对象<br>AMD-非同步加载模块,返回对象做模块对象<br>es6模块 CommonJS、AMD、CMD<br>17)web安全及防护<br>18)设计模式：工厂模式，构造函数模式<br>21)JS方法定义对象<br>对象字面量 var obj ={}<br>构造函数  var obj = new Object();<br>Object.create()  var obj =Object.create(Object.prototype)<br>22)兼容性问题【重】<br>全局的*{margin:0;padding:0;}<br>23)Promise对象<br>四种状态：pending初始状态，fulfilled成功操作，rejected失败，settled<br>Promise对象：延迟与异步计算<br>【异步编程实现】<br>回调函数(简单，不利维护);事件监听(事件驱动型);发布、订阅(类似事件监听);Promise对象(then方法，链式);Generator函数;async函数<br>24)js优势：防变量全局污染，window对象做局部变量，链式调用节约代码<br>25)vue与react<br>26)Node应用场景<br>29)web开发会话跟踪：cookie,session,url重写，ip地址，隐藏input<br>30)基本数据类型(5)：Number Boolean String Null Undefined<br>31)js内置对象：object父对象;数据封装类对象(Array Object Boolean Number String);其他对象(function Math Date RegExp(正则) Error Arguments)<br>32)js基本规范：<br>33)JS几种类型值：栈-基本数据类型，大小固定，占据空间小;堆-引用数据类型(数组，对象，函数)<br>区别：存储位置不同,引用数据类型仔栈中存指针，指针指向堆中实体的起始地址<br>寻找引用值：在栈中找地址，从堆中获实体<br>35)eval:字符串解析为js代码，避免使用，耗内存<br>36)null与undefined区别：变量是否声明赋值，参与数学运算;验证时用===<br>38)use strict:严格运行模式，编码更规范;<br>严格模式限制：变量先声明后使用，函数参数不能有同名属性，不能用with,禁止this指向全局对象<br>40)js延迟加载：defer(并行加载js,顺序执行)和async(并行加载js,下载完成执行)、动态创建DOM方式（用得最多）、按需异步载入js</p>
-<p>42)<a href="https://www.cnblogs.com/web-wjg/p/7240985.html" target="_blank" rel="noopener">渐进增强与优雅降级</a><br>目的：关注不同浏览器下的不同体验<br>低-构建页面，高-增加效果—从低版本到高版本<br>先构建完整功能，低版本兼容—从高版本到低版本<br>45)attribute和property的区别<br>dom元素在html/js的属性;html标准属性：同步，自动更新;自定义属性：不同步<br>46)ES6理解【重点】:模板字符串,箭头函数，Promise对象，let与const，块级作用域，引入module模板;Object.creat()写class<br>58)原生js:数据类型，运算，对象，函数，继承，闭包，作用域，原型链，事件，正则，JSON,Ajax,DOM,BOM,内存泄漏，跨域，异步装载，模板引擎，前端MVC,路由，模块化，Canvas，ECMAScript<br>48)<a href="https://blog.csdn.net/jean_1221/article/details/51694008" target="_blank" rel="noopener">面向对象&amp;面向过程</a><br>面向对象:功能划分，对象，类，继承，封装；易维护，易扩展，缩短开发周期，重用性<br>面向过程：步骤划分<br>js是面向对象<br>50)web标准、可用性、可访问性<br>51)JS判断一个数组<br>52)let与var  块中封闭作用域<br>53)map与forEach:遍历循环<br>map返回新数组，return<br>forEach(遍历数组内容，数组索引，当前遍历数组)<br>54)函数式编程：编程范式，如何编写程序的方法<br>特性：闭包与高阶函数，惰性计算，递归，函数–只用表达式<br>55)箭头函数【重点】：内部无this对象，不用new,不作构造函数<br>59)JS动画与CSS3动画区别<br>复杂-js动画;css3-小交互动效<br>60)js数组和对象遍历方式：for in/for/forEach<br>61)gulp:基于流的代码构建工具，易使用，构建快速，学习<br>62)Vue双向绑定数据：<br>64)let var const<br>65)数组乱序<br>66)渲染数据不卡界面(代码)<br>67)获取页面checkbox<br>68)添加，移除，移动，复制，创建，寻找节点<br>69)正则表达式RegExp<br>70)js的callee与caller<br>71)window.onload与$(document).ready<br>window.onload()加载完毕才执行<br>$(document).ready()不必加载完就执行<br>72)addEventListener()依次执行和attachEvent()倒序执行的区别<br>74)数组去重：set;for嵌套for，用splice;indexOf;filter<br>75)页面节点拖拽(代码) js实现持续动画<br>76)js的全局函数与变量<br>80)项目优化:减少HTTP请求数，减少DNS查询，使用CDN,避免重定向，图片懒加载等<br>81)浏览器缓存：强、协商缓存<br>82)WebSocket<br>83)Electron理解：套了Chrome的nodejs<br>84)深浅拷贝<br>85)防抖、节流<br>86)变量提升：<br>87)单线程：仅一个线程，只做一个事，避免DOM渲染冲突<br>103)完成一个Dialog组件<br>105)ajax,axios,fetch</p>
-<hr>
-<h3 id="Webpack相关"><a href="#Webpack相关" class="headerlink" title="Webpack相关"></a>Webpack相关</h3><ol>
-<li>打包体积优化<br>代码压缩插件Uglifyjsplugin;服务器启用gzip压缩;剥离css文件，单独打包</li>
-<li>打包效率:热更新;配置devtool;选合适loader;优化构建时的搜索路径 指明需要构建目录及不需要构建目录</li>
-<li>Loader:node模块，输出一个函数(代码)</li>
-</ol>
-<h3 id="编程题-剑指offer-递归思想"><a href="#编程题-剑指offer-递归思想" class="headerlink" title="编程题(剑指offer)-递归思想"></a>编程题(剑指offer)-递归思想</h3><p>2)如何判断一个对象是否为数组?<br>3)冒泡排序,快速排序(递归)<br>5)求一个字符串的字节长度:判ASCII(有问题)<br>6)bind的用法<br>与call和apply相同，区别是call和apply是立即调用函数，而bind是返回了一个函数，需要调用的时候再执行。<br>7)函数clone,while比for效率高–递归算法<br>8)闭包<br>12)12 写一段JS程序提取URL中的各个GET参数<br>14)闭包  快捷作用域<br>15)回文字符串<br>16)数组扁平化处理:递归</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
-<li>负载均衡</li>
-<li>CDN：内容分发网络</li>
-<li>内存泄漏</li>
-<li>babel原理</li>
-<li>js自定义事件</li>
-<li>前后端路由差别</li>
-</ol>
-<p><a href="http://blog.poetries.top/FE-Interview-Questions/base/#%E4%B8%89%E3%80%81javascript" target="_blank" rel="noopener">题库</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="js基础"><a href="#js基础" class="headerlink" title="js基础"></a><a href="http://blog.poetries.top/FE-Interview-Questions/base/#%E4%B8%89%E3%80%81javascript" target="_blank" rel="noopener">js基础</a></h2><p> 1)<a href="http://blog.poetries.top/FE-Interview-Questions/base/#_1-%E9%97%AD%E5%8C%85" target="_blank" rel="noopener">闭包</a><br> 读取函数内部变量的函数;创建闭包：函数内嵌套函数,内部函数可访问外变量与参数,变量与参数不会被垃圾机制回收<br> 理解：避免全局污染，但增加内存，使用不当会增加内存泄漏；在js中函数即闭包<br>
+        
+          <a class="article-more-a" href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9803/#more">more >></a>
+        
       
 
       
@@ -908,99 +974,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9801/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-this的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/">this的指向</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-20T10:40:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="this的四种绑定格式"><a href="#this的四种绑定格式" class="headerlink" title="this的四种绑定格式"></a>this的四种绑定格式</h2><p>优先级：new&gt;显性&gt;隐形&gt;默认绑定</p>
-<p> 1.默认绑定<br>输出10，使用全局变量var a=10,此时this绑定window</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>()&#123;</span><br><span class="line">            var a=1;</span><br><span class="line">            console.log(this.a);</span><br><span class="line">        &#125;</span><br><span class="line">        var a=10;</span><br><span class="line">        foo();</span><br><span class="line">补充：转换为foo.call(undefined),此时this为window</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 

@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js学习01 | Blog</title>
+  <title>js基础（2.0） | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量的命名1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！2.其他字母可以是下划线（_）、美元符号（$）、字母或者数字3.一般采用驼峰法：第一个字母小写，其余有意义的单词首字母大写4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义 数据类型及操作基本：number(">
+  <meta name="description" content="变量的命名1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！3.驼峰法(常用)：第一个字母小写，其余有意义的单词首字母大写4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义 数据类型及操作基本：number(浮点)，string,Boolean特殊：null,unde">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js学习01">
+<meta property="og:title" content="js基础（2.0）">
 <meta property="og:url" content="http://yoursite.com/2020/03/06/js%E5%AD%A6%E4%B9%A001/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="变量的命名1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！2.其他字母可以是下划线（_）、美元符号（$）、字母或者数字3.一般采用驼峰法：第一个字母小写，其余有意义的单词首字母大写4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义 数据类型及操作基本：number(">
+<meta property="og:description" content="变量的命名1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！3.驼峰法(常用)：第一个字母小写，其余有意义的单词首字母大写4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义 数据类型及操作基本：number(浮点)，string,Boolean特殊：null,unde">
 <meta property="article:published_time" content="2020-03-06T05:30:31.000Z">
-<meta property="article:modified_time" content="2020-03-06T09:27:12.184Z">
+<meta property="article:modified_time" content="2020-04-04T12:38:33.253Z">
 <meta property="article:author" content="ximoxiyu">
 <meta property="article:tag" content="前端学习">
 <meta property="article:tag" content="js">
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      js学习01
+      js基础（2.0）
     </h1>
   
 
@@ -189,42 +189,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h2><p>1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！<br>2.其他字母可以是下划线（_）、美元符号（$）、字母或者数字<br>3.一般采用驼峰法：第一个字母小写，其余有意义的单词首字母大写<br>4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)<br>【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义</p>
-<h3 id="数据类型及操作"><a href="#数据类型及操作" class="headerlink" title="数据类型及操作"></a>数据类型及操作</h3><p>基本：number(浮点)，string,Boolean<br>特殊：null,undefined(未定义)<br>利用typeof(内容)l检测数据类型，注typeof(null)–object</p>
+        <h2 id="变量的命名"><a href="#变量的命名" class="headerlink" title="变量的命名"></a>变量的命名</h2><p>1.首字母必须是字母、下划线（_）或者美元符号（$），不可为数字！！！<br>3.驼峰法(常用)：第一个字母小写，其余有意义的单词首字母大写<br>4.变量名是区分大小写的，不能是关键字或保留字(例如var这种在js中有意义的词语)<br>【var代表定义一个变量，也就是拿出一个标签为name的盒子】已有变量无需定义</p>
+<h3 id="数据类型及操作"><a href="#数据类型及操作" class="headerlink" title="数据类型及操作"></a>数据类型及操作</h3><p>基本：number(浮点)，string,Boolean<br>特殊：null,undefined(未定义)<br>利用typeof(内容)l检测数据类型，【注】typeof(null)–object</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var name = <span class="string">'小明'</span></span><br><span class="line">var age = 17</span><br><span class="line">var isMarried = <span class="literal">false</span></span><br><span class="line">var firstName</span><br><span class="line">var lastName = null</span><br><span class="line">console.log(typeof(name))----string</span><br><span class="line">console.log(typeof(age))---number</span><br><span class="line">console.log(typeof(isMarried))--boolean</span><br><span class="line">console.log(typeof(firstName))---undefined</span><br><span class="line">console.log(typeof(lastName))--object</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
-<h3 id="字符串拼接-，数学运算"><a href="#字符串拼接-，数学运算" class="headerlink" title="字符串拼接(+)，数学运算"></a>字符串拼接(+)，数学运算</h3><p>注：/不是整除，%取余数</p>
+<h3 id="字符串拼接-，数学运算"><a href="#字符串拼接-，数学运算" class="headerlink" title="字符串拼接(+)，数学运算"></a>字符串拼接(+)，数学运算</h3><p>‘’表字符串 +后，非字符串转字符串再拼接<br>注：/不是整除，%取余数</p>
 <ul>
 <li>数学运算时，数据会转换为数据类型，如true–1,null–0</li>
-<li>1-‘1’=0,但是1+’1’=11;此时+做字符串连接符<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var b = 2</span><br><span class="line">console.log(a+b)--3</span><br><span class="line">console.log(a-b)---1</span><br><span class="line">console.log(a*b)---2</span><br><span class="line">console.log(a/b)---0.5</span><br><span class="line">console.log(a%b)---1</span><br></pre></td></tr></table></figure></li>
+<li>1-‘1’=0,但是1+’1’=11;此时+做字符串连接符<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var b = 2</span><br><span class="line">console.log(a+b)--3</span><br><span class="line">console.log(a-b)---1</span><br><span class="line">console.log(a*b)---2</span><br><span class="line">console.log(a/b)---0.5 //不是整除</span><br><span class="line">console.log(a%b)---1</span><br></pre></td></tr></table></figure></li>
 <li>NaN和任何数字参与运算时，结果均为NaN，undefined参与数字运算时，转换为NAN</li>
 <li>NaN之间也是不相等的，也就是说NaN!==NaN,判断NAN,Number.isNaN(),返回T/F<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var b = <span class="string">'一个奇怪的字符串'</span></span><br><span class="line">console.log(a * b)---NAN</span><br><span class="line">console.log(Number.isNaN(a*b))--<span class="literal">true</span></span><br><span class="line">console.log(Number.isNaN(a))--<span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2></li>
 </ul>
-<p>条件判断：if-else,if-else if-else,循环for,while的使用<br>1)等号</p>
+<p>条件判断：if-else,if-else if-else,循环for,while的使用<br>1)等号区别！！是否转数据类型！！！</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 两个等号,先转数据类型再判断</span><br><span class="line">console.log(1 == <span class="string">'1'</span>);--<span class="literal">true</span></span><br><span class="line">// 三个等号，直接判断</span><br><span class="line">console.log(1 === <span class="string">'1'</span>);--<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
 <hr>
-<h3 id="函数与对象"><a href="#函数与对象" class="headerlink" title="函数与对象"></a>函数与对象</h3><p>1.定义 function 函数名(参数){}<br>返回值：关键字return,多个return时只返回第一个，即遇到return,就返回并退出函数，所以return后面的代码均不会执行;不写return时，函数返回值为undefined<br>2.对象(属性和方法)：每个对象都有自己的属性 var cat={},其中{}为对象！<br>类似css的属性：属性值，但css是;结尾，对象是,结尾</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var cat = &#123;</span><br><span class="line">  name: <span class="string">'糖糖'</span>,</span><br><span class="line">  age: 0.8,</span><br><span class="line">  color: <span class="string">'whiteAndBlack'</span></span><br><span class="line">&#125;</span><br><span class="line">//获取对象属性值的两种方法</span><br><span class="line">console.log(cat.age) //常用</span><br><span class="line">console.log(cat[<span class="string">'age'</span>]) //有自身优势,[]内的属性名可变，如obj.style[name],其中的name可以为height,width,color等，用于做函数的参数很好</span><br></pre></td></tr></table></figure>
-<p>2)方法：对象中的函数，省略关键字function<br>cat.year//调用属性<br>cat.say()//调用方法</p>
-<p>3.构造函数：生成各种对象的函数,即函数内部为一个对象，外面套了function 函数名(参数){}<br>目的：利用构造函数生成对象<br>使用：var car1 = new 函数名(参数)<br>其中new为构造函数的关键字，此时的car1为一个对象</p>
-<h3 id="DOM和BOM-重难点"><a href="#DOM和BOM-重难点" class="headerlink" title="DOM和BOM (重难点)"></a>DOM和BOM (重难点)</h3><p>HTML文档树：html为根节点，分head和body节点<br>DOM:Document Object Model文档对象模型<br>document就是dom对象，整个页面的全部信息都在这个对象中，节点一般从此找<br>DOM—文档树对象，通过文档树对象来控制html(增删改查)<br>属性：html+css<br>方法：很多</p>
-<h4 id="节点的操作"><a href="#节点的操作" class="headerlink" title="节点的操作"></a>节点的操作</h4><p>常用的节点操作方法<br>1.创建节点：document.createElement<br>2.添加节点：element.appendChild<br>3.删除节点：element.removeChild<br>4.查找节点：document.getElementById、document.getElementsByClassName、document.querySelector、document.querySelectorAll</p>
+<h3 id="函数与对象"><a href="#函数与对象" class="headerlink" title="函数与对象"></a>函数与对象</h3><p>1.定义 <strong>function 函数名(参数){}</strong><br>返回值：关键字return,多个return时只返回第一个，即遇到return,就返回并退出函数，所以return后面的代码均不会执行;不写return时，函数返回值为undefined<br>2.对象 (属性和方法)：每个对象都有自己的属性 var cat={},其中<strong>{}</strong> 为对象！<br>类似css的属性：属性值，但css是;   对象是,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var cat = &#123;</span><br><span class="line">  name: <span class="string">'糖糖'</span>,</span><br><span class="line">  age: 0.8,</span><br><span class="line">  color: <span class="string">'whiteAndBlack'</span></span><br><span class="line">&#125;</span><br><span class="line">//获取对象属性值的两种方法</span><br><span class="line">console.log(cat.age) //常用</span><br><span class="line">console.log(cat[<span class="string">'age'</span>]) //有自身优势,[字符串]内的属性名可变，如obj.style[name],其中的name可以为height,width,color等，用于做函数的参数很好</span><br></pre></td></tr></table></figure>
+<p>2)方法：<strong>对象中的函数，省略关键字function</strong><br>cat.year//调用属性<br>cat.say()//调用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象描述</span></span><br><span class="line"><span class="keyword">var</span> cat=&#123;</span><br><span class="line">name:<span class="string">"糖糖"</span>,<span class="comment">//属性</span></span><br><span class="line">say()&#123;<span class="built_in">console</span>.log(<span class="string">'喵喵喵'</span>)&#125; <span class="comment">//方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.<strong>构造函数</strong>：可批量生产对象，对象原型！本质：函数<br>1)格式：<strong>function 函数名(参数){对象}</strong><br>2)目的：利用构造函数生成(多个)对象<br>3)使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;构造函数Cat()</span><br><span class="line">function Cat(name1)&#123;</span><br><span class="line">this.name &#x3D; name1;</span><br><span class="line">this.say &#x3D;function(x)&#123;console.log(x)&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;利用构造函数生成对象</span><br><span class="line">var cat1 &#x3D; new Cat(&#39;糖糖&#39;);</span><br><span class="line">cat1.say(&#39;喵喵喵&#39;)</span><br><span class="line">var cat2 &#x3D; new Cat(&#39;可可&#39;)</span><br><span class="line">cat2.say(&#39;可可爱爱&#39;)</span><br></pre></td></tr></table></figure>
+<p>4）构造函数中属性方法均用this引用<br><strong>var car1 = new 构造函数名(参数)</strong><br>其中new为构造函数的关键字，此时的car1为一个对象<br>【补充-new新对象的过程】<br>1.生成一个新的空对象<br>2.链接到原型<br>3.绑定this，this替换成生成的新对象，传入的属性放入新对象<br>4.返回这个新对象</p>
+<h3 id="DOM和BOM-重难点"><a href="#DOM和BOM-重难点" class="headerlink" title="DOM和BOM (重难点)"></a>DOM和BOM (重难点)</h3><p>HTML文档树：html为根节点，分head和body两大节点<br>DOM:Document Object Model文档对象模型–文档以<strong>树</strong>结构看<br>document就是dom对象，包含整个页面信息，控制html的变动<br>DOM—文档树对象，通过文档树对象来控制html(增删改查)<br>属性：html+css<br>方法：很多</p>
+<h4 id="节点的操作"><a href="#节点的操作" class="headerlink" title="节点的操作"></a>节点的操作</h4><p>常用的节点操作方法<br>1.创建节点：document.createElement<br>2.添加节点：element.appendChild<br>3.删除节点：element.removeChild<br>4.查找节点：document.getElementById()【id名，一个】document.getElementsByClassName() 【类名，一组】<br>document.getElementsByTagName() 【标签名，一组】<br>不推荐：<br>document.getElementsByName(); 【按name选择 一组】<br>document.querySelector(); 【按CSS格式选择 一个】<br>document.querySelectorAll();【按CSS格式选择 一组】</p>
 <p>1)改—-找节点，改内容(2步)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = document.getElementById(<span class="string">'div1-1'</span>)</span><br><span class="line">a.innerText = <span class="string">'汪小黑'</span> //innerText属性</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = document.getElementById(<span class="string">'div1-1'</span>)</span><br><span class="line">a.innerText = <span class="string">'小黑'</span> //innerText属性</span><br></pre></td></tr></table></figure>
 <p>2)删—找子节点，找父节点，删子节点(3步)<br>节点操作依赖父节点(增删子节点)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var childElement = document.getElementById(<span class="string">'div1-2'</span>) //找子节点</span><br><span class="line">var ParentElement = document.getElementById(<span class="string">'div1'</span>) //找父节点</span><br><span class="line">ParentElement.removeChild(childElement) //从父节点中删子节点</span><br></pre></td></tr></table></figure>
 <p>3)增—创建子节点，注创建时，()为html标签名–(3步)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ParentElement = document.getElementById(<span class="string">'div1'</span>) //找父节点</span><br><span class="line">var childElement = document.createElement(<span class="string">'div'</span>) //创建子节点，是div而不是div1-3,创建标签是标签元素</span><br><span class="line">ParentElement.appendChild(childElement) //从父节点中增加子节点</span><br></pre></td></tr></table></figure>
-
+<p>【注】增删均基于父子关系，<br>【增】-&gt;在父上增子，先<strong>get父</strong>，再<strong>create子</strong>，最后<strong>父.appendChild子</strong><br>【删】-&gt;父上删子，先<strong>get父</strong>，再<strong>get子</strong>,最后<strong>父.removeChild子</strong></p>
 <h4 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h4><p>【每个节点】都可以【监听】发生在【自己】身上的【事件】<br>如：点击-按钮：执行自身预设的js代码<br>目的：点击div-1,div块变黄<br>1.找到div1-1<br>2.监听div1-1上的「点击」事件 obj.onclick=function(){}<br>3.写触发【点击】事件之后的逻辑<br>a.找到div1<br>b.改变div1的背景颜色</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">基本思路：获取节点，写事件触发函数</span><br><span class="line">var element = document.getElementById(<span class="string">'div1-1'</span>);//找节点</span><br><span class="line">element.onclick=<span class="keyword">function</span>(e)&#123; //有参数e</span><br><span class="line">var dObj = document.getElementById(<span class="string">'div1'</span>) //找节点</span><br><span class="line">dObj.style.backgroundColor=<span class="string">'yellow'</span></span><br><span class="line">&#125;</span><br><span class="line">注：每个节点的css存储在此节点的style中</span><br><span class="line">e-指event对象，document属性有很多</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">基本思路：获取节点，写事件触发函数</span><br><span class="line">var element = document.getElementById(<span class="string">'div1-1'</span>);//找节点</span><br><span class="line">element.onclick=<span class="keyword">function</span>(e)&#123; //有参数e</span><br><span class="line">var dObj = document.getElementById(<span class="string">'div1'</span>) //找节点</span><br><span class="line">dObj.style.backgroundColor=<span class="string">'yellow'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【注】1)每个节点的css存储在此节点的style中<br><a href="https://www.cnblogs.com/websmile/p/8807334.html" target="_blank" rel="noopener">e-指event对象</a>，2)documentd对象的属性有很多<br>3)dom对象.addEventListener(事件类型, 回调函数, 事件机制)这里的事件类型表示你要使用哪种事件类型比如click, 回调函数里面写着触发此事件你要做什么事情, 事件机制分为冒泡和捕获,如果为false表示事件冒泡,为true表示事件捕获</p>
 <h3 id="BOM操作"><a href="#BOM操作" class="headerlink" title="BOM操作"></a>BOM操作</h3><p>浏览器提供的一个对象，用来操作浏览器<br>BOM（Browser Object Model），即浏览器对象模型<br>核心对象：window,含6大核心模块<br>document：文档对象<br>frames：窗口中所有命名的框架<br>history：当前页面历史记录<br>location：当前页面地址信息<br>navigator：浏览器相关信息<br>screen：用户显示屏幕相关属性<br>【重点】掌握BOM的属性和方法</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(window.location.href)//打开当前页面地址</span><br><span class="line">// 下面这条语句会打开新页面，关掉就好了</span><br><span class="line">window.open(<span class="string">'http://www.baidu.com'</span>)</span><br></pre></td></tr></table></figure>
-<p>【补充】<br>1.DOM查找节点方法：document.querySelector(), document.getElementById(), document.getElementsByClassName(), document.getElementsByTagName()<br>2.常用节点属性<br> element.style 表示节点的样式<br> element.innerHTML表示节点里的html<br> element.innerText 表示节点里的文本<br>3.关于事件参数e<br> 1)e是事件触发时，浏览器传给事件触发函数的一个参数对象<br> 2)触发一个鼠标点击事件，e里面包括了鼠标的坐标信息（鼠标在屏幕的坐标）<br> 3)触发一个键盘点击事件，e里面包括了键盘的按键信息（键盘按了哪个键）<br> 4.事件<br> 1)js事件的冒泡指的是事件从子元素向父元素「渗透」的过程<br> 2)给一个元素绑定点击事件，有addEventListener和onclick等多种方式<br> 3)onclick只能给元素点击事件绑定一个事件，addEventerListener可以绑定多个</p>
+<p>【补充】<br>1.DOM查找节点方法：document.querySelector(), document.getElementById(), document.getElementsByClassName(), document.getElementsByTagName()<br>2.常用节点属性(常用)<br> element.style 表示节点的样式<br> element.innerHTML表示节点里的html<br> element.innerText 表示节点里的文本内容，【改】节点内容<br>3.关于事件参数e<br> 1)e是事件触发时，浏览器传给事件触发函数的一个参数对象<br> 2)触发一个鼠标点击事件，e里面包括了鼠标的坐标信息（鼠标在屏幕的坐标）<br> 3)触发一个键盘点击事件，e里面包括了键盘的按键信息（键盘按了哪个键）<br> 4.事件<br> 1)js事件的【冒泡】指的是事件从子元素向父元素「渗透」的过程<br> 2)给一个元素绑定点击事件，有addEventListener和onclick等多种方式<br> 3)onclick只能给元素点击事件绑定一个事件，addEventerListener可以绑定多个<br> <a href="https://blog.csdn.net/weixin_43606158/article/details/90728664" target="_blank" rel="noopener">区别</a><br> 【补充】<br> 1)with语句(不建议使用)：一个对象的多个属性，必须是已存在的属性<br> 2)函数视为值，可执行值;变量提升，可先用，后声明函数;<br> 3)ES5两种作用域：全局作用域，函数作用域-闭包<br> ES6的块级作用域</p>
 
       
 
@@ -346,7 +348,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          js实现聊天机器人
+          js实现聊天机器人（2.0）
         
       </div>
     </a>
@@ -597,6 +599,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js30</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html </a>
               </li>
             
             <div class="clearfix"></div>

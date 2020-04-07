@@ -8,16 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>从TabBar例子：抽离组件和复习vue-router | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="【学习总结】立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。">
+  <meta name="description" content="【学习总结】立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。今日早晨自己又独立写了一遍，果然上手才发现bug真不少。。注意点：何时字符串，何时用变量;路径的大小写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从TabBar例子：抽离组件和复习vue-router">
 <meta property="og:url" content="http://yoursite.com/2020/04/04/%E4%BB%8ETabBar%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6%E5%92%8C%E5%A4%8D%E4%B9%A0vue-router/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="【学习总结】立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。">
+<meta property="og:description" content="【学习总结】立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。今日早晨自己又独立写了一遍，果然上手才发现bug真不少。。注意点：何时字符串，何时用变量;路径的大小写">
+<meta property="og:image" content="http://yoursite.com/images/tabbar.png">
 <meta property="article:published_time" content="2020-04-04T15:00:46.000Z">
-<meta property="article:modified_time" content="2020-04-04T15:34:49.644Z">
+<meta property="article:modified_time" content="2020-04-05T04:25:08.487Z">
 <meta property="article:author" content="ximoxiyu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/tabbar.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -186,11 +188,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【学习总结】<br>立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。</p>
+        <p>【学习总结】<br>立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。<br>今日早晨自己又独立写了一遍，果然上手才发现bug真不少。。<br>注意点：何时字符串，何时用变量;路径的大小写</p>
 <a id="more"></a>
-<p>【安装】<br>1)指定文件夹下：vue create “项目名”<br>2)安装vue-router: npm install vue-router –save<br>3)配置路由：在src下新建router文件夹，创建index.js来配置路由信息</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.</span>引入Vue与VueRouter</span><br><span class="line">引入新建的子组件--懒加载(ES6的箭头函数)</span><br><span class="line"><span class="keyword">const</span> Home=<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">import</span>(<span class="string">'相对路径'</span>)</span><br><span class="line"><span class="number">1.</span>Vue.use(插件)安装插件</span><br><span class="line"><span class="number">2.</span>创建路由对象router</span><br><span class="line"><span class="keyword">const</span> router =<span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">   routes:[&#123;&#125;,&#123;&#125;];<span class="comment">//映射关系</span></span><br><span class="line">   mode:<span class="string">'history'</span><span class="comment">//拼接URL的格式</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">3.</span>输出router</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
-<p>并在main.js中进行挂载：import引入,实例中声明router<br>4)在App.vue中使用<router-link>与<router-view><br>【组件抽离的思想】<br>1)整个页面：上–路由加载到的信息(子Vue),下–控制条;关系：点击控制条，路由到相应url,显示对应内容<br>2)上–<br>3)下–大组件：TabBar.vue内含四个小组件TabBarItem,每个小组件含两张图片(v-if v-else控制)和对应名字<br>【注】灵活更改使用slot组件，外包一层div，方便写控制，如v-if v-else和绑定属性等<br>【关键】子组件的click事件触发后更改router的地址，链接到不同的子组件如Home.vue等;且在App.vue中每个子组件标签处写上path地址</p>
+<p>【安装】<br>1)指定文件夹下：vue create “项目名”<br>2)安装vue-router: ** npm install vue-router –save **<br>3)配置路由：在src下新建router文件夹，创建index.js来配置路由信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.</span>导入Vue与VueRouter对象  <span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line">引入新建的子组件--懒加载(ES6的箭头函数)</span><br><span class="line"><span class="keyword">const</span> Home=<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">import</span>(<span class="string">'相对路径'</span>)</span><br><span class="line"><span class="number">1.</span>Vue.use(插件)安装插件</span><br><span class="line"><span class="number">2.</span>创建路由对象router，并且传入路由映射配置！</span><br><span class="line"><span class="keyword">const</span> router =<span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">   routes:[&#123;&#125;,&#123;&#125;];<span class="comment">//映射关系</span></span><br><span class="line">   mode:<span class="string">'history'</span><span class="comment">//拼接URL的格式</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">3.</span>输出router</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line">【补充】<span class="number">4.</span>在Vue实例main.js中挂载创建的路由对象router</span><br><span class="line">并在main.js中进行挂载：<span class="keyword">import</span>引入,实例中声明router</span><br></pre></td></tr></table></figure>
+
+<p>4)【使用vue-router】创建路由组件，如Home.vue -&gt; 在index.js中懒加载，routes配置路由映射关系{path:,component} -&gt;在App.vue中使用<router-link>与<router-view><br>5)【组件抽离的思想】<br>1)整个页面：上–路由加载到的信息(子Vue),下–控制条;关系：点击控制条，路由到相应url,显示对应内容<br>2)上–<br>3)下–大组件：TabBar.vue内含四个小组件TabBarItem,每个小组件含两张图片(v-if v-else控制)和对应名字<br>【注】灵活更改使用slot组件，外包一层div，方便写控制，如v-if v-else和绑定属性等<br>【关键】子组件的click事件触发后更改router的地址，链接到不同的子组件如Home.vue等;且在App.vue中每个子组件标签处写上path地址<br>开发中：常用height:49px;<br>打包css样式安了插件<br><img src="/images/tabbar.png" alt="">】<br>【TabBar实现思路】<br>TabBar:定义插槽，flex布局平分<br>TabBarItem:定义两个插槽：图片，文字，外包div方便设置样式；<br>填充slot</p>
 
       
 
@@ -288,6 +291,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/04/07/vuex/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vuex
+        
+      </div>
+    </a>
   
   
     <a href="/2020/04/03/%E5%B8%B8%E7%94%A8HTML%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/" id="article-nav-older" class="article-nav-link-wrap">

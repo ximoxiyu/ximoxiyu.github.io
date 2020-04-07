@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Blog</title>
+  <title>Vuex | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="1.Vuex：状态管理模式(插件)，多个组件间共享状态的插件，且状态是响应式的工具Devtools:在Chrome上调试时记录哪个变量修改2.安装配置类比Vue-router 12&#x2F;&#x2F;小写！ npm install vuex --save 在src文件夹下新建store文件夹，建index.js，引入Vue与Vuex注意大小写【注】vuex-state是单一状态树，只推荐建一个对象store3.对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vuex">
+<meta property="og:url" content="http://yoursite.com/2020/04/07/vuex/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="1.Vuex：状态管理模式(插件)，多个组件间共享状态的插件，且状态是响应式的工具Devtools:在Chrome上调试时记录哪个变量修改2.安装配置类比Vue-router 12&#x2F;&#x2F;小写！ npm install vuex --save 在src文件夹下新建store文件夹，建index.js，引入Vue与Vuex注意大小写【注】vuex-state是单一状态树，只推荐建一个对象store3.对">
+<meta property="article:published_time" content="2020-04-07T01:06:22.000Z">
+<meta property="article:modified_time" content="2020-04-07T08:17:17.230Z">
 <meta property="article:author" content="ximoxiyu">
 <meta name="twitter:card" content="summary">
   
@@ -155,504 +159,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vuex" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vuex
+    </h1>
+  
+
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+
+<a href="/2020/04/07/vuex/" class="archive-article-date">
+  	<time datetime="2020-04-07T01:06:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.Vuex：状态管理模式(插件)，多个组件间共享状态的插件，且状态是响应式的<br>工具Devtools:在Chrome上调试时记录哪个变量修改<br>2.安装配置类比Vue-router</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//小写！</span><br><span class="line"> npm install vuex --save</span><br></pre></td></tr></table></figure>
+<p>在src文件夹下新建store文件夹，建index.js，引入Vue与Vuex<br>注意大小写<br>【注】vuex-state是单一状态树，只推荐建一个对象store<br>3.对象的解构–ES6解构赋值，按名字赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj =&#123;</span><br><span class="line">   name:<span class="string">'why'</span>,</span><br><span class="line">   age:<span class="number">16</span>,</span><br><span class="line">   height:<span class="number">1.66</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;name,age,height&#125;=obj;</span><br></pre></td></tr></table></figure>
+<p>4.项目文件夹的目录组织：除state不抽，其他抽出,其他getters/mutations等均抽离成一个文件getters.js，并与index.js处于同一级目录下,抽离 <strong>export default{源代码}</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js中</span></span><br><span class="line"><span class="comment">//仅将state抽离，放在原文件下，</span></span><br><span class="line"><span class="comment">//使用时导入：import getters from './getters'</span></span><br><span class="line"><span class="keyword">const</span> state=&#123;</span><br><span class="line">    counter:<span class="number">1000</span>,</span><br><span class="line">    students:[</span><br><span class="line">       <span class="comment">//  注意对象的书写，是：而不是=</span></span><br><span class="line">        &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">'aa'</span>,<span class="attr">age</span>:<span class="string">'10'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">'bb'</span>,<span class="attr">age</span>:<span class="string">'15'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">'cc'</span>,<span class="attr">age</span>:<span class="string">'20'</span>&#125;,</span><br><span class="line">   ],</span><br><span class="line">   info:&#123;<span class="attr">id</span>:<span class="number">8</span>,<span class="attr">name</span>:<span class="string">'kk'</span>,<span class="attr">age</span>:<span class="string">'88'</span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//注意对象的书写,注意大写！！！--单一数据源</span></span><br><span class="line"> <span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">     <span class="comment">//状态--单一数据源</span></span><br><span class="line">    state,</span><br><span class="line">    <span class="comment">//计算属性</span></span><br><span class="line">    getters,</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    mutations,</span><br><span class="line">     <span class="comment">//异步操作+Promise</span></span><br><span class="line">    actions,</span><br><span class="line">     <span class="comment">//划分模块--抽离模块</span></span><br><span class="line">    modules:&#123;</span><br><span class="line">      a:moduleA,</span><br><span class="line">&#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+<p>5.五个核心概念：<br>1)state–类比data属性，存数据(状态)，供getters/mutations等使用;也可在APP.vue中直接使用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;$store.state.counter&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2)getters–类比computed属性，即将数据进行一定处理再使用，本质为属性，可同state方法使用，但可以函数复用，可以有参数<br>但getters默认不可传参，传参数时：要求返回一个含参的函数</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;$store.getters.moreAgeStu(18)&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">在getters内部：里面也是函数，但用<span class="keyword">return</span></span><br><span class="line">  <span class="comment">//大于13岁的个数</span></span><br><span class="line">  <span class="comment">//1)函数的复用:复用之前的函数more13age,此时参数中多getters</span></span><br><span class="line">     more13ageLength(state,getters)&#123;</span><br><span class="line">         <span class="keyword">return</span> getters.more13age.length;</span><br><span class="line">     &#125;,</span><br><span class="line">     </span><br><span class="line">     <span class="comment">//动态决定大于的岁数</span></span><br><span class="line"> <span class="comment">//2)计算属性中传参数，要求内部返回一个带参数的函数！</span></span><br><span class="line">     moreAgeStu(state)&#123;</span><br><span class="line">         <span class="comment">//返回函数</span></span><br><span class="line">         <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">age</span>)</span>&#123;</span><br><span class="line">             <span class="keyword">return</span> state.students.filter(<span class="function"><span class="params">s</span>=&gt;</span>s.age&gt;age);</span><br><span class="line">             <span class="comment">//上句return 等价于</span></span><br><span class="line">             <span class="keyword">return</span> <span class="function"><span class="params">age</span>=&gt;</span>state.students.filter(<span class="function"><span class="params">s</span>=&gt;</span>s.age&gt;age);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>3)mutations–类比method属性：绑定事件;在App.vue中用commit来进行提交！同步，一般用devtool工具(浏览器插件)进行调试 响应式更新;<br>Vuex中store状态更新到唯一方式：提交mutation,含两部分：事件类型与回调函数(第一个参数为state)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;App.vue</span><br><span class="line"> &lt;button @click&#x3D;&quot;addNum(5)&quot;&gt;+5&lt;&#x2F;button&gt;</span><br><span class="line"> &#x2F;&#x2F;方法</span><br><span class="line">  addNum(num)&#123;</span><br><span class="line">      &#x2F;&#x2F;普通封装</span><br><span class="line">       this.$store.commit(&#39;inNum&#39;,num)</span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;在mutations.js中</span><br><span class="line">   inNum(state,num)&#123;</span><br><span class="line">       state.counter +&#x3D; num</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+<p>【拓展-提交风格：普通&amp;特殊-含type属性的对象，将整个commit的对象作payload使用】</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 特殊提交封装,可以</span></span><br><span class="line">     <span class="keyword">this</span>.$store.commit(&#123;</span><br><span class="line">         type: <span class="string">'inNum'</span>,</span><br><span class="line">         num</span><br><span class="line">           &#125;)</span><br><span class="line"> <span class="comment">//在mutations.js中 </span></span><br><span class="line"> <span class="comment">//特殊封装,特殊提交写成payload对象,小写！！</span></span><br><span class="line">   inNum(state,payload)&#123;</span><br><span class="line">       state.counter += payload.num</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
+<p>【响应规则：set与detele】<br>不用Vue时，改变的属性必须之前初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;响应式修改，之前没有的属性</span><br><span class="line">   upInfo(state)&#123;</span><br><span class="line">  &#x2F;&#x2F;第三个参数是字符串或数字</span><br><span class="line">  Vue.set(state.info,&#39;address&#39;,&#39;北京&#39;);</span><br><span class="line">  &#x2F;&#x2F;删除属性</span><br><span class="line">  Vue.delete(state.info,&#39;age&#39;)</span><br><span class="line">&#125;</span><br><span class="line">在App.vue中调用时同上</span><br></pre></td></tr></table></figure>
+
+<p>4)Action -&gt;Mutation：异步操作(搭配Promise对象使用)<br>注：在定义函数时，第一个参数为context  –区别mutations的state</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//context上下文，新定义异步操作的函数，payload为参数</span></span><br><span class="line">    aUpdataInfo(context,payload)&#123; </span><br><span class="line">    <span class="comment">//return Promise对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//mutations中的函数</span></span><br><span class="line">           context.commit(<span class="string">'updateInfo'</span>);</span><br><span class="line">           <span class="built_in">console</span>.log(payload);</span><br><span class="line">           resolve(<span class="string">'resolve中的参数'</span>);</span><br><span class="line">      &#125;, <span class="number">1000</span>)</span><br><span class="line">   &#125;) </span><br><span class="line">   </span><br><span class="line">   <span class="comment">//在App.vue中</span></span><br><span class="line">    <span class="comment">// Action的异步操作</span></span><br><span class="line">    actInfo()&#123;</span><br><span class="line">      <span class="comment">//异步，由commit改为dispatch</span></span><br><span class="line">       <span class="keyword">this</span>.$store.dispatch(<span class="string">'aUpdataInfo'</span>,<span class="string">'参数'</span>).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'里面完成了提交'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>【对比：同步mutations】参数为context,提交方式为dispatch，多返回Promise对象，有then</p>
+<p>5)Module<br>  将store分割成模块(Module)，每个模块均有自身的state,mutations,getters,action<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;加入之前的状态：rootState</span><br><span class="line">    getName(state,getters,rootState)&#123;</span><br><span class="line">    return getters.fullname + rootState.counter;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure><br>【小结】在其他组件.vue中，使用store对象中保存的状态</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1)this.$store.state.属性</span><br><span class="line">2)this.$store.getters.计算属性名</span><br><span class="line">2)this.$store.commit('mutations中的方法')//修改状态，绑定事件</span><br><span class="line">注：通过提交mutation来追踪状态变化，而非直接改变state</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+      </div>
+    </span>
+  </div>
+</div>
 
-<a href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9803/" class="archive-article-date">
-  	<time datetime="2020-03-21T05:03:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9803/">面试题03</a>
-    </h1>
-  
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/07/vuex/" alt="微信分享二维码">
+    </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">基础篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
 
-<a href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9802/" class="archive-article-date">
-  	<time datetime="2020-03-21T05:03:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/04/%E4%BB%8ETabBar%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6%E5%92%8C%E5%A4%8D%E4%B9%A0vue-router/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从TabBar例子：抽离组件和复习vue-router</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9802/">面试题02</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">基础篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+        
+    </div>
+</aside>
 
-<a href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9801/" class="archive-article-date">
-  	<time datetime="2020-03-21T05:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/21/%E9%9D%A2%E8%AF%95%E9%A2%9801/">面试题01</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-20T10:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/20/this%E7%9A%84%E4%BD%BF%E7%94%A8/">this的指向（2.0）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/08/flex%E5%B8%83%E5%B1%80%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-03-08T02:57:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/08/flex%E5%B8%83%E5%B1%80%E7%9A%84%E5%AD%A6%E4%B9%A0/">css垂直居中的5种方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/07/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-03-07T02:02:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A%E5%88%86%E6%9E%90/">聊天机器人作业分析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/06/JS%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="archive-article-date">
-  	<time datetime="2020-03-06T09:29:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/JS%E5%AE%9E%E7%8E%B0%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/">js实现聊天机器人（2.0）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/06/js%E5%AD%A6%E4%B9%A001/" class="archive-article-date">
-  	<time datetime="2020-03-06T05:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/js%E5%AD%A6%E4%B9%A001/">js基础（2.0）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/06/html-css%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-03-06T02:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/html-css%E6%80%BB%E7%BB%93/">html+css总结（2.0）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-03-05T04:02:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/">项目1-音乐播放器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue作业</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
+
+      <!--添加代码开始-->
+      
+        <div class="declare" hidden="hidden"></div>
+      
           </div>
         </div>
       </div>
@@ -686,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

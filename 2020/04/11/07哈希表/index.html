@@ -6,12 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Blog</title>
+  <title>06哈希表 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="理论基本概念1.【优点】哈希表基于数组，但插入-删除-查找操作效率高;O(1)时间级，速度比树快，且编码简单数组查找：基于索引查找效率高，基于内容效率低，而删除插入效率低【缺点】数据无顺序，遍历顺序不固定；key不重复;  字典和集合都基于哈希表2.定义结构为数组，但下标值会进行哈希函数，来获得HashCode3.案例：存1000个员工(通过哈希函数使某key(如名字)来获索引值)保存联系人与电话">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06哈希表">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/07%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="理论基本概念1.【优点】哈希表基于数组，但插入-删除-查找操作效率高;O(1)时间级，速度比树快，且编码简单数组查找：基于索引查找效率高，基于内容效率低，而删除插入效率低【缺点】数据无顺序，遍历顺序不固定；key不重复;  字典和集合都基于哈希表2.定义结构为数组，但下标值会进行哈希函数，来获得HashCode3.案例：存1000个员工(通过哈希函数使某key(如名字)来获索引值)保存联系人与电话">
+<meta property="article:published_time" content="2020-04-11T02:07:00.000Z">
+<meta property="article:modified_time" content="2020-04-11T10:15:25.572Z">
 <meta property="article:author" content="ximoxiyu">
 <meta name="twitter:card" content="summary">
   
@@ -155,36 +159,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-从TabBar例子：抽离组件和复习vue-router" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-07哈希表" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/04/%E4%BB%8ETabBar%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6%E5%92%8C%E5%A4%8D%E4%B9%A0vue-router/">从TabBar例子：抽离组件和复习vue-router</a>
+    <h1 class="article-title" itemprop="name">
+      06哈希表
     </h1>
   
 
         
         
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
 
-<a href="/2020/04/04/%E4%BB%8ETabBar%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6%E5%92%8C%E5%A4%8D%E4%B9%A0vue-router/" class="archive-article-date">
-  	<time datetime="2020-04-04T15:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
+
+<a href="/2020/04/11/07%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-04-11T02:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【学习总结】<br>立了一堆flag，今天只完成了一个，自己太菜了，改了一天bug，为了省时间，一边看视频一边敲代码，减少自己bug的错误率;还好最终把结果做出来了，时间不够用，真心觉得时间不够用！以后的博客总结每日学习所得，不照本宣科，踏踏实实，多修改，多更正，不求一次做好，但要不断提炼自己的笔记。<br>今日早晨自己又独立写了一遍，果然上手才发现bug真不少。。<br>注意点：何时字符串，何时用变量;路径的大小写</p>
-        
-          <a class="article-more-a" href="/2020/04/04/%E4%BB%8ETabBar%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6%E5%92%8C%E5%A4%8D%E4%B9%A0vue-router/#more">more >></a>
-        
+        <h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>1.【优点】哈希表基于数组，但插入-删除-查找操作效率高;<br>O(1)时间级，速度比树快，且编码简单<br>数组查找：基于索引查找效率高，基于内容效率低，而删除插入效率低<br>【缺点】数据无顺序，遍历顺序不固定；key不重复;  字典和集合都基于哈希表<br>2.定义<br><strong>结构为数组，但下标值会进行哈希函数，来获得HashCode</strong><br>3.案例：存1000个员工(通过哈希函数使某key(如名字)来获索引值)<br>保存联系人与电话、存储单词信息<br>【哈希表应用—高级语言的编译器】</p>
+<h3 id="字母转数字"><a href="#字母转数字" class="headerlink" title="字母转数字"></a>字母转数字</h3><p>1.常见字符编码：<br>ASCII码(占一个字节，美)<br>ISO-8859-1码(扩充，一个字节，欧洲)<br>GBxxx(如GBK,GB18030 1、2、4字节，中)<br><strong>Unicode字符集，目前常用UTF-8</strong><br>2.【目标】字符串转为数字<br>可以用ASCII码，也可自己设置编码系统，26个字母+空格(0)—27; a-z对应1-26，不考虑大小写<br>实现方式：<br>1)数字相加(数字过小，下标不唯一！)<br>2)幂的连乘:27个字符 如果有4个字母，分别是27的3,2,1,0幂(数字过大！耗内存)<br>3)改进后：哈希化！  2倍，取余实现压缩<br>整除10，取余数0-9</p>
+<h3 id="哈希化"><a href="#哈希化" class="headerlink" title="哈希化"></a>哈希化</h3><p>1.哈希化：大数字-压缩转换为数组范围下标<br>2.哈希函数：封装<strong>单词转大数字，哈希化</strong>的代码<br>3.哈希表：将最终数据插入到数组，增删改查，整个结构的封装<br>【缺点：下标存在重复–冲突】</p>
+<h3 id="解决地址冲突"><a href="#解决地址冲突" class="headerlink" title="解决地址冲突"></a><a href="https://www.jianshu.com/p/6e88d63061f2" target="_blank" rel="noopener">解决地址冲突</a></h3><p>1.链地址法(拉链法)<br> 数组每个位置由单个元素改存储一个链表/数组(视情况，插前用链表)<br>2.开放地址法<br>寻找空单元格来存重复数据，探测方式有三种：查、删<br>1)线性探测：下标值+1  查的过程中遇到空白，停止查找，表示此数不存在，删位置后设为-1  (缺点–聚集：连续单元填充，影响性能)<br>2)二次探测：优化步长,+1,+4,+9 比线性好  (步长不一的聚集)<br>3)再哈希法：依赖关键字的探测序列<br>关键字-》哈希函数再进行哈希化-》结果为步长<br>特点：哈希函数不同，不能输出0<br>哈希函数已被设好</p>
+<h3 id="哈希化的效率"><a href="#哈希化的效率" class="headerlink" title="哈希化的效率"></a>哈希化的效率</h3><p>1)没有冲突，效率更高<br>2)发生冲突：存放时间依赖后来的探测长度(取决于填装因子)<br>填装因子=总数据项/哈希表长度<br>链地址法：可大于1<br>开放地址表法最大填装因子：1  寻空项<br>三种探测方案的效率<br>线性：<br>对成功的查找: P = (1+1/(1-L))/2<br>对不成功的查找: P=(1+1/(1-L)^2)/2<br>二次与再哈希性能近似，比线性高<br>【结论】<br>真实开发时，多使用链地址法！</p>
+<h2 id="链地址法实现哈希表"><a href="#链地址法实现哈希表" class="headerlink" title="链地址法实现哈希表"></a><a href="https://www.cnblogs.com/AhuntSun-blog/p/12636714.html" target="_blank" rel="noopener">链地址法实现哈希表</a></h2><p>1.设计哈希函数:快速计算 元素均匀分布<br>【快速计算】乘法效率低<br>多项式计算-》优化:霍纳法则(秦九韶算法) 复杂度 O(N^2)降为 O(N)  核心：降低乘法的次数<br>【均匀分布】在常量地方使用质数，如哈希表长度27，N次幂的底数(27) 表长为质数<br>Java中哈希表：链地址法 长度为2的幂  位运算     //哈希化公式：index=hasCode(key)&amp;(Length-1)<br>JS使用质数，取余</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>【哈希函数】</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//字符串转换为较大的数字：hashCode,取余进行压缩</span></span><br><span class="line"><span class="comment">//设计哈希函数</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">hashFunc</span>(<span class="params">str,size</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> hashCode = <span class="number">0</span></span><br><span class="line">       <span class="comment">////使用霍纳法计算hashCode值，取余操作实现哈希化</span></span><br><span class="line">       <span class="comment">//霍纳核心：先计算最内层一次多项式值，由内向外计算，n次多项转为一次多项式</span></span><br><span class="line">       <span class="comment">//cats -&gt;Unicode编码</span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;str.length; i++)&#123;</span><br><span class="line">           <span class="comment">//str.charCodeAt(i)获取某个字符对应的Unicode码</span></span><br><span class="line">           <span class="comment">//</span></span><br><span class="line">           <span class="comment">//为什么是37？规定为常用数</span></span><br><span class="line">           hashCode = <span class="number">37</span> * hashCode+ str.charCodeAt(i);<span class="comment">//charCodeAt()可返回指定位置的字符的 Unicode 编码,0-65535</span></span><br><span class="line">       &#125;</span><br><span class="line">           <span class="comment">//取余压缩</span></span><br><span class="line">           <span class="keyword">var</span>  index = hashCode % size;</span><br><span class="line">           <span class="keyword">return</span> index</span><br><span class="line">     </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//测试代码</span></span><br><span class="line">   <span class="built_in">console</span>.log(hashFunc(<span class="string">'123'</span>,<span class="number">7</span>))<span class="comment">//4</span></span><br><span class="line">   <span class="built_in">console</span>.log(hashFunc(<span class="string">'NBA'</span>,<span class="number">7</span>))<span class="comment">//3</span></span><br><span class="line">   <span class="built_in">console</span>.log(hashFunc(<span class="string">'CBA'</span>,<span class="number">7</span>))<span class="comment">//5</span></span><br><span class="line">   <span class="built_in">console</span>.log(hashFunc(<span class="string">'CMF'</span>,<span class="number">7</span>))<span class="comment">//1</span></span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>【创建哈希表】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; [[ [k,v], [k,v], [k,v] ] , [ [k,v], [k,v] ], [ [k,v] ] ]</span><br><span class="line">   &#x2F;&#x2F;每个bucket代表一个index，可 [key,value] [key,value]</span><br><span class="line">   &#x2F;&#x2F;storage有不同index的bucket构成</span><br></pre></td></tr></table></figure>
+<p>【哈希表扩容】<br>1.扩容:链地址法,装填因子&gt;1,可无限插入新数据<br>2.扩容条件：装填因子&gt;0.75<br>3.实现：<br>1)定义变量，改变指向<br>2)创建一个新容量更大的数组，this.storage指向它<br>3)取oldStorage中bucket中的每个数据依次添加<br>【注】利用resize()即可实现扩容，又可实现容量压缩<br>装填因子 = 哈希表中数据 / 哈希表长度<br>1.装填因子laodFactor &gt; 0.75时，对哈希表进行扩容。在put()函数中添加</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断是否需要扩容操作</span></span><br><span class="line">     <span class="keyword">if</span>(<span class="keyword">this</span>.count &gt; <span class="keyword">this</span>.limit * <span class="number">0.75</span>)&#123;</span><br><span class="line">     <span class="comment">//调用扩容函数</span></span><br><span class="line">       <span class="keyword">this</span>.resize(<span class="keyword">this</span>.limit * <span class="number">2</span>)</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>2.装填因子laodFactor &lt; 0.25时，对哈希表容量进行压缩 在remove中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;缩小容量</span><br><span class="line">   if (this.limit &gt; 7 &amp;&amp; this.count &lt; this.limit * 0.25) &#123;</span><br><span class="line">    &#x2F;&#x2F;调用扩容函数 this.resize(Math.floor(this.limit &#x2F; 2))</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>【总代码】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">     &#x2F;&#x2F;设计哈希表：链地址法，每个index对应一个数组</span><br><span class="line">        function HashTable() &#123;</span><br><span class="line">            &#x2F;&#x2F;定义属性</span><br><span class="line">            this.storage &#x3D; [] &#x2F;&#x2F;数组</span><br><span class="line">            this.count &#x3D; 0 &#x2F;&#x2F;记录已存数据</span><br><span class="line">            &#x2F;&#x2F;装填因子:loadFactor&gt;0.75 扩容，&lt;0.25减少容量</span><br><span class="line">            this.limit &#x3D; 7 &#x2F;&#x2F;标记数组中可存放元素个数</span><br><span class="line">            &#x2F;&#x2F;定义相关的方法</span><br><span class="line">            &#x2F;&#x2F;哈希函数</span><br><span class="line">            HashTable.prototype.hashFunc&#x3D;(str, size)&#x3D;&gt;&#123;</span><br><span class="line">                var hashCode &#x3D; 0</span><br><span class="line">                for (var i &#x3D; 0; i &lt; str.length; i++) &#123;</span><br><span class="line">                    hashCode &#x3D; 37 * hashCode + str.charCodeAt(i)</span><br><span class="line">                &#125;</span><br><span class="line">                &#x2F;&#x2F;取余操作</span><br><span class="line">                hashCode &#x3D; hashCode % size</span><br><span class="line">                return hashCode</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;一.put(key,value)插入修改元素，若不存在key则为插入，若有，则为修改值为value</span><br><span class="line">            HashTable.prototype.put &#x3D; (key, value) &#x3D;&gt; &#123;</span><br><span class="line">                &#x2F;&#x2F;1.获取key的index</span><br><span class="line">                var index &#x3D; this.hashFunc(key, this.limit)</span><br><span class="line">                &#x2F;&#x2F;2.取出数组</span><br><span class="line">                var bucket &#x3D; this.storage[index]</span><br><span class="line">                &#x2F;&#x2F;3.判断这个数组是否存在</span><br><span class="line">                &#x2F;&#x2F;若不存，先创建bucket</span><br><span class="line">                if (bucket &#x3D;&#x3D; null) &#123;</span><br><span class="line">                    bucket &#x3D; []</span><br><span class="line">                    this.storage[index] &#x3D; bucket</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                     &#x2F;&#x2F;4.判断新增还是修改原值,声明变量flag来记录是否进行修改操作</span><br><span class="line">                var flag &#x3D; false;</span><br><span class="line">                for (var i &#x3D; 0; i &lt; bucket.length; i++) &#123;</span><br><span class="line">                    var tuple &#x3D; bucket[i]&#x2F;&#x2F;声明一个来保存bucket？因为bucket的每个值是[key,value]</span><br><span class="line">                    if (tuple[0] &#x3D;&#x3D; key) &#123;</span><br><span class="line">                        tuple[1] &#x3D; value</span><br><span class="line">                        flag &#x3D; true &#x2F;&#x2F;修改成功</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;新增</span><br><span class="line">                if(!flag)&#123;</span><br><span class="line">                    bucket.push([key,value])</span><br><span class="line">                    this.count++</span><br><span class="line">                    &#x2F;&#x2F; 数组扩容</span><br><span class="line">                 if (this.count &gt; this.limit * 0.75) </span><br><span class="line">                 this.resize(this.limit * 2)</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;get(key)获取特定位置元素</span><br><span class="line">            HashTable.prototype.get&#x3D;(key)&#x3D;&gt;&#123;</span><br><span class="line">                &#x2F;&#x2F;获取key对应的index</span><br><span class="line">                var index &#x3D;this.hashFunc(key,this.limit)</span><br><span class="line">                &#x2F;&#x2F;获取对应的bucket</span><br><span class="line">                var bucket &#x3D;this.storage[index]</span><br><span class="line">                &#x2F;&#x2F;3.若不存在，说明没有数据</span><br><span class="line">                if(bucket&#x3D;&#x3D;null)</span><br><span class="line">                  return null</span><br><span class="line">                else&#123;</span><br><span class="line">                    for(var i&#x3D;0;i&lt;bucket.length;i++)&#123;</span><br><span class="line">                        var tuple &#x3D;bucket[i]</span><br><span class="line">                        if(tuple[0]&#x3D;&#x3D;key)</span><br><span class="line">                        return tuple[1]</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#x2F;&#x2F;遍历完成后也没找到</span><br><span class="line">                    return null</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;remove(key)删除特定位置元素</span><br><span class="line">            HashTable.prototype.remove&#x3D;(key)&#x3D;&gt;&#123;</span><br><span class="line">                &#x2F;&#x2F;获取key对应的index</span><br><span class="line">                var index &#x3D;this.hashFunc(key,this.limit)</span><br><span class="line">                &#x2F;&#x2F;获取对应的bucket</span><br><span class="line">                var bucket &#x3D;this.storage[index]</span><br><span class="line">                &#x2F;&#x2F;3.若不存在，说明没有数据</span><br><span class="line">                if(bucket&#x3D;&#x3D;null)</span><br><span class="line">                  return null</span><br><span class="line">                else&#123;</span><br><span class="line">                    for(var i&#x3D;0;i&lt;bucket.length;i++)&#123;</span><br><span class="line">                        var tuple &#x3D;bucket[i]</span><br><span class="line">                        if(tuple[0]&#x3D;&#x3D;key)&#123;</span><br><span class="line">                            &#x2F;&#x2F;删除操作</span><br><span class="line">                       bucket.splice(i,1)</span><br><span class="line">                       this.count --</span><br><span class="line">                       &#x2F;&#x2F; 缩小数组的容量</span><br><span class="line">            if (this.limit &gt; 8 &amp;&amp; this.count &lt; this.limit * 0.25) &#123;</span><br><span class="line">                this.resize(Math.floor(this.limit &#x2F; 2))</span><br><span class="line">            &#125;</span><br><span class="line">            return tuple[1]</span><br><span class="line">                        &#125;</span><br><span class="line">                       </span><br><span class="line">                    &#125;</span><br><span class="line">                      &#x2F;&#x2F;依然没找到</span><br><span class="line">                      return null</span><br><span class="line">                &#125;</span><br><span class="line">              </span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;isEmpty()</span><br><span class="line">            HashTable.prototype.isEmpty &#x3D;()&#x3D;&gt;&#123;</span><br><span class="line">                return this.count&#x3D;&#x3D;0</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;size()</span><br><span class="line">            HashTable.prototype.size &#x3D;()&#x3D;&gt;&#123;</span><br><span class="line">                return this.count</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;resize(value)哈希表扩容</span><br><span class="line">            HashTable.prototype.resize &#x3D; (newLimit)&#x3D;&gt;&#123;</span><br><span class="line">                &#x2F;&#x2F;1.保存旧数据</span><br><span class="line">                let oldStorage &#x3D; this.storage</span><br><span class="line">                &#x2F;&#x2F;2.重置所有属性</span><br><span class="line">                this.storage&#x3D;[]</span><br><span class="line">                this.count&#x3D;0</span><br><span class="line">                this.limit&#x3D;newLimit</span><br><span class="line">                &#x2F;&#x2F;3.遍历oldStorage中所有的bucket</span><br><span class="line">                for(var i&#x3D;0;i&lt;oldStorage.length;i++)</span><br><span class="line">                const bucket &#x3D;oldStorage[i]</span><br><span class="line">                &#x2F;&#x2F;判断是否为空</span><br><span class="line">                if(bucket&#x3D;&#x3D;null)&#123;</span><br><span class="line">                    continue</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    &#x2F;&#x2F;当bucket中有数据时，取出数据重新插入</span><br><span class="line">                    for(var j&#x3D;0;j&lt;bucket.length;j++)&#123;</span><br><span class="line">                        const tuple &#x3D;bucket[j];</span><br><span class="line">                        this.put(tuple[0],tuple[1]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;测试哈希表</span><br><span class="line">var ht &#x3D; new HashTable()</span><br><span class="line">&#x2F;&#x2F;插入数据</span><br><span class="line">ht.put(&#39;name&#39;,&quot;xi&quot;)</span><br><span class="line">ht.put(&#39;height&#39;,165)</span><br><span class="line">ht.put(&#39;age&#39;,18)</span><br><span class="line">ht.put(&#39;sex&#39;,&#39;girl&#39;)</span><br><span class="line">console.log(ht)</span><br><span class="line">alert(ht.get(&#39;age&#39;))</span><br><span class="line">ht.put(&#39;color&#39;,&#39;blue&#39;)</span><br><span class="line">console.log(ht)</span><br><span class="line">alert(ht.remove(&#39;kk&#39;))</span><br><span class="line">alert(ht.isEmpty())</span><br><span class="line">alert(ht.size())</span><br></pre></td></tr></table></figure>
+<h3 id="容量质数"><a href="#容量质数" class="headerlink" title="容量质数"></a>容量质数</h3><p>1.判断一个数是否为质数？仅能被1和自身整除<br>【容量改为质数的代码】<br><a href="https://www.jianshu.com/p/70c11dc8ec98" target="_blank" rel="noopener">参考</a></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -193,16 +240,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/04/%E4%BB%8ETabBar%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%8A%BD%E7%A6%BB%E7%BB%84%E4%BB%B6%E5%92%8C%E5%A4%8D%E4%B9%A0vue-router/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/11/07%E5%93%88%E5%B8%8C%E8%A1%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/04/11/07%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          07树&amp;二叉树
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/10/05%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">05集合与字典</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -217,97 +332,33 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-vue-router" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/04/vue-router/">vue-router</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/04/vue-router/" class="archive-article-date">
-  	<time datetime="2020-04-04T01:18:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="学习指南"><a href="#学习指南" class="headerlink" title="学习指南"></a>学习指南</h2><p>1.箭头函数()=&gt;{}:ES6定义函数的方式，常用于一个函数的往另一个函数中传参，箭头函数中的this向外层找;只有一行代码可省略return与{}<br>定义函数：本身function,对角字面量，ES6箭头函数<br>2.路由器：路由(路径)与传送(数据包转移)<br>内网192.168.1.110(可重复性，仅在当前网络中有效)<br>公网IP唯一性<br>发消息：公网IP-&gt;路由器(再次转发，映射表：内网IP与MAC地址的对应关系)<br>3.前端渲染与后端渲染<br>三个阶段<br>1）后端渲染(服务器渲染)-后端路由(jsp技术：java server page)，后端处理URL与页面的映射关系<br>2)前后端分离(前端渲染)-没有路由的概念(ajax请求数据)，后端(数据)，静态服务器(html+css+js),ajax发送网络请求，服务器回传数据，js操作浏览器渲染DOM<br>3)单页面富应用(SPA)(前端渲染)-前端路由(URL与页面的映射关系)+前后端分离，改变url，js判断，从资源中获取相应部分,页面不进行整体刷新，仅一个页面<br>4.【两种模式改URL】URL的hash(#)与HTML5中的history<br>【原】<a href="http://localhost:8081" target="_blank" rel="noopener">http://localhost:8081</a><br>1)hash修改URL,页面未刷新，本质改location.href<br>控制台下：location.hash=’修改内容’—结果：<a href="http://localhost:8081/#修改内容" target="_blank" rel="noopener">http://localhost:8081/#修改内容</a><br>vue-router应用此机制，改变url地址，存在一份路由映射表，实现前端跳转而不刷新页面，ajax请求数据;<br>2)history对象模式，也不刷新页面，栈；后进先出，入栈：history.pushState()<br>出栈：history.back()<br>可以前进后退<br>同时：history.go(-1)=history.back()<br>history.go(1)=history.forward()</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(&#123;&#125;,<span class="string">''</span>,<span class="string">'home'</span>)<span class="comment">//输出http://localhost:8081/home</span></span><br><span class="line"></span><br><span class="line">history.back()<span class="comment">//输出http://localhost:8081</span></span><br><span class="line"></span><br><span class="line">history.replaceState(&#123;&#125;,<span class="string">''</span>,<span class="string">'替换'</span>)<span class="comment">//http://localhost:8081/替换</span></span><br></pre></td></tr></table></figure>
-<p>replaceState()只替换，无历史记录，无返回，后退受限</p>
-<p>所有组件都继承自Vue类的原型</p>
-<p>5.1)建立vue项目：在指定文件夹下 vue create 项目名 -&gt;cd 项目名 -&gt; npm run serve -&gt;修改URL的hash或HTML5中的history<br>2)配置vue-router插件模块，用Vue.user来安装路由功能;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save</span><br></pre></td></tr></table></figure>
-<ul>
-<li>src下创router文件夹：存路由信息  ，建index.js</li>
-<li>创建路由实例，在实例中挂载创建的路由实例对象</li>
-</ul>
-<p>3）快速生成vue模板：在vue文件下，输入vue回车<br>在components文件夹下创建路由组件Home.vue -》index.js配置路由映射(组件与路径映射)-》在APP.vue中使用路由</p>
-<p>默认显示首页，再配置路由重定向<br>router-link默认渲染a标签，改为tag=”button” repalce状态repalceState<br>点击，字体颜色改变<br>【1.配置路由映射关系】配置组件，导入组件，配置映射关系，在APP内配置router-link<br>【2.动态路由】页面path不确定，在index.js的path改，在App.vue中绑定to属性，在data中定义路径；若要显示此路径，在User.vue中定义计算属性，获取 return this.$route.params.userId<br>【注】router是new的路由对象，内有routes(多个route),$route是此时活跃的路由<br>【3.路由懒加载–webpack的打包-步骤：npm run build,在dist-&gt;static-&gt;js中三类：app-业务你的代码，vendor-第三方(引用的vue/vue-router/axios/bs),manifest-底层支撑代码<br><strong>懒加载：用到时再加载</strong>，不同路由打包成不用js，几个组件几个懒加载,防止出现短暂空白–懒加载，将路由对应组件打包成一个个js块，路由访问时才加载</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入方式：三种，常用ES6的箭头函数</span></span><br><span class="line"><span class="comment">//index.js中书写懒加载</span></span><br><span class="line">&#123;</span><br><span class="line">        path:<span class="string">'/about'</span>,</span><br><span class="line">        component:<span class="function"><span class="params">()</span>=&gt;</span><span class="keyword">import</span>(<span class="string">'../components/About'</span>)<span class="comment">//箭头函数</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>使用懒加载，js文件个数增加，从app.js中抽离出来<br>】</p>
-<p><strong>路由使用时，用懒加载方式,一个路由一个js文件</strong><br>【路由嵌套】创建子组件，配置子路由，不用加/  ;父组件内部使用router-view<br>【路由参数】创建profile.vue–我的文件(档案);路由参数有两种：params对象与query–?<br>分析：URL<br>1)params类型：配置路由格式/router/:id<br>          传递方式：path后加对应值，形成路径：/router/123<br>2)query类型：/router ,传递格式：对象使用query的key为传递，形成路径：/router?id=123<br>【导航守卫】监听从哪往哪跳，改index.js中的title<br>常用生命周期的函数：created(),mounted(),updated()–界面刷新<br>方案一：在Home.vue中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">created()&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'created Home'</span>);</span><br><span class="line">            <span class="built_in">document</span>.title=<span class="string">'首页'</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>【keep-alive保存组件状态】是Vue的内部组件<br>1.不写缺省值，在Home中在created()中写缺省</p>
-<p>【琐碎知识】：vue-router是vue.js的路由插件<br>先渲染APP.vue</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/04/vue-router/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理论"><span class="toc-number">1.</span> <span class="toc-text">理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字母转数字"><span class="toc-number">1.2.</span> <span class="toc-text">字母转数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希化"><span class="toc-number">1.3.</span> <span class="toc-text">哈希化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决地址冲突"><span class="toc-number">1.4.</span> <span class="toc-text">解决地址冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希化的效率"><span class="toc-number">1.5.</span> <span class="toc-text">哈希化的效率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链地址法实现哈希表"><span class="toc-number">2.</span> <span class="toc-text">链地址法实现哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">2.1.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容量质数"><span class="toc-number">2.2.</span> <span class="toc-text">容量质数</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
 
@@ -315,653 +366,6 @@
       
         <div class="declare" hidden="hidden"></div>
       
-  
-    <article id="post-手撕promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/%E6%89%8B%E6%92%95promise/">手撕promise</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/03/%E6%89%8B%E6%92%95promise/" class="archive-article-date">
-  	<time datetime="2020-04-03T09:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>【背景】解决ajax异步操作中的回调函数过多，将回调嵌套改为链式调用<br>1)观察者模式<br>then收集依赖–&gt;异步触发resolve–&gt;resolve执行依赖<br>在then方法的回调里取得异步操作的返回值<br>2)ES6中Promise/A规范控制Promise的状态<br>2.1)核心：Promise本质–状态机：Pending(等待),Fulfilled(执行中)，Rejected(拒绝态)<br>状态变更-单向:1-&gt;2,1-&gt;3<br>2.2)then方法：接收两个可选参数-状态改变时的回调;then方法可返回一个promise,可被同一个promise调用多次<br>3)【then的链式调用】<br>then()方法需返回一个Promise，这样才能返回then？then()的回调顺序执行<br>当前Promise状态变更后，再执行下一个then收集回调<br><strong>值穿透</strong>–then(参数必须为函数)<br><strong>处理状态为resolve/reject</strong>直接执行then回调</p>
-<p>【查：instanceof 和try..catch】</p>
-<p>【自学部分：promise】<br>1.背景：promise对异步操作进行封装<br>2.三种状态：<br>1).pending等待状态：正在执行网络请求或定时器未到时间<br>2).fulfill成功状态：主动回调resolve()时，并回调.then()<br>3).reject拒绝状态：主动回调reject()时，并回调.catch() 可省略<br>3.基本结构：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;setoutTime()&#125;).then().catch()</span><br></pre></td></tr></table></figure>
-<p>4.链式调用：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    正确写法：不是一层套一层，是执行完之后继续链式执行</span></span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">          setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">              resolve(<span class="string">'aaa'</span>);</span><br><span class="line">          &#125;, <span class="number">1000</span>)</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">//先初始调用，再拼接</span></span><br><span class="line">          <span class="built_in">console</span>.log(res, <span class="string">'第一层10行代码'</span>);</span><br><span class="line">          <span class="comment">//单纯在后面拼接，无需setTimeOut()再显示</span></span><br><span class="line">          <span class="comment">// return new Promise((resolve,reject) =&gt; &#123;</span></span><br><span class="line">          <span class="comment">//     // resolve(res + '111')</span></span><br><span class="line">          <span class="comment">//     reject(err);</span></span><br><span class="line">          <span class="comment">// &#125;)</span></span><br><span class="line">          <span class="comment">// 等价于 return Promise.reject(err);</span></span><br><span class="line">          <span class="comment">//再次简写：用throw抛出</span></span><br><span class="line">          <span class="keyword">throw</span> err;</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">//先初始调用，再拼接</span></span><br><span class="line">          <span class="built_in">console</span>.log(res, <span class="string">'第二层10行代码'</span>);</span><br><span class="line">         <span class="keyword">return</span> res+<span class="string">'222'</span>;</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res, <span class="string">'第三层10行代码'</span>);</span><br><span class="line">      &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'错误信息'</span>)</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/%E6%89%8B%E6%92%95promise/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-常用HTML标签汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/%E5%B8%B8%E7%94%A8HTML%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/">常用HTML标签汇总</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/03/%E5%B8%B8%E7%94%A8HTML%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/" class="archive-article-date">
-  	<time datetime="2020-04-03T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="form标签中的input标签与label标签"><a href="#form标签中的input标签与label标签" class="headerlink" title="form标签中的input标签与label标签"></a>form标签中的input标签与label标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"male"</span>&gt;</span>Male<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">id</span>=<span class="string">"male"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>1)form表单，可包含input元素，textarea元素，label元素，向服务器传数据，块元素<br>2)label标签为input元素定义标注，当用户选择此标签时，浏览器自动将焦点转到与此标签相关的表单控件;<br>3)label中的for=input中的id;即for将label绑定到另一个元素<br>4)input常用属性：type,value(input元素值),name(input元素名)<br>5)input标签，<a href="https://www.w3school.com.cn/tags/att_input_type.asp" target="_blank" rel="noopener">type规定input元素的类型</a><br>常见：button/checkbox/file/hidden/image/password/radio/<strong>reset(清除表单中所有数据)/submit(数据提交到服务器)/text(单行输入文本)</strong></p>
-<h2 id="列表与列表项"><a href="#列表与列表项" class="headerlink" title="列表与列表项"></a>列表与列表项</h2><p> 1)列表ul/ol–li与定义列表dl-dt/dd描述<br> 2)列表项内部可以使用段落、换行符、图片、链接以及其他列表等等</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html </a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/%E5%B8%B8%E7%94%A8HTML%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-http协议梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/">http协议梳理</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-03-29T07:31:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="《图解http协议》总结"><a href="#《图解http协议》总结" class="headerlink" title="《图解http协议》总结"></a>《图解http协议》总结</h2><p>1.HTTP：HyperText Transfer Protocol 超文本传输协议(规则)<br>HTTP协议前：FTP文本传输协议<br>2.WWW: World Wide Web 万维网，简称web<br>     3项WWW构建技术：SGML-标准通用标记语言<br>                HTTP协议<br>                URL-统一资源定位符<br>3.TCP/IP分层：应用层(FTP,DNS,HTTP协议)，传输层(TCP,UDP)，网络层(IP)，链路层(硬件)<br>4.TCP/IP 通信传输流(p19页图)<br>层与层传输数据时，加每层的首部信息<br>5.<strong>IP,TCP,DNS协议</strong><br>1)IP协议：传数据包，节点分配地址(可变);依赖MAC地址-网卡的固定地址;中转时IP通过ARP协议，解析地址反查对应的MAC地址<br>2)TCP协议：确定数据传到(可靠性)，BSS-字节流服务,数据以报文段(单位)分割;牢记三次握手：SYN–SYN/ACK–ACK<br><img src="/images/http%E5%8D%8F%E8%AE%AE/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png" alt="三次握手"><br>3)DNS:域名解析，域名–IP地址，服务器接收IP地址，若是域名，则先经过DNS，将域名解析为IP地址<br>4)三者协议与HTTP协议关系(p24页图)<br>6.URI(标识符)&gt; URL(定位符),绝对URI,使用https:<br><img src="/images/http%E5%8D%8F%E8%AE%AE/%E7%BB%9D%E5%AF%B9URI.png" alt="绝对URI"></p>
-        
-          <a class="article-more-a" href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/29/http%E5%8D%8F%E8%AE%AE%E6%A2%B3%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-js30系列04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/28/js30%E7%B3%BB%E5%88%9704/">js30系列04</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/28/js30%E7%B3%BB%E5%88%9704/" class="archive-article-date">
-  	<time datetime="2020-03-28T10:16:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="15网页菜单"><a href="#15网页菜单" class="headerlink" title="15网页菜单"></a><a href="https://github.com/ximoxiyu/JavaScript30/tree/master/15%20-%20LocalStorage" target="_blank" rel="noopener">15网页菜单</a></h2><p>【目标】页面中添加新的菜品，而且在页面刷新之后也不清空<br>理解 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Storage/LocalStorage" target="_blank" rel="noopener">localStorage</a> 的机制，利用 LocalStorage 把信息存到本地，从而可以保证刷新后内容不变。但使用 localStorage 的时候，直接把 items 传入得到的值是 [object Object]<br><a href="https://www.cnblogs.com/st-leslie/p/5617130.html" target="_blank" rel="noopener">localStorage学习</a><br>【关键点】1.localStorage理解为前端数据库：增删查改，setItem()/removeItem()/getItem()；字符串形式<br>2.主要配合JSON对象使用：JSON.stringify()//转字符串<br>JSON.parse()//字符串转JSON形式<br>3.HTML5的新特性，解决cookie内存不足(4k)，localStorage (5M)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  // 获取表单--添加部分</span><br><span class="line">  const addItems = document.querySelector(<span class="string">'.add-items'</span>);</span><br><span class="line">  // 获取列表--显示部分</span><br><span class="line">  const itemsList = document.querySelector(<span class="string">'.plates'</span>);</span><br><span class="line">  //定义空数组 const items = [];</span><br><span class="line">  //字符串转JSON格式</span><br><span class="line">  var items = JSON.parse(localStorage.getItem(<span class="string">'items'</span>)) || [];</span><br><span class="line">//事件的触发  提交-添加  点击-选中列表  最后：页面更新</span><br><span class="line">addItems.addEventListener(<span class="string">'submit'</span>,addItem);</span><br><span class="line">itemsList.addEventListener(<span class="string">'click'</span>,checkDone);</span><br><span class="line">changePage(items,itemsList);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//调用的具体函数</span><br><span class="line">//更新页面函数 changePage  显示ul</span><br><span class="line"><span class="keyword">function</span> changePage(plates=[],plateslist)&#123;</span><br><span class="line">  // 数组里的内容构造一组 &lt;li&gt; 组成的列表，并且加上一些标识信息，以助于之后需要实现的选中功能</span><br><span class="line">  plateslist.innerHTML = plates.map((plate,i)=&gt;&#123;</span><br><span class="line">    <span class="built_in">return</span> `</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span> =<span class="string">"checkbox"</span></span><br><span class="line">           data-index=<span class="variable">$&#123;i&#125;</span> id=<span class="string">"item<span class="variable">$&#123;i&#125;</span>"</span> </span><br><span class="line">           <span class="variable">$&#123;plate.checked1 ? 'checked' : ''&#125;</span> &gt;</span><br><span class="line">      &lt;label <span class="keyword">for</span>=<span class="string">"item<span class="variable">$&#123;i&#125;</span>"</span>&gt;<span class="variable">$&#123;plate.text&#125;</span>&lt;/label&gt;</span><br><span class="line">   &lt;/li&gt;</span><br><span class="line">    `;</span><br><span class="line">  &#125;).join(<span class="string">''</span>);</span><br><span class="line">&#125;</span><br><span class="line">// 添加函数addItem：获取当前input中的输入内容，将其存储在一个对象中，对象存入新数组</span><br><span class="line"><span class="keyword">function</span> addItem(e)&#123;</span><br><span class="line">  e.preventDefault();//阻止默认行为，闪动</span><br><span class="line">  // 获取输入框中的内容</span><br><span class="line">  const text =this.querySelector(<span class="string">'[name=item]'</span>).value;</span><br><span class="line">  //新建对象，存储输入框中的内容</span><br><span class="line">  const item =&#123;</span><br><span class="line">    text,//存储当前输入框中的内容</span><br><span class="line">    checked1:<span class="literal">false</span>,//是否勾选</span><br><span class="line">  &#125;</span><br><span class="line">  // 空数组中增加新元素</span><br><span class="line">  items.push(item);</span><br><span class="line">  // 表单元素重置为默认值--清空当前输入框</span><br><span class="line">  this.reset();</span><br><span class="line">  //页面刷新</span><br><span class="line">  changePage(items,itemsList);</span><br><span class="line">  //localStorage增加,等价于 localStorage.items = JSON.stringify(items)</span><br><span class="line">  localStorage.setItem(<span class="string">'items'</span>,JSON.stringify(items));</span><br><span class="line">  // 控制台打印当前输入内容，可删，同时第一句也可删</span><br><span class="line">console.log(text);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//选中函数 checkDone</span><br><span class="line"><span class="keyword">function</span> checkDone(e)&#123;</span><br><span class="line">  // 正则判断,要求为input</span><br><span class="line"><span class="keyword">if</span> (!e.target.matches(<span class="string">'input'</span>))</span><br><span class="line"><span class="built_in">return</span>;</span><br><span class="line">const el =e.target;</span><br><span class="line">const index =el.dataset.index;//读取data-index</span><br><span class="line">items[index].checked1 =!items[index].checked1;//取反</span><br><span class="line">changePage(items,itemsList);</span><br><span class="line">localStorage.setItem(<span class="string">'items'</span>,JSON.stringify(items));</span><br><span class="line">  // 控制台打印当前输入内容，可删，同时第一句也可删</span><br><span class="line">console.log(el.dataset.index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//附加功能，比如全选，全不选，删除</span><br><span class="line">const checkAllBtn = document.querySelector(<span class="string">'.check-all'</span>);</span><br><span class="line">const uncheckAllBtn = document.querySelector(<span class="string">'.uncheck-all'</span>);</span><br><span class="line">const deleteAllBtn = document.querySelector(<span class="string">'.delete-all'</span>);</span><br><span class="line"></span><br><span class="line">checkAllBtn.addEventListener(<span class="string">'click'</span>,()=&gt;&#123;</span><br><span class="line">  items.forEach(item=&gt;&#123;</span><br><span class="line">    item.checked1 = <span class="literal">true</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  changePage(items,itemsList);</span><br><span class="line">  localStorage.setItem(<span class="string">'items'</span>,JSON.stringify(items)); </span><br><span class="line">&#125;);</span><br><span class="line">uncheckAllBtn.addEventListener(<span class="string">'click'</span>,()=&gt;&#123;</span><br><span class="line">  items.forEach(item=&gt;&#123;</span><br><span class="line">    item.checked1 = <span class="literal">false</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">  changePage(items,itemsList);</span><br><span class="line">  localStorage.setItem(<span class="string">'items'</span>,JSON.stringify(items)); </span><br><span class="line">&#125;);</span><br><span class="line">deleteAllBtn.addEventListener(<span class="string">'click'</span>,()=&gt;&#123;</span><br><span class="line">  items =[];</span><br><span class="line">  changePage(items,itemsList);</span><br><span class="line">  localStorage.setItem(<span class="string">'items'</span>,JSON.stringify(items)); </span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="17-数组标题去前缀"><a href="#17-数组标题去前缀" class="headerlink" title="[17.数组标题去前缀]"></a>[17.数组标题去前缀]</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">const bands = [<span class="string">'The Plot in You'</span>, <span class="string">'The Devil Wears Prada'</span>, <span class="string">'Pierce the Veil'</span>, <span class="string">'Norma Jean'</span>, <span class="string">'The Bled'</span>, <span class="string">'Say Anything'</span>, <span class="string">'The Midway State'</span>, <span class="string">'We Came as Romans'</span>,<span class="string">'Counterparts'</span>, <span class="string">'Oh, Sleeper'</span>, <span class="string">'A Skylit Drive'</span>, <span class="string">'Anywhere But Here'</span>, <span class="string">'An Old Dog'</span>];</span><br><span class="line">// 去除字符串中的The，A以及An的前缀后再进行排序,String.replace()函数,第一参数使用字面量正则表达式</span><br><span class="line">const delPrefix = item =&gt;item.replace(/^(The|A|An)\s&#123;1&#125;/,<span class="string">''</span>);</span><br><span class="line">  // Array.prototype.sort(*param*)方法虽然有返回值，但排序结果也影响原数组，Array.prototype.sort()函数只是返回了一个指向原数组的引用，而并没有生成新的数组。</span><br><span class="line">// 数组排序,排序后结果赋给新变量，</span><br><span class="line">const sortedbands = bands.sort((a,b)=&gt; delPrefix(a) &gt; delPrefix(b) ? 1 : -1);</span><br><span class="line">//获取ul列表,进行内容添加,展示到HTML页面</span><br><span class="line">document.querySelector(<span class="string">'#bands'</span>).innerHTML =<span class="string">'&lt;li&gt;'</span>+sortedbands.join(<span class="string">'&lt;/li&gt;&lt;li&gt;'</span>)+<span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line">//测试Array.prototype.sort()的返回值，排序后的数组作为列表项插入其中。</span><br><span class="line">bands[0]=<span class="string">'I love javascript30!'</span>;</span><br><span class="line">console.log(sortedbands);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="19-照相"><a href="#19-照相" class="headerlink" title="19.照相"></a><a href="https://github.com/soyaine/JavaScript30/tree/master/19%20-%20Webcam%20Fun" target="_blank" rel="noopener">19.照相</a></h2><p>1.通过编写javascript代码，请求调用用户的网络摄像头;<br>2.在页面上展示来自webcam的数据流信息;<br>3.并允许用户保存展示的照片;<br>4.及使用滑块来改变图像的色彩。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line">  canvas = document.querySelector(<span class="string">'canvas'</span>);</span><br><span class="line">    video = document.querySelector(<span class="string">'video'</span>);</span><br><span class="line">    ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line">    img = document.querySelector(<span class="string">'#myimg'</span>);</span><br><span class="line">    slider = document.querySelector(<span class="string">'.rgb'</span>);</span><br><span class="line">    a = document.querySelector(<span class="string">'a'</span>);</span><br><span class="line">    //滤色范围记录</span><br><span class="line">    filter = &#123;</span><br><span class="line">        rmin: 0,</span><br><span class="line">        rmax: 255,</span><br><span class="line">        gmin: 0,</span><br><span class="line">        gmax: 255,</span><br><span class="line">        bmin: 0,</span><br><span class="line">        bmax: 255</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //调用摄像头数据</span><br><span class="line">            askWebcam();</span><br><span class="line"></span><br><span class="line">    //绑定change事件动态修改图片颜色</span><br><span class="line">    slider.onchange = <span class="keyword">function</span>(e) &#123;</span><br><span class="line">        //先将canvas恢复至原始截图</span><br><span class="line">        ctx.putImageData(origindata, 0, 0);</span><br><span class="line">        const target = e.target;</span><br><span class="line">        //startPos表示操作像素点数据时的起点，从canvas获取到的像素数据每四个值表示一个像素点</span><br><span class="line">        //例如滑块为红色，则只需要改变像素数组中第0,4,8......个元素的值。</span><br><span class="line">        const startPos = &#123;</span><br><span class="line">            <span class="string">'r'</span>: 0,</span><br><span class="line">            <span class="string">'g'</span>: 1,</span><br><span class="line">            <span class="string">'b'</span>: 2</span><br><span class="line">        &#125;[target.name[0]];</span><br><span class="line">        //filterMin和filterMax表示相应的滤色范围上下限，若修改了红色滤色范围则取红色范围值。</span><br><span class="line">        //若修改蓝色的滤色范围，则取蓝色。</span><br><span class="line">        var tempFilter = checkFilter(target.name, target.value);</span><br><span class="line">        const filterMin = tempFilter.min;</span><br><span class="line">        const filterMax = tempFilter.max;</span><br><span class="line">        //从canvas获取像素数据</span><br><span class="line">        var img = ctx.getImageData(0, 0, 300, 200);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        var imgd = img.data;</span><br><span class="line">        //色彩过滤</span><br><span class="line">        <span class="keyword">for</span> (var i = startPos, len = imgd.length; i &lt; len; i += 4) &#123;</span><br><span class="line">            <span class="keyword">if</span> (imgd[i] &lt; filterMin) &#123;</span><br><span class="line">                imgd[i] = filterMin;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (imgd[i] &gt; filterMax) &#123;</span><br><span class="line">                imgd[i] = filterMax;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //将修改后的像素数据重绘制至canvas</span><br><span class="line">        ctx.putImageData(img, 0, 0);</span><br><span class="line">        img.src = canvas.toDataURL();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">//点击函数</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">takePhoto</span></span>() &#123;</span><br><span class="line">    ctx.drawImage(video, 0, 0, 300, 200);</span><br><span class="line">    //将原始截图保存</span><br><span class="line">    origindata = ctx.getImageData(0, 0, 300, 200);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//保存图片</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">savePhoto</span></span>() &#123;</span><br><span class="line">    img.src = canvas.toDataURL();</span><br><span class="line">    a.href = canvas.toDataURL();</span><br><span class="line">    a.setAttribute(<span class="string">'download'</span>, <span class="string">'handsome'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//申请网络摄像头操作权限</span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">askWebcam</span></span>() &#123;</span><br><span class="line">    navigator.getUserMedia = navigator.getUserMedia ||</span><br><span class="line">        navigator.webkitGetUserMedia ||</span><br><span class="line">        navigator.mozGetUserMedia;</span><br><span class="line">    <span class="keyword">if</span> (navigator.getUserMedia) &#123;</span><br><span class="line">        navigator.getUserMedia(&#123;</span><br><span class="line">            audio: <span class="literal">false</span>,</span><br><span class="line">            video: &#123;</span><br><span class="line">                width: 300,</span><br><span class="line">                height: 200</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">function</span>(stream) &#123;</span><br><span class="line">            //若成功</span><br><span class="line">            video.srcObject = stream;</span><br><span class="line">            video.onloadedmetadata = <span class="keyword">function</span>(e) &#123;</span><br><span class="line">                video.play();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">function</span>(err) &#123;</span><br><span class="line">            console.log(<span class="string">'Error occured:'</span> + err.name);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        console.log(<span class="string">'this navigator doesn\'</span>t support webcam!<span class="string">');</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//滤色函数</span></span><br><span class="line"><span class="string">function checkFilter(name, value) &#123;</span></span><br><span class="line"><span class="string">    var _min;</span></span><br><span class="line"><span class="string">    var _max;</span></span><br><span class="line"><span class="string">    var _antiname = &#123;</span></span><br><span class="line"><span class="string">        '</span>rmin<span class="string">': '</span>rmax<span class="string">',</span></span><br><span class="line"><span class="string">        '</span>rmax<span class="string">': '</span>rmin<span class="string">',</span></span><br><span class="line"><span class="string">        '</span>gmin<span class="string">': '</span>gmax<span class="string">',</span></span><br><span class="line"><span class="string">        '</span>gmax<span class="string">': '</span>gmin<span class="string">',</span></span><br><span class="line"><span class="string">        '</span>bmin<span class="string">': '</span>bmax<span class="string">',</span></span><br><span class="line"><span class="string">        '</span>bmax<span class="string">': '</span>bmin<span class="string">'</span></span><br><span class="line"><span class="string">    &#125;[name]</span></span><br><span class="line"><span class="string">    filter[name] = value;</span></span><br><span class="line"><span class="string">    //当下限值超过上限时，将两者对调</span></span><br><span class="line"><span class="string">    _min = Math.min(filter[name], filter[_antiname]);</span></span><br><span class="line"><span class="string">    _max = Math.max(filter[name], filter[_antiname]);</span></span><br><span class="line"><span class="string">    console.log(filter);</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">        min: _min,</span></span><br><span class="line"><span class="string">        max: _max</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>20.语音接口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;</span><br><span class="line">  var words = document.getElementById(<span class="string">'words'</span>);</span><br><span class="line"></span><br><span class="line">  //新建一个语音识别对象</span><br><span class="line">  var speech = new webkitSpeechRecognition();</span><br><span class="line">  speech.interimResults = <span class="literal">true</span>;</span><br><span class="line">  speech.lang = <span class="string">'en-US'</span>;</span><br><span class="line">  speech.start();</span><br><span class="line"></span><br><span class="line">//有结果返回时</span><br><span class="line">  speech.addEventListener(<span class="string">'result'</span>, (e) =&gt; &#123;</span><br><span class="line">      const results = Array.from(e.results) </span><br><span class="line">      // e.results中保存的是识别的结果，本来并不是数组，需要将其转换为数组，方便使用其map、join等方法。</span><br><span class="line">        .map(result =&gt; result[0])</span><br><span class="line">        .map(result =&gt; result.transcript) // 获取到每一段话，是一个数组类型</span><br><span class="line">        .join(<span class="string">''</span>); // 将每一段话连接成字符串</span><br><span class="line">       //将结果输出在页面上</span><br><span class="line">        words.innerHTML = results;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//开始捕获到音频时</span><br><span class="line">speech.onaudiostart = <span class="keyword">function</span>(e) &#123;</span><br><span class="line">  console.log(<span class="string">'start'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//出现错误时</span><br><span class="line">speech.onerror = <span class="keyword">function</span>(e) &#123;</span><br><span class="line">  console.log(e.error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//语音识别结束时重新开始捕获语音</span><br><span class="line"> speech.onend = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">     speech.start();</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/28/js30%E7%B3%BB%E5%88%9704/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-js30系列03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/27/js30%E7%B3%BB%E5%88%9703/">js30系列03</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/27/js30%E7%B3%BB%E5%88%9703/" class="archive-article-date">
-  	<time datetime="2020-03-27T14:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="09-Console-调试技巧"><a href="#09-Console-调试技巧" class="headerlink" title="09 Console 调试技巧"></a><a href="https://github.com/ximoxiyu/JavaScript30/tree/master" target="_blank" rel="noopener">09 Console 调试技巧</a></h2><p>仅html+js<br>[console对象与控制台学习]（<a href="https://wangdoc.com/javascript/features/console.html）" target="_blank" rel="noopener">https://wangdoc.com/javascript/features/console.html）</a></p>
-<ul>
-<li>console对象是js的原生对象<br>console用途：调试程序，提供命令行接口;F12<br>console面板：命令行窗口</li>
-<li>console对象的静态方法，可覆盖</li>
-</ul>
-<p>1.console.log()输出普通信息<br>%c：css格式字符串–%c后面的内容<br>%d：打印整数<br>%s：打印字符串<br>%f：打印浮点数<br>%o：打印javascript对象，可以是整数，字符串，JSON对象<br>2.console.info()输出提示信息<br>3.console.error()输出错误信息<br>4.console.warn()输出警示信息<br>5.console.debug()输出调试信息<br>6.console.table()数据打印成表格<br>7.console.assert() 条件判断，2个参数;在第一个参数为 false 的情况下会在控制台输出信息。<br>8.console.dir()检查，可以显示一个对象的所有属性和方法<br>9.console.count()打印标识及调用次数，可接收字符串为参数，对执行次数进行分类<br>10.console.group()数组设置分组信息<br>  console.groupEnd()结束当前的分组。 console.groupCollapsed()隐藏分组信息<br>11.console.time()测试程序执行的时长<br>  console.timeEnd()计时结束,执行时长显示在控制台。<br>12.console.clear()清除控台台之前的信息;若选中控制台的“Preserve log”选项，console.clear方法将不起作用。</p>
-        
-          <a class="article-more-a" href="/2020/03/27/js30%E7%B3%BB%E5%88%9703/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/27/js30%E7%B3%BB%E5%88%9703/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/26/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/26/hello-world/" class="archive-article-date">
-  	<time datetime="2020-03-26T09:06:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>图片引用格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/images/image.jpg)</span><br></pre></td></tr></table></figure>
-<p><img src="/images/img.jpg" alt="你好"></p>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/26/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-js30系列02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/26/js30%E7%B3%BB%E5%88%9702/">js30系列02</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/26/js30%E7%B3%BB%E5%88%9702/" class="archive-article-date">
-  	<time datetime="2020-03-26T09:05:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="04-07-数组Array"><a href="#04-07-数组Array" class="headerlink" title="04+07 数组Array"></a><a href="https://github.com/ximoxiyu/JavaScript30/tree/master/04%20-%20Array%20Cardio%20Day%201" target="_blank" rel="noopener">04+07 数组Array</a></h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">Array</a></p>
-<p>Array对象–构造数组的全局对象<br>2个属性：Array.length<br>Array.prototype //通过数组的原型对象可以为所有数组对象添加属性。所有数组实例都会从 Array.prototype 继承属性和方法。修改 Array 的原型会影响到所有的数组实例<br>方法：<br>Array.prototype.sort()//对数组元素进行排序，并返回当前数组。<br>Array.prototype.splice()//任意的位置给数组添加或删除任意个元素。<br>Array.prototype.reverse()//颠倒数组中元素的排列顺序，即原先的第一个变为最后一个，原先的最后一个变为第一个。<br>【迭代方法】<br>Array.prototype.forEach()//数组中的每个元素执行一次回调函数<br>Array.prototype.every()//【每个】数组中的每个元素都满足测试函数，则返回 true，否则返回 false<br>Array.prototype.some()//【某个】数组中至少有一个元素满足测试函数，则返回 true，否则返回 false<br>Array.prototype.filter()//所有在过滤函数中返回 true 的数组元素放进一个新数组中并返回<br>Array.prototype.find()//找到第一个满足测试函数的元素并返回那个元素的值，如果找不到，则返回 undefined。<br>Array.prototype.findIndex() //找到第一个满足测试函数的元素并返回那个元素的索引，如果找不到，则返回 -1。<br>Array.prototype.map()//返回一个由回调函数的返回值组成的新数组。<br>Array.prototype.reduce()//从左到右为每个数组元素执行一次回调函数，并把上次回调函数的返回值放在一个暂存器中传给下次回调函数，并返回最后一次回调函数的返回值<br><img src="/images/js30/4_7.png" alt="效果"></p>
-        
-          <a class="article-more-a" href="/2020/03/26/js30%E7%B3%BB%E5%88%9702/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js30</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/26/js30%E7%B3%BB%E5%88%9702/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-js30系列01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/23/js30%E7%B3%BB%E5%88%9701/">js30系列01</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/03/23/js30%E7%B3%BB%E5%88%9701/" class="archive-article-date">
-  	<time datetime="2020-03-23T13:04:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="01-打鼓"><a href="#01-打鼓" class="headerlink" title="01 打鼓"></a>01 <a href="https://github.com/ximoxiyu/JavaScript30/tree/master/01%20-%20JavaScript%20Drum%20Kit" target="_blank" rel="noopener">打鼓</a></h2><p>【基本思路】<br>触发键盘按键ASDFGHJKL,进行audio播放与样式的改变,结束后触发transitionend事件去除样式;<br>【html】一大块div(keys)内含9小块div(key)，每小块div有自身的键码data-key与音频sound;<br>每个按键码对应一个audio标签，进行指定音频【注：音频地址为本地sounds文件夹】</p>
-        
-          <a class="article-more-a" href="/2020/03/23/js30%E7%B3%BB%E5%88%9701/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js30</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/23/js30%E7%B3%BB%E5%88%9701/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
-
-
           </div>
         </div>
       </div>
@@ -994,8 +398,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

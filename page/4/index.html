@@ -157,6 +157,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-实现一个音乐播放器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/">项目1-音乐播放器</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2020-03-05T04:02:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>目标：利用Vue的学习内容，完成大作业，制作一个音乐播放器(网易云)</p>
+<h2 id="目标拆分"><a href="#目标拆分" class="headerlink" title="目标拆分"></a>目标拆分</h2><p>1.拆分组件(评论与进度条)<br>关键：理清哪一部分是进度条，哪一部分是评论，父子组件中如何实现的通信。<br>2.实现上下曲播放功能的切换<br>关键：所有歌存为一个数组songList【】,将每一首歌存为一个对象{}，含自身的name(歌曲名)，author,bgImg(封面),audio(播放地址),comments(评论),使用时songList[currentIndex].audio<br>注意在currentIndex在data中进行初始化！<br>3.一些细节<br>关于歌曲链接的存储，界面的优化等，本地存储如何写相对地址及怎么上传到云空间获取URL等，对目前已有框架的改进与优化等等。</p>
+        
+          <a class="article-more-a" href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue作业</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/05/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+      <!--添加代码开始-->
+      
+        <div class="declare" hidden="hidden"></div>
+      
+  
     <article id="post-Vue学习小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

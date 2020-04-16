@@ -157,6 +157,165 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-我的vue学习04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/12/%E6%88%91%E7%9A%84vue%E5%AD%A6%E4%B9%A004/">我的vue学习04</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/04/12/%E6%88%91%E7%9A%84vue%E5%AD%A6%E4%B9%A004/" class="archive-article-date">
+  	<time datetime="2020-04-12T08:18:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>【核心】组件抽离为自定义标签<br>1.组件的分类<br>1)全局组件<br>Vue.component(组件名，{组件模板})<br>2)局部组件<br>命名与引入均在vue实例的components属性中完成</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">el:<span class="string">'#app'</span>,</span><br><span class="line">components:&#123;</span><br><span class="line">  <span class="string">'组件名'</span>：&#123;组件模板&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>3.组件化优势:<br>1)低耦合，高内聚<br>2)组件复用</p>
+<h3 id="组件间的通信"><a href="#组件间的通信" class="headerlink" title="组件间的通信"></a>组件间的通信</h3><p>1)父传子 数据 props声明，使用类似data<br>2)子传父 自定义事件<br>this.$emit(‘自定义事件名’,data)<br>【注】1.自定义标签(你的组件)，也有属性与事件！但因为是虚拟组件，不能直接监听dom节点，故自身的click等事件不再适用，但可以使用自定义事件！<br>即子组件被点击，通知父组件;<br>可以理解为多转了一个弯！，本来<br>若正常标签名，绑定click事件，触发对应事件即可;但在父子组件中,需在触发时,在子组件中传自定义事件;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;之前</span><br><span class="line">&lt;div @click&#x3D;&quot;函数1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;但  </span><br><span class="line">在组件内</span><br><span class="line">&lt;div @click&#x3D;&quot;函数0&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">methods:&#123;</span><br><span class="line">函数0()&#123;</span><br><span class="line">this.$emit(&#39;自定义事件名&#39;)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;主</span><br><span class="line">&lt;新标签名  @&#39;自定义事件名&#39;&#x3D;&#39;函数1&#39; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<p>2.Vue框架为响应式数据，使用data:{}常见三种方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>)html中&#123;&#123;&#125;&#125;</span><br><span class="line"><span class="number">2</span>)v-bind</span><br><span class="line"><span class="number">3</span>)methods&#123;&#125;中的<span class="keyword">this</span>.数据名</span><br></pre></td></tr></table></figure>
+<h3 id="使用组件库"><a href="#使用组件库" class="headerlink" title="使用组件库"></a>使用组件库</h3><p>elementUI<br>在引入后可以使用文档里的各种组件标签！组件库在Vue的引入之后，样式引入写在head标签中！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--head 引入样式 --&gt;</span><br><span class="line">	&lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"https://unpkg.com/element-ui/lib/theme-chalk/index.css"</span>&gt;</span><br><span class="line">    &lt;!--body最后 引入组件库 --&gt;</span><br><span class="line">  &lt;script src=<span class="string">"https://unpkg.com/element-ui/lib/index.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">  </span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/使用button组件时：&lt;el-button&gt;&lt;/</span>el-button&gt;</span><br></pre></td></tr></table></figure>
+<p>更推荐使用NPM安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i element-ui -S</span><br></pre></td></tr></table></figure>
+<p>【总结】<br> 1)父组件向子组件传递数据，使用属性<br> 2)子组件向父组件传递数据，使用自定义事件<br> 3)对于组件的这种自定义标签，@biubiubiu代表接收组件的biubiubiu信号<br> 4). 对于组件的这种自定义标签，原本的dom属性，代表子组件要接受的数据</p>
+<h3 id="组件的封装"><a href="#组件的封装" class="headerlink" title="组件的封装"></a>组件的封装</h3><p> 一.分析需求，明确组件要实现的功能<br> 二.确定组件对外暴露的属性<br> 有几个属性，每个属性的取值<br> 【注】禁用状态：按钮样式变化+不能触发点击事件<br> 2)v-model指令在表单input、textarea及select元素上创建双向数据绑定<br> 【每当输入字符时，input标签就会触发input事件，从而触发弹窗逻辑】<br> 特殊变量$event是用来在内联语句处理器中访问原始的DOM事件<br> 【理解v-model双向数据绑定】<br> 1.在原生表单组件上使用:如input，textarea<br> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> //使用v-model</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"value"</span>/&gt;</span></span><br><span class="line">//等价于v-bind+v-on</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">:value</span>=<span class="string">"value"</span> @<span class="attr">input</span>=<span class="string">"value=$event.target.value"</span>     /&gt;</span></span><br></pre></td></tr></table></figure><br> 2.v-model在组件上使用<br>  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> //使用v-model</span><br><span class="line"><span class="tag">&lt;<span class="name">xh-input</span> <span class="attr">v-model</span>=<span class="string">"value"</span>/&gt;</span></span><br><span class="line">//等价于v-bind+v-on</span><br><span class="line"><span class="tag">&lt;<span class="name">xh-input</span> <span class="attr">:value</span>=<span class="string">"value"</span> @<span class="attr">input</span>=<span class="string">"value=$event"</span>     /&gt;</span></span><br><span class="line">【子组件内】</span><br></pre></td></tr></table></figure><br> this.$emit(“input”, e.target.value);<br>```</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/12/%E6%88%91%E7%9A%84vue%E5%AD%A6%E4%B9%A004/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+      <!--添加代码开始-->
+      
+        <div class="declare" hidden="hidden"></div>
+      
+  
+    <article id="post-10排序算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/11/10%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">9排序算法【重点】</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2020/04/11/10%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-04-11T10:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="O表示法"><a href="#O表示法" class="headerlink" title="O表示法"></a>O表示法</h2><p>【形式】粗略描述算法效率<br>| 符号 | 名称|<br>|:—-:|:—-:|<br>| O（1）| 常数|<br>|O（log(n)）|对数|<br>|O（n）    |线性|<br>|O（nlog(n)）|线性和对数乘积|<br>|O（n²）|    平方|<br>|O（2n）|    指数|–不可行<br>【注：时间复杂度】效率：从上到下，效率变差<br>1)用常量1代替常量<br>2)只保留最高项<br>3）最高项存在且不为1，注意不用其系数</p>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p>1.简单排序：冒泡、选择、插入<br>  高级排序：希尔排序，快速排序(最佳)<br>2.严密的逻辑与特定的指令<br>3.ArrayList类封装  数组封装</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>效率低，但简单！<br>从头到尾依次比较相邻的两个元素大小，越往上气泡越大<br>两两比较！循环 选最高，第二高 循环中嵌套循环<br><a href="https://www.cnblogs.com/AhuntSun-blog/p/12529656.html" target="_blank" rel="noopener">两层循环</a><br>【效率】N<em>(N-1)/2—O(N^2)<br>交换次数：两次比较一次交换 真实次数N</em>(N-1)/4</p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>【改进冒泡】 每次选最小值   由O(N²)减少到O(N), 但是比较的次数依然是O(N²)<br>1.找最小索引，交换位置<br>选择排序和冒泡排序的比较次数都是N*(N-1)/2, 也就是O(N²).<br>选择排序的交换次数只有N-1次, 用大O表示法就是O(N).<br>所以选择排序通常认为在执行效率上是高于冒泡排序的.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//比较排序</span></span><br><span class="line">            ArrayList.prototype.selectionSort=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">              <span class="comment">//1.获取数组长度</span></span><br><span class="line">              <span class="keyword">var</span> length = <span class="keyword">this</span>.array.length</span><br><span class="line">              <span class="comment">//外层控制 第一次j=length-1,比较到倒数第一的位置，第二次j=length-2,比较到倒数第二的位置   比较次数</span></span><br><span class="line">               <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt; length<span class="number">-1</span>;i++)&#123;</span><br><span class="line">                <span class="comment">//两两比较，仅放最后位置，如0和1交换  length-2与length-1</span></span><br><span class="line">               <span class="keyword">var</span>  min=i;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> j=min+<span class="number">1</span>;j &lt; length;j++)&#123;</span><br><span class="line">                  <span class="keyword">if</span>(<span class="keyword">this</span>.array[min]&gt;<span class="keyword">this</span>.array[j])</span><br><span class="line">                    <span class="keyword">this</span>.swap(j,min)<span class="comment">//交换位置</span></span><br><span class="line">              &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>局部有序：一部分有序,一部分无序<br>比较次数： N * (N - 1) / 4<br>复制次数：N * (N - 1) / 2.</p>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>改进版的插入排序<br>最坏是O(N^2) 某些情况下会优于快速排序</p>
+<h3 id="快速排序-推荐"><a href="#快速排序-推荐" class="headerlink" title="快速排序(推荐)"></a>快速排序(推荐)</h3><p>分而治之<br>选取枢纽  O(N*logN)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/11/10%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+      <!--添加代码开始-->
+      
+        <div class="declare" hidden="hidden"></div>
+      
+  
     <article id="post-07树-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,7 +323,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/11/07%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/">07树&amp;二叉树</a>
+      <a class="article-title" href="/2020/04/11/07%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/">07树&amp;二叉树&amp;平衡树（红黑树）</a>
     </h1>
   
 
@@ -180,7 +339,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.jianshu.com/p/b7d501591eb7" target="_blank" rel="noopener">参考</a><br><a href="https://www.jianshu.com/p/38853c044156" target="_blank" rel="noopener">目录</a></p>
-<p>内部类 数据，引用(个数不定)</p>
+<p>内部类 数据，引用(个数不定)  递归的使用</p>
+<p>二叉搜索树:BST，可为空，不空有条件！查找插入效率高，取决于深度，越小越好<br>【缺点】插入有序数据，造成深度过大，不均匀分布<br>【封装】<br>root属性：每个节点(right,key,value,left)由key进行查找<br>【遍历】先序遍历/中序遍历/后续遍历<br>先序遍历：根-左-右  节点先处理  根节点最先处理<br>中序遍历：左-根-右<br>后续遍历：左-右-根</p>
+<p>递归可以转成循环，但递归有结束！递归栈结构，后进先出！<br>【方法】<br>insert（key）：向树中插入一个新的键；<br>search（key）：在树中查找一个键，如果节点存在，则返回true；如果不存在，则返回false；<br>inOrderTraverse：通过中序遍历方式遍历所有节点；<br>preOrderTraverse：通过先序遍历方式遍历所有节点；<br>postOrderTraverse：通过后序遍历方式遍历所有节点；<br>min：返回树中最小的值/键；<br>max：返回树中最大的值/键；<br>remove（key）：从树中移除某个键;<br>【删除节点】<br>1.先查找节点，是否有？<br>2.找到删除的节点<br>1).叶节点：无左右节点，直接删！考虑根节点<br>2).有一个子节点(左右子节点)考虑根节点<br>3)有两个子节点【难】<br>左面找最左(最小值)，右面找最后(最大值)</p>
+<p>删除节点，父节点，位置(左右？)</p>
+<h2 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h2><p>1.插入连续数据,深度过大，分布不均匀–<strong>非平衡树</strong>,极端-链表（效率低）<br>3.树的平衡性：O(logN)平衡<br>每个节点的 左子孙节点树=右子孙节点树 （尽可能）<br>4.常见平衡树：<br>1)AVL树(多加节点，插入删除效率低)<br>2)红黑树(好)</p>
+<h3 id="红黑树-难-少考"><a href="#红黑树-难-少考" class="headerlink" title="红黑树(难)(少考)"></a>红黑树(难)(少考)</h3><p>1.【规则】<br>1)节点是红色或黑色<br>2)根节点为黑色<br>3)叶子节点是黑色空节点(NIL节点)–含数据的节点不可为叶子节点<br>4)每个红色节点的两个子节点为黑 (不存在两个连续的红节点)<br>5)任一节点到每个叶子所有路径含相同数目的黑色节点<br>2.【相对平衡】<br>根到叶子节点，最长路径&lt;2* 最短路径<br>最长：红黑交替<br>最短：均为黑<br>3.【变换–保持平衡】<br>新节点默认为红色!大部分保持颜色不变<br>1)变色<br>红变黑，黑变红<br>2)左旋转(逆时针) 父-》右<br>3)右旋转(顺时针) 父-》左</p>
 
       
 
@@ -760,169 +924,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/09/01%E6%95%B0%E7%BB%84%EF%BC%8C%E6%A0%88%EF%BC%8C%E9%98%9F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-蘑菇街" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/08/%E8%98%91%E8%8F%87%E8%A1%97/">蘑菇街</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/08/%E8%98%91%E8%8F%87%E8%A1%97/" class="archive-article-date">
-  	<time datetime="2020-04-08T12:25:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.两种方式实现项目托管  本地-远程仓库<br>【方案一】git clone <a href="https://github.com/ximoxiyu/supermall.git" target="_blank" rel="noopener">https://github.com/ximoxiyu/supermall.git</a><br>复制，粘贴到当前文件夹<br>git add.<br>git commit -m ‘初始化项目’<br>git push<br>【方案二】<br>git remote add origin “地址”<br>git push -u origin master -f</p>
-<h2 id="项目-蘑菇街"><a href="#项目-蘑菇街" class="headerlink" title="项目-蘑菇街"></a>项目-蘑菇街</h2><p> 1.划分目录结构<br> common：完全公共<br> content:当前项目相关</p>
-<p> :root -&gt;获取根元素html<br> 定义变量<br> 2.引入两个css,标签统一<br> 3.vue.config.js 定义别名  .editorconfig.js 统一格式<br> 4.项目的模块划分：tabbar -&gt;路由映射关系<br> 5.加载src中时，不用空格</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/08/%E8%98%91%E8%8F%87%E8%A1%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-      <!--添加代码开始-->
-      
-        <div class="declare" hidden="hidden"></div>
-      
-  
-    <article id="post-vuex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/07/vuex/">Vuex</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2020/04/07/vuex/" class="archive-article-date">
-  	<time datetime="2020-04-07T01:06:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.Vuex：状态管理模式(插件)，多个组件间共享状态的插件，且状态是响应式的<br>工具Devtools:在Chrome上调试时记录哪个变量修改<br>2.安装配置类比Vue-router</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//小写！</span><br><span class="line"> npm install vuex --save</span><br></pre></td></tr></table></figure>
-<p>在src文件夹下新建store文件夹，建index.js，引入Vue与Vuex<br>注意大小写<br>【注】vuex-state是单一状态树，只推荐建一个对象store<br>3.对象的解构–ES6解构赋值，按名字赋值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj =&#123;</span><br><span class="line">   name:<span class="string">'why'</span>,</span><br><span class="line">   age:<span class="number">16</span>,</span><br><span class="line">   height:<span class="number">1.66</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> &#123;name,age,height&#125;=obj;</span><br></pre></td></tr></table></figure>
-<p>4.项目文件夹的目录组织：除state不抽，其他抽出,其他getters/mutations等均抽离成一个文件getters.js，并与index.js处于同一级目录下,抽离 <strong>export default{源代码}</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js中</span></span><br><span class="line"><span class="comment">//仅将state抽离，放在原文件下，</span></span><br><span class="line"><span class="comment">//使用时导入：import getters from './getters'</span></span><br><span class="line"><span class="keyword">const</span> state=&#123;</span><br><span class="line">    counter:<span class="number">1000</span>,</span><br><span class="line">    students:[</span><br><span class="line">       <span class="comment">//  注意对象的书写，是：而不是=</span></span><br><span class="line">        &#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">'aa'</span>,<span class="attr">age</span>:<span class="string">'10'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">'bb'</span>,<span class="attr">age</span>:<span class="string">'15'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">'cc'</span>,<span class="attr">age</span>:<span class="string">'20'</span>&#125;,</span><br><span class="line">   ],</span><br><span class="line">   info:&#123;<span class="attr">id</span>:<span class="number">8</span>,<span class="attr">name</span>:<span class="string">'kk'</span>,<span class="attr">age</span>:<span class="string">'88'</span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//注意对象的书写,注意大写！！！--单一数据源</span></span><br><span class="line"> <span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">     <span class="comment">//状态--单一数据源</span></span><br><span class="line">    state,</span><br><span class="line">    <span class="comment">//计算属性</span></span><br><span class="line">    getters,</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    mutations,</span><br><span class="line">     <span class="comment">//异步操作+Promise</span></span><br><span class="line">    actions,</span><br><span class="line">     <span class="comment">//划分模块--抽离模块</span></span><br><span class="line">    modules:&#123;</span><br><span class="line">      a:moduleA,</span><br><span class="line">&#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
-<p>5.五个核心概念：<br>1)state–类比data属性，存数据(状态)，供getters/mutations等使用;也可在APP.vue中直接使用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;$store.state.counter&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2)getters–类比computed属性，即将数据进行一定处理再使用，本质为属性，可同state方法使用，但可以函数复用，可以有参数<br>但getters默认不可传参，传参数时：要求返回一个含参的函数</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;$store.getters.moreAgeStu(18)&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">在getters内部：里面也是函数，但用<span class="keyword">return</span></span><br><span class="line">  <span class="comment">//大于13岁的个数</span></span><br><span class="line">  <span class="comment">//1)函数的复用:复用之前的函数more13age,此时参数中多getters</span></span><br><span class="line">     more13ageLength(state,getters)&#123;</span><br><span class="line">         <span class="keyword">return</span> getters.more13age.length;</span><br><span class="line">     &#125;,</span><br><span class="line">     </span><br><span class="line">     <span class="comment">//动态决定大于的岁数</span></span><br><span class="line"> <span class="comment">//2)计算属性中传参数，要求内部返回一个带参数的函数！</span></span><br><span class="line">     moreAgeStu(state)&#123;</span><br><span class="line">         <span class="comment">//返回函数</span></span><br><span class="line">         <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">age</span>)</span>&#123;</span><br><span class="line">             <span class="keyword">return</span> state.students.filter(<span class="function"><span class="params">s</span>=&gt;</span>s.age&gt;age);</span><br><span class="line">             <span class="comment">//上句return 等价于</span></span><br><span class="line">             <span class="keyword">return</span> <span class="function"><span class="params">age</span>=&gt;</span>state.students.filter(<span class="function"><span class="params">s</span>=&gt;</span>s.age&gt;age);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p>3)mutations–类比method属性：绑定事件;在App.vue中用commit来进行提交！同步，一般用devtool工具(浏览器插件)进行调试 响应式更新;<br>Vuex中store状态更新到唯一方式：提交mutation,含两部分：事件类型与回调函数(第一个参数为state)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;App.vue</span><br><span class="line"> &lt;button @click&#x3D;&quot;addNum(5)&quot;&gt;+5&lt;&#x2F;button&gt;</span><br><span class="line"> &#x2F;&#x2F;方法</span><br><span class="line">  addNum(num)&#123;</span><br><span class="line">      &#x2F;&#x2F;普通封装</span><br><span class="line">       this.$store.commit(&#39;inNum&#39;,num)</span><br><span class="line">    &#125;,</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;在mutations.js中</span><br><span class="line">   inNum(state,num)&#123;</span><br><span class="line">       state.counter +&#x3D; num</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
-<p>【拓展-提交风格：普通&amp;特殊-含type属性的对象，将整个commit的对象作payload使用】</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 特殊提交封装,可以</span></span><br><span class="line">     <span class="keyword">this</span>.$store.commit(&#123;</span><br><span class="line">         type: <span class="string">'inNum'</span>,</span><br><span class="line">         num</span><br><span class="line">           &#125;)</span><br><span class="line"> <span class="comment">//在mutations.js中 </span></span><br><span class="line"> <span class="comment">//特殊封装,特殊提交写成payload对象,小写！！</span></span><br><span class="line">   inNum(state,payload)&#123;</span><br><span class="line">       state.counter += payload.num</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
-<p>【响应规则：set与detele】<br>不用Vue时，改变的属性必须之前初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;响应式修改，之前没有的属性</span><br><span class="line">   upInfo(state)&#123;</span><br><span class="line">  &#x2F;&#x2F;第三个参数是字符串或数字</span><br><span class="line">  Vue.set(state.info,&#39;address&#39;,&#39;北京&#39;);</span><br><span class="line">  &#x2F;&#x2F;删除属性</span><br><span class="line">  Vue.delete(state.info,&#39;age&#39;)</span><br><span class="line">&#125;</span><br><span class="line">在App.vue中调用时同上</span><br></pre></td></tr></table></figure>
-
-<p>4)Action -&gt;Mutation：异步操作(搭配Promise对象使用)<br>注：在定义函数时，第一个参数为context  –区别mutations的state</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//context上下文，新定义异步操作的函数，payload为参数</span></span><br><span class="line">    aUpdataInfo(context,payload)&#123; </span><br><span class="line">    <span class="comment">//return Promise对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//mutations中的函数</span></span><br><span class="line">           context.commit(<span class="string">'updateInfo'</span>);</span><br><span class="line">           <span class="built_in">console</span>.log(payload);</span><br><span class="line">           resolve(<span class="string">'resolve中的参数'</span>);</span><br><span class="line">      &#125;, <span class="number">1000</span>)</span><br><span class="line">   &#125;) </span><br><span class="line">   </span><br><span class="line">   <span class="comment">//在App.vue中</span></span><br><span class="line">    <span class="comment">// Action的异步操作</span></span><br><span class="line">    actInfo()&#123;</span><br><span class="line">      <span class="comment">//异步，由commit改为dispatch</span></span><br><span class="line">       <span class="keyword">this</span>.$store.dispatch(<span class="string">'aUpdataInfo'</span>,<span class="string">'参数'</span>).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'里面完成了提交'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>【对比：同步mutations】参数为context,提交方式为dispatch，多返回Promise对象，有then</p>
-<p>5)Module<br>  将store分割成模块(Module)，每个模块均有自身的state,mutations,getters,action<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;加入之前的状态：rootState</span><br><span class="line">    getName(state,getters,rootState)&#123;</span><br><span class="line">    return getters.fullname + rootState.counter;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure><br>【小结】在其他组件.vue中，使用store对象中保存的状态</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1)this.$store.state.属性</span><br><span class="line">2)this.$store.getters.计算属性名</span><br><span class="line">2)this.$store.commit('mutations中的方法')//修改状态，绑定事件</span><br><span class="line">注：通过提交mutation来追踪状态变化，而非直接改变state</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/07/vuex/">展开全文 >></a>
         </p>
       
 

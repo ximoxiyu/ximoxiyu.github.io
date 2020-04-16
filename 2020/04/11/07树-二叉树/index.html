@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>07树&amp;二叉树 | Blog</title>
+  <title>07树&amp;二叉树&amp;平衡树（红黑树） | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考目录 内部类 数据，引用(个数不定)">
+  <meta name="description" content="参考目录 内部类 数据，引用(个数不定)  递归的使用 二叉搜索树:BST，可为空，不空有条件！查找插入效率高，取决于深度，越小越好【缺点】插入有序数据，造成深度过大，不均匀分布【封装】root属性：每个节点(right,key,value,left)由key进行查找【遍历】先序遍历&#x2F;中序遍历&#x2F;后续遍历先序遍历：根-左-右  节点先处理  根节点最先处理中序遍历：左-根-右后续遍历：左-右-根 递">
 <meta property="og:type" content="article">
-<meta property="og:title" content="07树&amp;二叉树">
+<meta property="og:title" content="07树&amp;二叉树&amp;平衡树（红黑树）">
 <meta property="og:url" content="http://yoursite.com/2020/04/11/07%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="参考目录 内部类 数据，引用(个数不定)">
+<meta property="og:description" content="参考目录 内部类 数据，引用(个数不定)  递归的使用 二叉搜索树:BST，可为空，不空有条件！查找插入效率高，取决于深度，越小越好【缺点】插入有序数据，造成深度过大，不均匀分布【封装】root属性：每个节点(right,key,value,left)由key进行查找【遍历】先序遍历&#x2F;中序遍历&#x2F;后续遍历先序遍历：根-左-右  节点先处理  根节点最先处理中序遍历：左-根-右后续遍历：左-右-根 递">
 <meta property="article:published_time" content="2020-04-11T02:29:00.000Z">
-<meta property="article:modified_time" content="2020-04-11T10:46:02.947Z">
+<meta property="article:modified_time" content="2020-04-14T10:10:04.312Z">
 <meta property="article:author" content="ximoxiyu">
 <meta name="twitter:card" content="summary">
   
@@ -166,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      07树&amp;二叉树
+      07树&amp;二叉树&amp;平衡树（红黑树）
     </h1>
   
 
@@ -187,7 +187,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.jianshu.com/p/b7d501591eb7" target="_blank" rel="noopener">参考</a><br><a href="https://www.jianshu.com/p/38853c044156" target="_blank" rel="noopener">目录</a></p>
-<p>内部类 数据，引用(个数不定)</p>
+<p>内部类 数据，引用(个数不定)  递归的使用</p>
+<p>二叉搜索树:BST，可为空，不空有条件！查找插入效率高，取决于深度，越小越好<br>【缺点】插入有序数据，造成深度过大，不均匀分布<br>【封装】<br>root属性：每个节点(right,key,value,left)由key进行查找<br>【遍历】先序遍历/中序遍历/后续遍历<br>先序遍历：根-左-右  节点先处理  根节点最先处理<br>中序遍历：左-根-右<br>后续遍历：左-右-根</p>
+<p>递归可以转成循环，但递归有结束！递归栈结构，后进先出！<br>【方法】<br>insert（key）：向树中插入一个新的键；<br>search（key）：在树中查找一个键，如果节点存在，则返回true；如果不存在，则返回false；<br>inOrderTraverse：通过中序遍历方式遍历所有节点；<br>preOrderTraverse：通过先序遍历方式遍历所有节点；<br>postOrderTraverse：通过后序遍历方式遍历所有节点；<br>min：返回树中最小的值/键；<br>max：返回树中最大的值/键；<br>remove（key）：从树中移除某个键;<br>【删除节点】<br>1.先查找节点，是否有？<br>2.找到删除的节点<br>1).叶节点：无左右节点，直接删！考虑根节点<br>2).有一个子节点(左右子节点)考虑根节点<br>3)有两个子节点【难】<br>左面找最左(最小值)，右面找最后(最大值)</p>
+<p>删除节点，父节点，位置(左右？)</p>
+<h2 id="平衡树"><a href="#平衡树" class="headerlink" title="平衡树"></a>平衡树</h2><p>1.插入连续数据,深度过大，分布不均匀–<strong>非平衡树</strong>,极端-链表（效率低）<br>3.树的平衡性：O(logN)平衡<br>每个节点的 左子孙节点树=右子孙节点树 （尽可能）<br>4.常见平衡树：<br>1)AVL树(多加节点，插入删除效率低)<br>2)红黑树(好)</p>
+<h3 id="红黑树-难-少考"><a href="#红黑树-难-少考" class="headerlink" title="红黑树(难)(少考)"></a>红黑树(难)(少考)</h3><p>1.【规则】<br>1)节点是红色或黑色<br>2)根节点为黑色<br>3)叶子节点是黑色空节点(NIL节点)–含数据的节点不可为叶子节点<br>4)每个红色节点的两个子节点为黑 (不存在两个连续的红节点)<br>5)任一节点到每个叶子所有路径含相同数目的黑色节点<br>2.【相对平衡】<br>根到叶子节点，最长路径&lt;2* 最短路径<br>最长：红黑交替<br>最短：均为黑<br>3.【变换–保持平衡】<br>新节点默认为红色!大部分保持颜色不变<br>1)变色<br>红变黑，黑变红<br>2)左旋转(逆时针) 父-》右<br>3)右旋转(顺时针) 父-》左</p>
 
       
 
@@ -286,6 +291,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/04/11/10%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          9排序算法【重点】
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/04/11/07%E5%93%88%E5%B8%8C%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">06哈希表</div>
@@ -315,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#平衡树"><span class="toc-number">1.</span> <span class="toc-text">平衡树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#红黑树-难-少考"><span class="toc-number">1.1.</span> <span class="toc-text">红黑树(难)(少考)</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
